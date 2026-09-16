@@ -6,333 +6,507 @@
   <title>Semana 1 · ¿Qué es la IA de verdad?</title>
   <style>
     /* =========================================================
-       ESTILOS — puedes cambiarlos todo (colores, fuentes, tamaño)
-       para darle tu toque personal. Esto es SOLO la apariencia.
+       ESTILOS — cambia los colores a tu gusto. Esto es apariencia.
        ========================================================= */
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, "Segoe UI", Arial, sans-serif;
-      background: #0f172a;            /* azul noche */
-      color: #e2e8f0;
-      line-height: 1.55;
-      padding: 1rem;
-      max-width: 880px;
-      margin: 0 auto;
+      background: #0f172a; color: #e2e8f0; line-height: 1.55;
+      padding: 1rem; max-width: 880px; margin: 0 auto;
     }
 
     header { text-align: center; margin: 1rem 0 2rem; }
     header h1 { font-size: 1.8rem; color: #38bdf8; }
     header p  { color: #94a3b8; margin-top: .3rem; }
 
-    section {
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 14px;
-      padding: 1.2rem;
-      margin-bottom: 1.5rem;
+    section, .panel {
+      background: #1e293b; border: 1px solid #334155; border-radius: 14px;
+      padding: 1.2rem; margin-bottom: 1.5rem;
     }
-    section h2 {
-      font-size: 1.15rem;
-      color: #7dd3fc;
-      margin-bottom: .6rem;
-      border-bottom: 1px dashed #334155;
-      padding-bottom: .4rem;
+    section h2, .panel h2 {
+      font-size: 1.15rem; color: #7dd3fc; margin-bottom: .6rem;
+      border-bottom: 1px dashed #334155; padding-bottom: .4rem;
     }
 
     .afirmacion {
-      background: #0f172a;
-      border-radius: 10px;
-      padding: .7rem .9rem;
-      margin-bottom: .6rem;
+      background: #0f172a; border-radius: 10px; padding: .7rem .9rem; margin-bottom: .6rem;
     }
     .afirmacion .texto { margin-bottom: .5rem; }
     .afirmacion .opciones button {
-      background: #334155;
-      color: #e2e8f0;
-      border: none;
-      border-radius: 8px;
-      padding: .4rem .9rem;
-      margin-right: .4rem;
-      cursor: pointer;
-      font-size: .9rem;
+      background: #334155; color: #e2e8f0; border: none; border-radius: 8px;
+      padding: .4rem .9rem; margin-right: .4rem; cursor: pointer; font-size: .9rem;
     }
     .afirmacion .opciones button:hover { background: #475569; }
     .afirmacion .opciones button.correcto { background: #16a34a; color: #fff; }
     .afirmacion .opciones button.incorrecto { background: #dc2626; color: #fff; }
     .afirmacion .explicacion {
-      display: none;
-      margin-top: .5rem;
-      padding: .5rem .7rem;
-      background: #0b1120;
-      border-left: 3px solid #38bdf8;
-      border-radius: 6px;
-      font-size: .9rem;
-      color: #cbd5e1;
+      display: none; margin-top: .5rem; padding: .5rem .7rem; background: #0b1120;
+      border-left: 3px solid #38bdf8; border-radius: 6px; font-size: .9rem; color: #cbd5e1;
     }
 
     .pregunta { margin-bottom: 1rem; }
     .pregunta .enunciado { font-weight: 600; margin-bottom: .5rem; }
     .pregunta label {
-      display: block;
-      background: #0f172a;
-      border-radius: 8px;
-      padding: .5rem .7rem;
-      margin-bottom: .35rem;
-      cursor: pointer;
-      border: 1px solid transparent;
+      display: block; background: #0f172a; border-radius: 8px; padding: .5rem .7rem;
+      margin-bottom: .35rem; cursor: pointer; border: 1px solid transparent;
     }
     .pregunta label:hover { border-color: #38bdf8; }
     .pregunta label.ok     { background: #14532d; color: #d1fae5; }
     .pregunta label.error  { background: #7f1d1d; color: #fecaca; }
 
     #resultado {
-      text-align: center;
-      background: #0f172a;
-      border: 1px solid #334155;
-      border-radius: 14px;
-      padding: 1.5rem;
-      font-size: 1.05rem;
+      text-align: center; background: #0f172a; border: 1px solid #334155;
+      border-radius: 14px; padding: 1.5rem; font-size: 1.05rem;
     }
     #resultado.pase  { border-color: #16a34a; }
     #resultado.refuerzo { border-color: #f59e0b; }
     #resultado .nota { font-size: 2.4rem; font-weight: 800; color: #38bdf8; margin: .5rem 0; }
-    #resultado.hidden { display: none; }
+    .hidden { display: none !important; }
 
     button.btn {
-      background: #38bdf8;
-      color: #0f172a;
-      border: none;
-      padding: .6rem 1.2rem;
-      border-radius: 10px;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 1rem;
-      margin-top: 1rem;
+      background: #38bdf8; color: #0f172a; border: none; padding: .6rem 1.2rem;
+      border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 1rem; margin: .5rem .3rem 0 0;
     }
     button.btn:hover { background: #7dd3fc; }
+    button.btn.sec { background: #475569; color: #e2e8f0; }
+    button.btn:disabled { opacity: .5; cursor: not-allowed; }
 
-    .aviso { color: #94a3b8; font-size: .9rem; text-align: center; margin-bottom: 2rem; }
-    .barra-progreso {
-      height: 8px; background: #0f172a; border-radius: 99px; overflow: hidden; margin-top: 1rem;
+    .campo { margin-bottom: .7rem; display: flex; flex-direction: column; gap: .25rem; }
+    .campo label { font-size: .9rem; color: #cbd5e1; }
+    .campo input {
+      background: #0f172a; color: #e2e8f0; border: 1px solid #334155;
+      border-radius: 8px; padding: .5rem .7rem; font-size: .95rem;
     }
+    .campo input:focus { outline: none; border-color: #38bdf8; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+    @media (max-width: 620px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .aviso { color: #94a3b8; font-size: .9rem; }
+    .error-texto { color: #f87171; font-size: .9rem; margin-top: .4rem; }
+    .info-intento { background: #0b1120; border-left: 3px solid #38bdf8; padding: .6rem .8rem; border-radius: 6px; margin-bottom: 1rem; font-size: .9rem; }
+    .barra-progreso { height: 8px; background: #0f172a; border-radius: 99px; overflow: hidden; margin-top: 1rem; }
     .barra-progreso div { height: 100%; width: 0%; background: #38bdf8; transition: width .4s; }
+    .reset-docente { text-align: center; margin-top: 1rem; }
+    .reset-docente button { background: none; border: none; color: #64748b; font-size: .8rem; cursor: pointer; text-decoration: underline; }
+
+    /* ---------- REPORTE IMPRIMIBLE (solo se ve al imprimir) ---------- */
+    #reporte { display: none; }
+    @media print {
+      body { background: #fff; color: #000; padding: 0; max-width: 100%; }
+      #app { display: none !important; }
+      #reporte { display: block !important; }
+      #reporte h1 { color: #000; font-size: 1.4rem; }
+      #reporte h2 { color: #000; border-bottom: 1px solid #000; padding-bottom: 4px; margin-top: 16px; }
+      .reporte-item { margin-bottom: 10px; page-break-inside: avoid; }
+      .reporte-item .etiqueta { font-weight: 700; }
+      .ok { color: #166534; font-weight: 700; }
+      .mal { color: #991b1b; font-weight: 700; }
+    }
   </style>
 </head>
 <body>
 
+<!-- ==================== APP (pantalla) ==================== -->
+<div id="app">
+
   <header>
     <h1>🧠 ¿Qué es la IA de verdad?</h1>
-    <p>Mini cuestionario didáctico · Semana 1 · Respódelo a conciencia, no a la suerte 😉</p>
+    <p>Mini cuestionario didáctico · Semana 1 · Un solo intento por estudiante</p>
   </header>
 
-  <!-- ================= SECCIÓN A: CAZADORES DE MITOS ================= -->
-  <section id="seccion-mitos">
-    <h2>🔍 Cazadores de mitos — ¿MITO o REALIDAD?</h2>
-
-    <div id="lista-mitos">
-      <!-- Las afirmaciones se generan desde JavaScript (array MITOS abajo).
-           Así, si quieres cambiar UNA frase, solo tocas la lista. -->
+  <!-- ---------- PANTALLA 1: REGISTRO ---------- -->
+  <section id="pantalla-registro" class="panel">
+    <h2>📝 Registro del intento</h2>
+    <p class="aviso">
+      Antes de comenzar, escribe tus datos. ⚠️ Solo tienes <b>UN intento</b>:
+      al terminar se guardará tu resultado y no podrás repetirlo.
+    </p>
+    <div class="campo">
+      <label for="nombre">Tu nombre completo *</label>
+      <input id="nombre" type="text" placeholder="Ej. Ana Martínez López" />
     </div>
-
-    <p><strong>Ya clasifiqué: <span id="contador-mitos">0</span>/10</strong></p>
+    <div class="campo">
+      <label for="equipo">Equipo / grupo *</label>
+      <input id="equipo" type="text" placeholder="Ej. Equipo 3" />
+    </div>
+    <div class="campo">
+      <label>Integrantes del equipo *</label>
+      <div class="grid-2">
+        <input class="integrante" type="text" placeholder="Integrante 1" />
+        <input class="integrante" type="text" placeholder="Integrante 2" />
+        <input class="integrante" type="text" placeholder="Integrante 3" />
+        <input class="integrante" type="text" placeholder="Integrante 4" />
+      </div>
+    </div>
+    <button class="btn" onclick="comenzar()">🚀 Comenzar cuestionario</button>
+    <div id="error-registro" class="error-texto"></div>
   </section>
 
-  <!-- ================= SECCIÓN B: TEORÍA ================= -->
-  <section id="seccion-teoria">
-    <h2>📖 Teoría relámpago — elige la mejor respuesta</h2>
+  <!-- ---------- PANTALLA 2: QUIZ ---------- -->
+  <div id="pantalla-quiz" class="hidden">
+    <div class="info-intento" id="info-intento"></div>
 
-    <div id="lista-teoria">
-      <!-- Las preguntas también vienen del array TEORIA en JavaScript -->
+    <section id="seccion-mitos">
+      <h2>🔍 Cazadores de mitos — ¿MITO o REALIDAD?</h2>
+      <div id="lista-mitos"></div>
+      <p style="margin-top:.6rem"><strong>Ya clasifiqué: <span id="contador-mitos">0</span>/10</strong></p>
+    </section>
+
+    <section id="seccion-teoria">
+      <h2>📖 Teoría relámpago — elige la mejor respuesta</h2>
+      <div id="lista-teoria"></div>
+    </section>
+
+    <div id="resultado" class="hidden">
+      <h2>🧾 Resultado final</h2>
+      <p id="mensaje-resultado"></p>
+      <div class="nota" id="nota-final">0/100</div>
+      <div class="barra-progreso"><div id="barra"></div></div>
+      <p class="aviso" style="margin-top:1rem">
+        📄 Descarga tu reporte en PDF con tus aciertos y errores (constancia del intento).
+        En el diálogo elige <b>“Guardar como PDF”</b>.
+      </p>
+      <button class="btn" onclick="descargarPDF()">📄 Descargar reporte en PDF</button>
     </div>
-  </section>
-
-  <!-- ================= RESULTADO FINAL ================= -->
-  <div id="resultado" class="hidden">
-    <h2>🧾 Tu constancia de autoevaluación</h2>
-    <p id="mensaje-resultado"></p>
-    <div class="nota" id="nota-final">0/100</div>
-    <div class="barra-progreso"><div id="barra"></div></div>
-    <button class="btn" onclick="reiniciar()">🔁 Intentar de nuevo</button>
   </div>
 
-  <p class="aviso">💡 Haz una captura de pantalla de tu resultado para tu <code>ENTREGA.md</code></p>
+  <!-- ---------- PANTALLA 3: INTENTO YA REALIZADO ---------- -->
+  <section id="pantalla-bloqueado" class="panel hidden">
+    <h2>🔒 Intento ya registrado</h2>
+    <p class="aviso">
+      Este navegador ya completó el cuestionario de la Semana 1. Solo se permite
+      un intento. Puedes descargar de nuevo tu reporte con aciertos y errores.
+    </p>
+    <div id="resumen-bloqueado" class="info-intento"></div>
+    <button class="btn" onclick="descargarPDF()">📄 Descargar reporte en PDF</button>
+    <div class="reset-docente">
+      <button onclick="reiniciarDocente()">¿Eres docente? Reiniciar intento</button>
+    </div>
+  </section>
 
-  <script>
-    /* =========================================================
-       DATOS DEL QUIZ — EDÍTALOS AQUÍ SI QUERÉS CAMBIAR PREGUNTAS
-       mito  : true  → la afirmación es un MITO (falsa)
-               false → la afirmación es REALIDAD (verdadera)
-       ========================================================= */
-    const MITOS = [
-      { texto: "La IA puede sentir emociones como un humano.",
-        mito: true,
-        explicacion: "MITO. La IA no siente: solo calcula probabilidades sobre datos. Las emociones humanas aún no se pueden 'calcular'." },
-      { texto: "Los asistentes como Siri, Alexa o Google usan IA para entenderte.",
-        mito: false,
-        explicacion: "REALIDAD. Reconocen tu voz, la convierten en texto y usan modelos para darte una respuesta." },
-      { texto: "La IA es una sola tecnología: todo es lo mismo.",
-        mito: true,
-        explicacion: "MITO. Hay muchas familias: simbólica, conexionista, generativa, ML clásico… cada una resuelve problemas distintos." },
-      { texto: "Una IA puede inventar respuestas falsas y decirlas con total seguridad.",
-        mito: false,
-        explicacion: "REALIDAD. Se llama ALUCINACIÓN: la IA 'completa' el texto con fluidez aunque no haya un dato real detrás." },
-      { texto: "Para crear un modelo de IA hace falta saber programar en Python.",
-        mito: true,
-        explicacion: "MITO. Teachable Machine te permite entrenar un clasificador SIN código. Python es una herramienta, no un requisito." },
-      { texto: "Los filtros de spam de tu correo ya usan Machine Learning.",
-        mito: false,
-        explicacion: "REALIDAD. Los filtros aprenden de miles de correos etiquetados como 'spam' o 'no spam'." },
-      { texto: "La IA de hoy funciona con reglas escritas a mano por programadores.",
-        mito: true,
-        explicacion: "MITO. Eso era la IA SIMBÓLICA. La moderna (CONEXIONISTA) aprende de ejemplos en lugar de reglas hechas a mano." },
-      { texto: "Un clasificador solo aprende a partir de muchos ejemplos etiquetados.",
-        mito: false,
-        explicacion: "REALIDAD. 'Etiquetado' = el ejemplo viene con su respuesta. Sin ejemplos, no hay aprendizaje supervisado." },
-      { texto: "Ninguna IA puede hoy escribir, dibujar o componer música.",
-        mito: true,
-        explicacion: "MITO. Las IA generativas crean texto, imágenes y música a partir de un prompt (lo verás en la Semana 2)." },
-      { texto: "El sesgo viene de que el programador quiso discriminar a propósito.",
-        mito: true,
-        explicacion: "MITO (casi siempre). El sesgo suele nacer de datos desbalanceados: si entrenas 'doctor' solo con fotos de hombres, el modelo aprende ese prejuicio sin que nadie lo ordenara." }
-    ];
+  <p class="aviso" style="text-align:center">💡 Guarda el PDF para tu <code>ENTREGA.md</code></p>
+</div>
 
-    const TEORIA = [
-      {
-        pregunta: "¿Cuál es la diferencia principal entre IA simbólica y conexionista?",
-        opciones: [
-          "Simbólica aprende de datos; conexionista usa reglas.",
-          "Simbólica usa reglas escritas a mano; conexionista aprende de ejemplos.",
-          "No hay diferencia; son sinónimos.",
-          "Simbólica es de hoy; conexionista es antigua."
-        ],
-        correcta: 1
-      },
-      {
-        pregunta: "¿Qué es 'entrenar' un modelo?",
-        opciones: [
-          "Darle ejemplos para que ajuste sus conexiones y mejore sus predicciones.",
-          "Repetirle miles de veces las mismas reglas en voz alta.",
-          "Conectar el modelo a internet todos los días.",
-          "Hacerle exámenes diarios como a ti en la escuela."
-        ],
-        correcta: 0
-      },
-      {
-        pregunta: "¿Qué es lo MÁS correcto que hace una IA como las del curso?",
-        opciones: [
-          "Piensa y decide con libre albedrío.",
-          "Calcula probabilidades y patrones a partir de datos.",
-          "Le copia las respuestas a un humano escondido.",
-          "Lee los pensamientos de quien la usa."
-        ],
-        correcta: 1
-      }
-    ];
+<!-- ==================== REPORTE (solo impresión) ==================== -->
+<div id="reporte"></div>
 
-    /* =========================================================
-       LÓGICA — ya está hecha. Solo puede que quieras tocar
-       la nota mínima para 'Aprobar' (en CALIFICACION.aprobado)
-       ========================================================= */
-    const CALIFICACION = {
-      aprobado: true,          // si NO quieres bloquear con nota mínima, déjalo true
-      notaMinimaTeoria: 2      // mínimo de aciertos en teoría para "aprobar"
+<script>
+  /* =========================================================
+     DATOS DEL QUIZ — edítalos aquí si quieres cambiar preguntas.
+     mito: true  → la afirmación es un MITO (falsa)
+           false → la afirmación es REALIDAD (verdadera)
+     ========================================================= */
+  const MITOS = [
+    { texto: "La IA puede sentir emociones como un humano.", mito: true,
+      explicacion: "MITO. La IA no siente: solo calcula probabilidades sobre datos. Las emociones humanas aún no se pueden 'calcular'." },
+    { texto: "Los asistentes como Siri, Alexa o Google usan IA para entenderte.", mito: false,
+      explicacion: "REALIDAD. Reconocen tu voz, la convierten en texto y usan modelos para darte una respuesta." },
+    { texto: "La IA es una sola tecnología: todo es lo mismo.", mito: true,
+      explicacion: "MITO. Hay muchas familias: simbólica, conexionista, generativa, ML clásico… cada una resuelve problemas distintos." },
+    { texto: "Una IA puede inventar respuestas falsas y decirlas con total seguridad.", mito: false,
+      explicacion: "REALIDAD. Se llama ALUCINACIÓN: la IA 'completa' el texto con fluidez aunque no haya un dato real detrás." },
+    { texto: "Para crear un modelo de IA hace falta saber programar en Python.", mito: true,
+      explicacion: "MITO. Teachable Machine te permite entrenar un clasificador SIN código. Python es una herramienta, no un requisito." },
+    { texto: "Los filtros de spam de tu correo ya usan Machine Learning.", mito: false,
+      explicacion: "REALIDAD. Los filtros aprenden de miles de correos etiquetados como 'spam' o 'no spam'." },
+    { texto: "La IA de hoy funciona con reglas escritas a mano por programadores.", mito: true,
+      explicacion: "MITO. Eso era la IA SIMBÓLICA. La moderna (CONEXIONISTA) aprende de ejemplos en lugar de reglas hechas a mano." },
+    { texto: "Un clasificador solo aprende a partir de muchos ejemplos etiquetados.", mito: false,
+      explicacion: "REALIDAD. 'Etiquetado' = el ejemplo viene con su respuesta. Sin ejemplos, no hay aprendizaje supervisado." },
+    { texto: "Ninguna IA puede hoy escribir, dibujar o componer música.", mito: true,
+      explicacion: "MITO. Las IA generativas crean texto, imágenes y música a partir de un prompt (lo verás en la Semana 2)." },
+    { texto: "El sesgo viene de que el programador quiso discriminar a propósito.", mito: true,
+      explicacion: "MITO (casi siempre). El sesgo suele nacer de datos desbalanceados: si entrenas 'doctor' solo con fotos de hombres, el modelo aprende ese prejuicio sin que nadie lo ordenara." }
+  ];
+
+  const TEORIA = [
+    { pregunta: "¿Cuál es la diferencia principal entre IA simbólica y conexionista?",
+      opciones: [
+        "Simbólica aprende de datos; conexionista usa reglas.",
+        "Simbólica usa reglas escritas a mano; conexionista aprende de ejemplos.",
+        "No hay diferencia; son sinónimos.",
+        "Simbólica es de hoy; conexionista es antigua."
+      ], correcta: 1 },
+    { pregunta: "¿Qué es 'entrenar' un modelo?",
+      opciones: [
+        "Darle ejemplos para que ajuste sus conexiones y mejore sus predicciones.",
+        "Repetirle miles de veces las mismas reglas en voz alta.",
+        "Conectar el modelo a internet todos los días.",
+        "Hacerle exámenes diarios como a ti en la escuela."
+      ], correcta: 0 },
+    { pregunta: "¿Qué es lo MÁS correcto que hace una IA como las del curso?",
+      opciones: [
+        "Piensa y decide con libre albedrío.",
+        "Calcula probabilidades y patrones a partir de datos.",
+        "Le copia las respuestas a un humano escondido.",
+        "Lee los pensamientos de quien la usa."
+      ], correcta: 1 }
+  ];
+
+  /* =========================================================
+     CONTROL DE INTENTO (un solo intento por navegador)
+     ========================================================= */
+  const CLAVE = "ia_sem1_intento";
+  const CODIGO_DOCENTE = "PROFE2026";   // código para reiniciar un intento
+
+  function guardarIntento(obj) { try { localStorage.setItem(CLAVE, JSON.stringify(obj)); } catch (e) {} }
+  function leerIntento() { try { const d = localStorage.getItem(CLAVE); return d ? JSON.parse(d) : null; } catch (e) { return null; } }
+  function borrarIntento() { try { localStorage.removeItem(CLAVE); } catch (e) {} }
+
+  /* =========================================================
+     ESTADO
+     ========================================================= */
+  let registro = { nombre: "", equipo: "", integrantes: [] };
+  let aciertosMitos = 0;
+  let respondidos = 0;
+  let aciertosTeoria = new Set();
+  let teoriaRespondidas = new Set();
+  let respuestasMitos = {};   // índice → true/false elegido
+  let respuestasTeoria = {};  // índice → opción elegida
+  let finalizado = false;
+
+  /* =========================================================
+     ARRANQUE: ¿ya hay un intento guardado?
+     ========================================================= */
+  function init() {
+    const intento = leerIntento();
+    if (intento) {
+      mostrarBloqueado(intento);
+    } else {
+      document.getElementById("pantalla-registro").classList.remove("hidden");
+    }
+  }
+
+  function mostrarBloqueado(intento) {
+    document.getElementById("pantalla-registro").classList.add("hidden");
+    document.getElementById("pantalla-quiz").classList.add("hidden");
+    const bloqueado = document.getElementById("pantalla-bloqueado");
+    bloqueado.classList.remove("hidden");
+    document.getElementById("resumen-bloqueado").innerHTML =
+      `<b>${intento.nombre}</b> · ${intento.equipo}<br>` +
+      `Integrantes: ${intento.integrantes.filter(Boolean).join(", ") || "(sin registrar)"}<br>` +
+      `Fecha: ${intento.fecha}<br>` +
+      `Nota: <b>${intento.nota}/100</b> · Mitos: ${intento.aciertosMitos}/10 · Teoría: ${intento.aciertosTeoria}/${TEORIA.length}`;
+    // Guardamos el intento en memoria para poder reimprimir el reporte.
+    window.__intento = intento;
+  }
+
+  /* =========================================================
+     REGISTRO → COMENZAR
+     ========================================================= */
+  function comenzar() {
+    const nombre = document.getElementById("nombre").value.trim();
+    const equipo = document.getElementById("equipo").value.trim();
+    const integrantes = [...document.querySelectorAll(".integrante")].map(i => i.value.trim());
+    const error = document.getElementById("error-registro");
+
+    if (!nombre || !equipo) {
+      error.textContent = "⚠️ Escribe al menos tu nombre y el equipo.";
+      return;
+    }
+    if (integrantes.filter(Boolean).length < 2) {
+      error.textContent = "⚠️ Registra al menos 2 integrantes del equipo.";
+      return;
+    }
+    error.textContent = "";
+    registro = { nombre, equipo, integrantes };
+
+    document.getElementById("pantalla-registro").classList.add("hidden");
+    document.getElementById("pantalla-quiz").classList.remove("hidden");
+    document.getElementById("info-intento").innerHTML =
+      `👤 <b>${nombre}</b> · 🏷️ ${equipo} · 👥 ${integrantes.filter(Boolean).join(", ")}`;
+  }
+
+  /* =========================================================
+     GENERAR LAS PREGUNTAS
+     ========================================================= */
+  const contMitos = document.getElementById("lista-mitos");
+  MITOS.forEach((m, i) => {
+    const card = document.createElement("div");
+    card.className = "afirmacion";
+    card.innerHTML = `
+      <div class="texto">${i + 1}. ${m.texto}</div>
+      <div class="opciones">
+        <button onclick="responderMito(${i}, true, this)">MITO</button>
+        <button onclick="responderMito(${i}, false, this)">REALIDAD</button>
+      </div>
+      <div class="explicacion" id="expl-${i}">${m.explicacion}</div>`;
+    contMitos.appendChild(card);
+  });
+
+  const contTeoria = document.getElementById("lista-teoria");
+  TEORIA.forEach((q, i) => {
+    const bloque = document.createElement("div");
+    bloque.className = "pregunta";
+    bloque.innerHTML = `<div class="enunciado">${i + 1}. ${q.pregunta}</div>`;
+    q.opciones.forEach((op, j) => {
+      const label = document.createElement("label");
+      label.innerHTML = `<input type="radio" name="teoria-${i}" value="${j}" onchange="responderTeoria(${i}, ${j})"> ${op}`;
+      bloque.appendChild(label);
+    });
+    contTeoria.appendChild(bloque);
+  });
+
+  /* =========================================================
+     RESPONDER
+     ========================================================= */
+  function responderMito(i, elegido, btn) {
+    if (finalizado) return;
+    const card = btn.closest(".afirmacion");
+    const botones = card.querySelectorAll(".opciones button");
+    if (botones[0].disabled) return;     // ya respondido (no se puede cambiar)
+    const esCorrecto = (elegido === MITOS[i].mito);
+    botones.forEach(b => b.disabled = true);
+    botones[0].classList.toggle("correcto", MITOS[i].mito && esCorrecto);
+    botones[1].classList.toggle("correcto", !MITOS[i].mito && esCorrecto);
+    btn.classList.add(esCorrecto ? "correcto" : "incorrecto");
+    card.querySelector(".explicacion").style.display = "block";
+
+    respuestasMitos[i] = elegido;
+    if (esCorrecto) aciertosMitos++;
+    respondidos++;
+    document.getElementById("contador-mitos").textContent = respondidos;
+    actualizarResultado();
+  }
+
+  function responderTeoria(i, j) {
+    if (finalizado) return;
+    respuestasTeoria[i] = j;
+    teoriaRespondidas.add(i);
+    if (j === TEORIA[i].correcta) aciertosTeoria.add(i);
+    else aciertosTeoria.delete(i);
+
+    const radios = document.querySelectorAll(`input[name="teoria-${i}"]`);
+    radios.forEach(r => {
+      const lbl = r.closest("label");
+      lbl.classList.remove("ok", "error");
+      if (parseInt(r.value) === TEORIA[i].correcta) lbl.classList.add("ok");
+      if (r.checked && parseInt(r.value) !== TEORIA[i].correcta) lbl.classList.add("error");
+    });
+    actualizarResultado();
+  }
+
+  function actualizarResultado() {
+    if (respondidos === MITOS.length && teoriaRespondidas.size === TEORIA.length) {
+      finalizar();
+    }
+  }
+
+  /* =========================================================
+     FINALIZAR: calcula nota, GUARDA EL INTENTO (una sola vez)
+     ========================================================= */
+  function finalizar() {
+    if (finalizado) return;
+    finalizado = true;
+
+    const totalAciertos = aciertosMitos + aciertosTeoria.size;
+    const nota = Math.round(totalAciertos * 10);
+    const cracks = aciertosTeoria.size >= 2;
+
+    const intento = {
+      nombre: registro.nombre,
+      equipo: registro.equipo,
+      integrantes: registro.integrantes,
+      fecha: new Date().toLocaleString("es", { dateStyle: "long", timeStyle: "short" }),
+      nota,
+      aciertosMitos,
+      aciertosTeoria: aciertosTeoria.size,
+      respuestasMitos,
+      respuestasTeoria,
     };
+    guardarIntento(intento);           // 🔒 a partir de aquí ya no hay reintento
+    window.__intento = intento;
 
-    // ---------- Generamos las tarjetas del quiz A ----------
-    const contMitos = document.getElementById("lista-mitos");
+    document.getElementById("resultado").classList.remove("hidden");
+    document.getElementById("resultado").className = cracks ? "pase" : "refuerzo";
+    document.getElementById("mensaje-resultado").textContent = cracks
+      ? "🏆 ¡Excelente! Registro guardado. Descarga tu PDF y entrégalo."
+      : "📚 Intento registrado. Descarga tu PDF: los errores también son evidencia de aprendizaje.";
+    document.getElementById("nota-final").textContent = nota + "/100";
+    document.getElementById("barra").style.width = nota + "%";
+    document.getElementById("resultado").scrollIntoView({ behavior: "smooth" });
+  }
+
+  /* =========================================================
+     REPORTE PDF (aciertos y errores)
+     ========================================================= */
+  function construirReporte(intento) {
+    const integrantes = (intento.integrantes || []).filter(Boolean).join(", ") || "(sin registrar)";
+
+    let filasMitos = "";
     MITOS.forEach((m, i) => {
-      const card = document.createElement("div");
-      card.className = "afirmacion";
-      card.innerHTML = `
-        <div class="texto">${i + 1}. ${m.texto}</div>
-        <div class="opciones">
-          <button onclick="responderMito(${i}, true, this)">MITO</button>
-          <button onclick="responderMito(${i}, false, this)">REALIDAD</button>
-        </div>
-        <div class="explicacion" id="expl-${i}">${m.explicacion}</div>`;
-      contMitos.appendChild(card);
+      const elegido = intento.respuestasMitos[i];
+      const correctaTexto = m.mito ? "MITO" : "REALIDAD";
+      const elegidoTexto = elegido === true ? "MITO" : elegido === false ? "REALIDAD" : "(sin responder)";
+      const bien = (elegido === m.mito);
+      filasMitos += `
+        <div class="reporte-item">
+          <div><span class="etiqueta">${i + 1}. ${m.texto}</span></div>
+          <div>Tu respuesta: <b>${elegidoTexto}</b> · Correcta: <b>${correctaTexto}</b> ·
+            <span class="${bien ? "ok" : "mal"}">${bien ? "✅ ACIERTO" : "❌ ERROR"}</span></div>
+          <div><i>${m.explicacion}</i></div>
+        </div>`;
     });
 
-    // ---------- Generamos las preguntas del quiz B ----------
-    const contTeoria = document.getElementById("lista-teoria");
+    let filasTeoria = "";
     TEORIA.forEach((q, i) => {
-      const bloque = document.createElement("div");
-      bloque.className = "pregunta";
-      bloque.innerHTML = `<div class="enunciado">${i + 1}. ${q.pregunta}</div>`;
-      q.opciones.forEach((op, j) => {
-        const label = document.createElement("label");
-        label.innerHTML = `<input type="radio" name="teoria-${i}" value="${j}" onchange="responderTeoria(${i}, ${j})"> ${op}`;
-        bloque.appendChild(label);
-      });
-      contTeoria.appendChild(bloque);
+      const elegido = intento.respuestasTeoria[i];
+      const bien = (elegido === q.correcta);
+      const elegidoTexto = (elegido === undefined) ? "(sin responder)" : q.opciones[elegido];
+      filasTeoria += `
+        <div class="reporte-item">
+          <div><span class="etiqueta">${i + 1}. ${q.pregunta}</span></div>
+          <div>Tu respuesta: <b>${elegidoTexto}</b><br>
+            Correcta: <b>${q.opciones[q.correcta]}</b> ·
+            <span class="${bien ? "ok" : "mal"}">${bien ? "✅ ACIERTO" : "❌ ERROR"}</span></div>
+        </div>`;
     });
 
-    // ---------- Estado del quiz ----------
-    let aciertosMitos = 0;
-    let respondidos = 0;
-    let aciertosTeoria = new Set();
-    let teoriaRespondidas = new Set();
+    return `
+      <h1>Reporte de la Semana 1 — “¿Qué es la IA de verdad?”</h1>
+      <p>
+        <b>Estudiante:</b> ${intento.nombre}<br>
+        <b>Equipo:</b> ${intento.equipo}<br>
+        <b>Integrantes:</b> ${integrantes}<br>
+        <b>Fecha:</b> ${intento.fecha}<br>
+        <b>NOTA FINAL: ${intento.nota}/100</b>
+        (Mitos ${intento.aciertosMitos}/10 · Teoría ${intento.aciertosTeoria}/${TEORIA.length})
+      </p>
 
-    function responderMito(i, elegido, btn) {
-      const card = btn.closest(".afirmacion");
-      const botones = card.querySelectorAll(".opciones button");
-      if (botones[0].disabled) return;      // ya respondido
-      const esCorrecto = (elegido === MITOS[i].mito);
-      botones.forEach(b => b.disabled = true);
-      botones[0].classList.toggle("correcto", MITOS[i].mito && esCorrecto);
-      botones[1].classList.toggle("correcto", !MITOS[i].mito && esCorrecto);
-      btn.classList.add(esCorrecto ? "correcto" : "incorrecto");
-      card.querySelector(".explicacion").style.display = "block";
+      <h2>Parte A — Cazadores de mitos (aciertos y errores)</h2>
+      ${filasMitos}
 
-      if (esCorrecto) aciertosMitos++;
-      respondidos++;
-      document.getElementById("contador-mitos").textContent = respondidos;
-      actualizarResultado();
-    }
+      <h2>Parte B — Teoría relámpago</h2>
+      ${filasTeoria}
 
-    function responderTeoria(i, j) {
-      teoriaRespondidas.add(i);
-      if (j === TEORIA[i].correcta) aciertosTeoria.add(i);
-      else aciertosTeoria.delete(i);
+      <h2>Firma de conformidad</h2>
+      <p>Nombre y firma del estudiante: ______________________________________</p>
+      <p style="margin-top:24px">Nombre y firma del docente: __________________________________________</p>
+    `;
+  }
 
-      // Siempre repintamos: verde la correcta, rojo la equivocada elegida.
-      const radios = document.querySelectorAll(`input[name="teoria-${i}"]`);
-      radios.forEach(r => {
-        const lbl = r.closest("label");
-        lbl.classList.remove("ok", "error");
-        if (parseInt(r.value) === TEORIA[i].correcta) lbl.classList.add("ok");
-        if (r.checked && parseInt(r.value) !== TEORIA[i].correcta) lbl.classList.add("error");
-      });
-      actualizarResultado();
-    }
+  function descargarPDF() {
+    const intento = window.__intento || leerIntento();
+    if (!intento) { alert("Todavía no hay un intento registrado."); return; }
+    document.getElementById("reporte").innerHTML = construirReporte(intento);
+    window.print();
+  }
 
-    function actualizarResultado() {
-      const teoriaListas = document.querySelectorAll(".pregunta").length;
-      if (respondidos === MITOS.length && teoriaRespondidas.size === teoriaListas) {
-        mostrarResultado();
-      }
-    }
-
-    function mostrarResultado() {
-      const cracks = aciertosTeoria.size >= CALIFICACION.notaMinimaTeoria;
-      document.getElementById("resultado").classList.remove("hidden");
-      document.getElementById("resultado").className = cracks ? "pase" : "reforzar";
-
-      const msj = cracks
-        ? "🏆 ¡Excelente! Tu equipo está listo para la Semana 2."
-        : "📚 Casi: refuerza la teoría y vuelve a intentarlo (los mitos también).";
-      document.getElementById("mensaje-resultado").textContent = msj;
-
-      const nota = Math.round((aciertosMitos + aciertosTeoria.size) * 10);
-      document.getElementById("nota-final").textContent = nota + "/100";
-      document.getElementById("barra").style.width = nota + "%";
-      document.getElementById("resultado").scrollIntoView({ behavior: "smooth" });
-    }
-
-    function reiniciar() {
+  /* =========================================================
+     REINICIO DEL DOCENTE
+     ========================================================= */
+  function reiniciarDocente() {
+    const codigo = prompt("Código del docente para reiniciar el intento:");
+    if (codigo === CODIGO_DOCENTE) {
+      borrarIntento();
       location.reload();
+    } else if (codigo !== null) {
+      alert("Código incorrecto.");
     }
-  </script>
+  }
+
+  init();
+</script>
 </body>
 </html>

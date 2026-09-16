@@ -4,6 +4,11 @@
 > embeddings, atención) y demostrar que dominas el arte del **prompt**.
 > Todo se juega y se califica en un solo archivo: `dashboard-semana2.html`.
 
+> 📄 **Importante — un solo intento:** antes de empezar el dashboard te pide tu
+> **nombre, equipo e integrantes**. La nota final se calcula **UNA sola vez**
+> (al pulsar “Fase C”); después el dashboard se bloquea y debes **descargar el
+> PDF** del reporte con tus aciertos y errores. Ese PDF es tu constancia.
+
 ---
 
 ## 1. Teoría que debes dominar (¡sale en el quiz!)
@@ -39,11 +44,15 @@ Tiene 3 fases y las tres cuentan para tu nota:
   de prompts (rol, contexto, restricciones, formato, audiencia, tono…).
 - Vale el **65 %** de la nota final.
 
-### 🟩 Fase C — Calificación Final y Constancia
+### 🟩 Fase C — Calificación Final y Reporte PDF
 - El dashboard combina teoría + estructura del prompt → **nota sobre 100**.
-- Genera tu **constancia descargable** con el nombre del equipo, integrantes,
-  el escenario y el prompt redactado.
-- **Descarga la constancia** y súbela a tu `ENTREGA.md` (link o captura).
+- Al calcularla, el intento queda **bloqueado** (no se puede repetir).
+- Genera tu **reporte en PDF** con el nombre del equipo, integrantes, el
+  escenario, el prompt redactado y el detalle de **aciertos y errores**.
+- **Descarga el PDF** (“Guardar como PDF”) y súbelo a tu `ENTREGA.md`.
+
+> ⚠️ Si cierras el dashboard antes de calcular la nota, puedes seguir. Pero una
+> vez calculada la nota final, **ya no hay vuelta atrás**.
 
 ## 3. Reparto sugerido de roles (equipo de 4)
 
@@ -64,7 +73,7 @@ Para que nadie se quede sin aportar su parte del prompt:
    - El **prompt** que redactaron (cópialo tal cual).
    - Una **reflexión de 3 líneas**: ¿qué elemento del prompt cambió más el
      resultado y por qué?
-2. La **constancia descargada** (imagen o `.txt`) dentro de `semana-02/`.
+2. El **reporte PDF** (`reporte-semana2.pdf`) dentro de `semana-02/`.
 3. Captura de la Fase A aprobada (evidencia de la teoría).
 
 ### Plantilla para `ENTREGA.md`
@@ -97,7 +106,7 @@ Para que nadie se quede sin aportar su parte del prompt:
 | Fase A: respuestas correctas de teoría | 5 |
 | Fase B: el prompt incluye rol + contexto + restricciones | 8 |
 | Fase B: calidad/creatividad y elementos avanzados | 4 |
-| Constancia + `ENTREGA.md` completos | 3 |
+| Reporte PDF + `ENTREGA.md` completos | 3 |
 
 ## 6. Autochequeo del equipo ✅
 
@@ -105,7 +114,7 @@ Para que nadie se quede sin aportar su parte del prompt:
 - [ ] Puedo explicar por qué la IA **alucina**.
 - [ ] Sé qué es un **sesgo** y de dónde viene.
 - [ ] Mi prompt tiene **rol, contexto y restricciones** (y lo comprobó el panel).
-- [ ] Descargué la **constancia** y está en la carpeta.
+- [ ] Descargué el **reporte PDF** y está en la carpeta.
 - [ ] `ENTREGA.md` subido en la rama `equipo-N-semana-02`.
 
 > 🧪 **Reto extra (opcional):** cambien UNA palabra del prompt (por ejemplo, el

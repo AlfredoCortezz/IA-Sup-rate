@@ -26,3 +26,17 @@ semanas 3–8 (así no hay que mantener el mismo contenido dos veces):
 ```bash
 python tools/generar-notebooks.py
 ```
+
+#### Control de intentos (Semanas 1 y 2)
+
+- `semana-01/index.html` y `semana-02/dashboard-semana2.html` piden **nombre,
+  equipo e integrantes** y permiten **un solo intento**.
+- El intento se guarda en el `localStorage` del navegador (clave
+  `ia_sem1_intento` / `ia_sem2_intento`). Funciona en Chrome, Edge y Firefox.
+  ⚠️ Si el alumno usa **modo incógnito**, borra los datos del navegador o cambia
+  de equipo, el control se reinicia. Para un control estricto, sírvelos desde un
+  servidor o pídele que descargue el PDF y lo suba.
+- El botón **“Reiniciar intento”** pide el código docente: **`PROFE2026`**
+  (cámbialo en la constante `CODIGO_DOCENTE` de cada archivo si quieres).
+- El **PDF** se genera con el diálogo de impresión del navegador
+  (`Ctrl+P` → “Guardar como PDF”). No necesita internet ni librerías externas.

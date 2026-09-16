@@ -4,6 +4,11 @@
 > Tu equipo debe separar lo que la IA **sí** es de lo que **solo** parece en
 > las películas. Al final se sube a GitHub y se presenta en 3 minutos.
 
+> 📄 **Importante — un solo intento:** el cuestionario `index.html` te pide tu
+> **nombre, equipo e integrantes** antes de empezar. Solo se puede realizar
+> **UNA vez**; al terminar se bloquea y debes **descargar el PDF** con tus
+> aciertos y errores. Ese PDF es tu evidencia.
+
 ---
 
 ## 1. La teoría (10 minutos en equipo)
@@ -51,8 +56,10 @@ Tu equipo debe decidir y **justificar cada una con al menos 1 línea**.
    - Los **nombres del equipo** y el rol de cada quien.
    - Tabla con tus decisiones: `MITO` / `REALIDAD` + **justificación**.
    - **captura / evidencia** de tu modelo de Teachable Machine (link o imagen).
-3. **`semana-01/encuesta.html`** → abrir **`index.html`**, completarlo TODOS
-   individualmente, y guardar una captura de pantalla con tu puntaje.
+3. **`semana-01/reporte-semana1.pdf`** → abre **`index.html`** en el navegador,
+   regístrate con tu nombre y los integrantes del equipo, responde el
+   cuestionario y **descarga el PDF** (botón “Descargar reporte en PDF”).
+   Súbelo a la carpeta junto con tu entrega.
 
 ### Plantilla para `RESPUESTAS.md`
 
@@ -91,7 +98,8 @@ Tu equipo debe decidir y **justificar cada una con al menos 1 línea**.
 - [ ] Respondí las 10 afirmaciones con justificación.
 - [ ] Defino con mis palabras: simbólica vs. conexionista, entrenamiento, sesgo.
 - [ ] Mi equipo entrena un modelo en Teachable Machine (o lo captura).
-- [ ] Todos hicimos el cuestionario de `index.html` (captura de pantalla).
+- [ ] Todos hicimos el cuestionario de `index.html` registrando nuestros datos.
+- [ ] Descargamos el **PDF del reporte** (aciertos y errores).
 - [ ] `RESPUESTAS.md` está subido en la rama `equipo-N-semana-01`.
 
 > 🧪 **Ritual de cierre:** 3 minutos para explicar el mito que más les costó
