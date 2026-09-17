@@ -119,3 +119,15 @@ Para que nadie se quede sin aportar su parte del prompt:
 
 > 🧪 **Reto extra (opcional):** cambien UNA palabra del prompt (por ejemplo, el
 > rol) y comparen la respuesta de la IA. ¿Cuánto cambió? Anótenlo en la reflexión.
+
+---
+
+## 🎬 Videos que te ayudan
+
+- [3Blue1Brown — "But what is a GPT?"](https://3blue1brown.substack.com/p/but-what-is-a-gpt): cómo el punteo "token a token" genera el texto.
+- [Crash Course AI #1](https://www.youtube.com/watch?v=a0_lo_GDcFw): contexto de qué es "inteligencia" (si te perdiste la semana pasada).
+
+## 📚 Apoyo si te atascas
+
+- `tools/05-vocabulario-ia.md` — tokens, embeddings, alucinaciones y sesgo.
+- `tools/06-errores-comunes.md` — si algo falla antes de empezar, busca aquí.

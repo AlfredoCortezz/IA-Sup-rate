@@ -95,3 +95,20 @@ Ventaja enorme: puedes **ver** y **explicar** por qué decidió lo que decidió.
 
 > 🧪 **Reto relámpago:** antes de correr el código, apuesten: ¿qué 3 columnas
 > creen que predecirán mejor la supervivencia? Comparen con lo que eligió el árbol.
+
+---
+
+## 🎬 Videos que te ayudan
+
+- [StatQuest — Decision and Classification Trees](https://www.youtube.com/watch?v=_L39rN6gz7Y): la raíz, las hojas y por qué "la pregunta correcta" importa.
+
+## 🤖 Pídele ayuda al tutor de IA
+
+El tutor del curso responde *"¿qué es max_depth?"*, *"¿qué es sobreajuste?"*, etc.
+
+## 📚 Apoyo si te atascas
+
+- 📍 `tools/pistas/semana-04.md` — pistas por TODO (3 niveles).
+- ✅ `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
+- 🐍 `tools/cheatsheets/02-python-ml.md` — el molde de todo modelo.
+- 🚑 `tools/06-errores-comunes.md` — valores NaN / texto a número.

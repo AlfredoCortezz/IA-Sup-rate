@@ -85,3 +85,20 @@ escala. **Este es el aprendizaje más importante de la semana.**
 
 > 🧪 **Reto relámpago:** ¿qué características añadirías al catálogo para mejorar
 > las recomendaciones (actor favorito, saga, duración)? Anótenlas para la clase.
+
+---
+
+## 🎬 Videos que te ayudan
+
+- [StatQuest — KNN clearly explained](https://www.youtube.com/watch?v=HVXime0nQeI): qué significa "los K vecinos más cercanos" y su problema con las escalas.
+
+## 🤖 Pídele ayuda al tutor de IA
+
+El tutor del curso responde *"¿cómo escalo los datos?"*, *"¿qué es n_neighbors?"*, etc.
+
+## 📚 Apoyo si te atascas
+
+- 📍 `tools/pistas/semana-05.md` — pistas por TODO (3 niveles).
+- ✅ `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
+- 🐍 `tools/cheatsheets/02-python-ml.md` — StandardScaler está en el apartado 4.
+- 🚑 `tools/06-errores-comunes.md` — errores al escalar/entrenar.

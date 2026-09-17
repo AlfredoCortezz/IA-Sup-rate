@@ -88,3 +88,20 @@ convertimos texto → números (**vectorizar**) y clasificamos.
 > 🧪 **Reto relámpago:** escriban una reseña con **sarcasmo** ("qué maravilla,
 > se rompió a la primera"). ¿El modelo acierta? ¿Por qué el sarcasmo es
 > dificilísimo para la IA? Guárdenlo para la discusión de la Semana 9.
+
+---
+
+## 🎬 Videos que te ayudan
+
+- [StatQuest — Naive Bayes clearly explained](https://www.youtube.com/watch?v=O2L2Uv9pdDA): la lógica de "contar palabras" detrás del clasificador.
+
+## 🤖 Pídele ayuda al tutor de IA
+
+El tutor responde *"¿Tfidf o CountVectorizer?"*, *"¿por qué fit solo en train?"*, etc.
+
+## 📚 Apoyo si te atascas
+
+- 📍 `tools/pistas/semana-08.md` — pistas por TODO (3 niveles).
+- ✅ `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
+- 🐍 `tools/cheatsheets/02-python-ml.md` — regla de oro del apartado 5.
+- 📊 `tools/data/resenas_extra.csv` — 60 reseñas extra para entrenar.

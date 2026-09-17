@@ -2,6 +2,8 @@
 # %% [markdown]
 # # 🌳 Semana 4 — Árbol de Decisión: ¿sobrevivirías al Titanic? 🚢
 #
+# > 📍 **¿Atascado?** Pistas: `tools/pistas/semana-04.md` · Autochequeo: `python autochequeo.py`
+#
 # **¿Qué vas a aprender hoy?**
 # A que la máquina decida "sí o no" haciendo **preguntas en cadena**, como en el
 # juego de las 20 preguntas. Eso es un **árbol de decisión**.
@@ -151,8 +153,8 @@ todo("y_pred = arbol.predict(X_test); imprime accuracy_score, confusion_matrix y
 
 # %%
 # 🚩 TODO: usa plot_tree con las columnas de X como nombres de features.
-# Sugerencia: plt.figure(figsize=(14, 7)); plot_tree(arbol, feature_names=X.columns,
-# class_names=["No","Sí"], filled=True); plt.show()
+# Sugerencia: plt.figure(figsize=(14, 7)); plot_tree(arbol, feature_names=list(X.columns),
+# class_names=["No","Sí"], filled=True); plt.savefig("arbol_titanic.png"); plt.show()
 todo("dibuja el árbol con plot_tree y guárdalo con plt.savefig('arbol_titanic.png')")
 
 # %% [markdown]

@@ -295,3 +295,210 @@ a {
   border-top: 1px dashed var(--borde);
   padding-top: 1.5rem;
 }
+
+/* ---------- TUTOR DE IA (widget flotante) ---------- */
+.tutor-btn {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--acento), var(--acento-2));
+  color: #0b1120;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  z-index: 60;
+  transition: transform 0.15s ease;
+}
+.tutor-btn:hover {
+  transform: scale(1.06);
+}
+
+.tutor-panel {
+  position: fixed;
+  bottom: 5.2rem;
+  right: 1.2rem;
+  width: min(360px, calc(100vw - 2rem));
+  height: min(520px, calc(100vh - 6.5rem));
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+  z-index: 59;
+}
+.tutor-cabecera {
+  padding: 0.7rem 1rem;
+  background: var(--superficie-2);
+  border-bottom: 1px solid var(--borde);
+  display: flex;
+  flex-direction: column;
+}
+.tutor-cabecera strong {
+  color: var(--acento);
+}
+.tutor-cabecera span {
+  font-size: 0.72rem;
+  color: var(--texto-suave);
+}
+.tutor-mensajes {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.burbuja {
+  max-width: 88%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  white-space: pre-line;
+  word-break: break-word;
+}
+.burbuja.tutor {
+  background: var(--superficie-2);
+  border: 1px solid var(--borde);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.burbuja.usuario {
+  background: var(--acento);
+  color: #0b1120;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.burbuja.escribiendo {
+  color: var(--texto-suave);
+}
+.tutor-sugerencias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0 0.9rem 0.6rem;
+}
+.tutor-sugerencias button {
+  background: transparent;
+  border: 1px solid var(--borde);
+  color: var(--texto-suave);
+  border-radius: 99px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.74rem;
+  cursor: pointer;
+}
+.tutor-sugerencias button:hover {
+  border-color: var(--acento);
+  color: var(--acento);
+}
+.tutor-input {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.7rem 0.9rem;
+  border-top: 1px solid var(--borde);
+  background: var(--superficie-2);
+}
+.tutor-input input {
+  flex: 1;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 0.5rem 0.7rem;
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 0.86rem;
+}
+.tutor-input input:focus {
+  outline: none;
+  border-color: var(--acento);
+}
+.tutor-input button {
+  background: var(--acento);
+  color: #0b1120;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.tutor-input button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- PANEL DE PROGRESO (dashboard) ---------- */
+.progreso-contenedor {
+  max-width: 560px;
+  margin: 0 auto;
+  height: 14px;
+  border-radius: 99px;
+  background: var(--superficie-2);
+  border: 1px solid var(--borde);
+  overflow: hidden;
+}
+.progreso-barra {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--acento), var(--acento-2));
+  transition: width 0.35s ease;
+}
+.progreso-texto {
+  margin-top: 0.6rem;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.semana-fila {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.65rem;
+  transition: border-color 0.15s ease;
+}
+.semana-fila.hecho {
+  border-color: var(--verde);
+}
+.semana-check {
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.semana-info h3 {
+  font-size: 1rem;
+  color: var(--texto);
+}
+.semana-detalles {
+  color: var(--texto-suave);
+  font-size: 0.82rem;
+}
+.semana-puntos {
+  color: var(--verde);
+  font-weight: 700;
+}
+.semana-fase {
+  background: var(--superficie-2);
+  border: 1px solid var(--borde);
+  color: var(--texto-suave);
+  font-size: 0.72rem;
+  border-radius: 99px;
+  padding: 0.25rem 0.6rem;
+  white-space: nowrap;
+}
+@media (max-width: 560px) {
+  .semana-fase {
+    display: none;
+  }
+}

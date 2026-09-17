@@ -99,3 +99,20 @@ Implementamos DELETE porque...
 
 > 🎓 **Cierre del curso:** comparte tu link con la clase y explica en 3 minutos
 > cuál fue **tu** aportación a cada fase (desmitificación, ML, web). ¡Lo lograste!
+
+---
+
+## 🎬 Guías oficiales:
+
+- [Vercel: cómo desplegar un proyecto Next.js](https://vercel.com/docs/getting-started-with-vercel/import-to-vercel) — publica tu portafolio en minutos.
+- [MDN: "Using the Fetch API"](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch) — GET y POST desde el navegador.
+
+## 🤖 Pídele ayuda al tutor de IA
+
+El tutor responde dudas de API: *"¿GET y POST?"*, *"¿qué es un status 400?"*, etc. (¡y también preguntas de las semanas 3–8!).
+
+## 📚 Apoyo si te atascas
+
+- 📍 `tools/cheatsheets/03-nextjs.md` — rutas, endpoint `route.ts` y códigos de estado.
+- 📍 `tools/04-nextjs-y-vercel.md` — desplegar paso a paso.
+- 🚑 `tools/06-errores-comunes.md` — `npm run build` fallando o "Module not found".

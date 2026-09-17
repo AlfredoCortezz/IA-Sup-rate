@@ -15,7 +15,7 @@ marcas `TODO` donde tú, junto con tu equipo, debes resolver la tarea.
 ```
 IA-Sup-rate/
 ├── README.md              ← estás aquí (índice maestro)
-├── tools/                 ← guías de apoyo si te atascas
+├── tools/                 ← guías de apoyo si te atascas + pistas + cheatsheets + datasets
 ├── semana-01/             ← Qué es la IA de verdad (rompe el mito)
 ├── semana-02/             ← IA Generativa: Prompt Battle
 ├── semana-03/             ← Regresión Lineal (predicción de calificaciones)
@@ -50,6 +50,20 @@ Cada equipo debe decidir **quién hace qué** en cada reto. Rótalo cada semana:
 
 > Cada semana debes rotar de rol mínimo 1 vez en las 10 semanas.
 
+## 🤖 Tú tutor de IA
+
+El proyecto `web/` trae un **chat de IA** (botón 🤖 abajo a la derecha) que
+responde con pistas sobre teoría, errores y pistas de los retos. Corre con:
+
+```bash
+cd web
+npm install     # solo la primera vez
+npm run dev     # abre http://localhost:3000
+```
+
+También hay un **📊 panel de progreso** (`web/app/progreso`) y un
+**autochequeo automático** en cada `semana-03` a `semana-08`.
+
 ## ✅ Cómo entregar un reto (checklist general)
 
 1. Clona el repositorio (`tools/01-git-y-github.md` te explica cómo).
@@ -67,6 +81,11 @@ Cada equipo debe decidir **quién hace qué** en cada reto. Rótalo cada semana:
 - `tools/03-notebooks-y-scripts.md` → qué es un `.ipynb` y cómo usarlo
 - `tools/04-nextjs-y-vercel.md` → correr `web/` y desplegarlo gratis
 - `tools/05-vocabulario-ia.md` → glosario de la IA en cristiano
+- `tools/06-errores-comunes.md` → errores típicos y cómo salir de ellos
+- `tools/pistas/` → pistas escalonadas de los retos 3–8
+- `tools/cheatsheets/` → hojas de referencia de git, Python y Next.js
+- `tools/data/` → datasets extra para practicar
+- Los **videos recomendados** están al final del `README.md` de cada semana 🎬
 
 ## 📜 Licencia
 

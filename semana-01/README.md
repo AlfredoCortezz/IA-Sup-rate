@@ -104,3 +104,15 @@ Tu equipo debe decidir y **justificar cada una con al menos 1 línea**.
 
 > 🧪 **Ritual de cierre:** 3 minutos para explicar el mito que más les costó
 > derribar y por qué.
+
+---
+
+## 🎬 Videos que te ayudan
+
+- [Crash Course AI #1 — "What is Intelligence?"](https://www.youtube.com/watch?v=a0_lo_GDcFw): qué es (y qué NO es) la IA, con ejemplos reales.
+- [3Blue1Brown — "But what is a neural network?"](https://www.youtube.com/watch?v=aircAruvnKk): para adelantarse 3 semanas sin spoilers 😉.
+
+## 📚 Apoyo si te atascas
+
+- `tools/05-vocabulario-ia.md` — el glosario del curso en cristiano.
+- `tools/06-errores-comunes.md` — los errores típicos de Python/git y cómo salir de ellos.

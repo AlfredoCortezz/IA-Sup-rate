@@ -1,0 +1,49 @@
+name: Autochequeo de retos
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  autochequeo:
+    name: Semanas 3–8
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: >
+          pip install
+          numpy pandas matplotlib scikit-learn seaborn
+
+      - name: Autochequeo Semana 3
+        working-directory: semana-03
+        run: python autochequeo.py
+
+      - name: Autochequeo Semana 4
+        working-directory: semana-04
+        run: python autochequeo.py
+
+      - name: Autochequeo Semana 5
+        working-directory: semana-05
+        run: python autochequeo.py
+
+      - name: Autochequeo Semana 6
+        working-directory: semana-06
+        run: python autochequeo.py
+
+      - name: Autochequeo Semana 7
+        working-directory: semana-07
+        run: python autochequeo.py
+
+      - name: Autochequeo Semana 8
+        working-directory: semana-08
+        run: python autochequeo.py

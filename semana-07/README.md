@@ -94,3 +94,20 @@ pixeles → [capa oculta de neuronas] → "es un 7" (81 %)
 
 > 🧪 **Reto relámpago:** ¿qué dígitos se confunden más entre sí (4/9, 3/8, 1/7)?
 > Dibújalos lado a lado y verás que ¡a ti también te cuestan!
+
+---
+
+## 🎬 Videos que te ayudan
+
+- [3Blue1Brown — "But what is a neural network?"](https://www.youtube.com/watch?v=aircAruvnKk): la neurona, los pesos y el voto, visualizado.
+
+## 🤖 Pídele ayuda al tutor de IA
+
+El tutor responde *"¿por qué 784 entradas?"*, *"¿qué es hidden_layer_sizes?"*, etc.
+
+## 📚 Apoyo si te atascas
+
+- 📍 `tools/pistas/semana-07.md` — pistas por TODO (3 niveles).
+- ✅ `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
+- 🐍 `tools/cheatsheets/02-python-ml.md` — el molde de todo modelo.
+- 🚑 `tools/06-errores-comunes.md` — errores de instalación/importación.

@@ -92,3 +92,20 @@ Abre los archivos y busca los `🚩 TODO`:
 
 > 🧪 **Reto relámpago:** añade una sección nueva "🎮 Mis hobbies" usando un
 > componente propio. ¿Te animas a que sea reutilizable con props?
+
+---
+
+## 🎬 Guías oficiales (mejor que cualquier video):
+
+- [Next.js: Aprende](https://nextjs.org/learn) — el tutorial oficial (en español).
+- [React: Escribe tus primeros componentes](https://es.react.dev/learn/your-first-component).
+
+## 🤖 Pídele ayuda al tutor de IA
+
+El tutor responde dudas de la parte web: *"¿qué es un componente?"*, *"¿para qué sirven las props?"*, etc.
+
+## 📚 Apoyo si te atascas
+
+- 📍 `tools/cheatsheets/03-nextjs.md` — componentes, "use client" y TypeScript en 1 página.
+- 🚑 `tools/06-errores-comunes.md` — errores típicos de Next.js/npm (nº15–20).
+- 🐍... bueno, esto ya no es Python: ¡bienvenidos al frontend!

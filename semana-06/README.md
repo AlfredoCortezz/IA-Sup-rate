@@ -83,3 +83,21 @@ El codo se ve en k=__. Elegimos k=__ porque...
 
 > 🧪 **Reto relámpago:** ¿para qué crees que una tienda usa esto? Escribe un
 > ejemplo de campaña distinta para cada uno de tus segmentos.
+
+---
+
+## 🎬 Videos que te ayudan
+
+- [StatQuest — K-means clustering](https://www.youtube.com/watch?v=4b5d3muPQmA): centroides, asignación y el porqué del "codo".
+
+## 🤖 Pídele ayuda al tutor de IA
+
+El tutor responde *"¿qué es el codo de K-Means?"*, *"¿qué es un centroide?"*, etc.
+
+## 📚 Apoyo si te atascas
+
+- 📍 `tools/pistas/semana-06.md` — pistas por TODO (3 niveles).
+- ✅ `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
+- 🐍 `tools/cheatsheets/02-python-ml.md` — métricas y molde de modelo.
+- 📊 `tools/data/clientes_mall.csv` — 300 clientes para practicar más.
+- 🚑 `tools/06-errores-comunes.md` — errores típicos al escalar/entrenar.

@@ -2,6 +2,8 @@
 # %% [markdown]
 # # 📈 Semana 3 — Regresión Lineal: adivina tu calificación
 #
+# > 📍 **¿Atascado?** Pistas: `tools/pistas/semana-03.md` · Autochequeo: `python autochequeo.py`
+#
 # **¿Qué vas a aprender hoy?**
 # A pedirle a una computadora que **prediga un número**. Por ejemplo: "si
 # estudio 6 horas, ¿cuánto saco?".

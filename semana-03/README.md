@@ -96,3 +96,21 @@ Abre el archivo y busca las marcas `🚩 TODO`. Son **9 pasos**:
 
 > 🧪 **Reto relámpago:** antes de codificar, dibujen a mano una nube de puntos y
 > una recta. Luego comparen con la que saca la máquina.
+
+---
+
+## 🎬 Videos que te ayudan
+
+- [StatQuest — Linear Regression clearly explained](https://www.youtube.com/watch?v=nk2CQITm_eo): la recta, la pendiente y el error, sin fórmulas raras.
+
+## 🤖 Pídele ayuda al tutor de IA
+
+El tutor del curso (`web/`) responde dudas tipo *"¿por qué separar train y test?"*
+o *"me da un error 2D"* — ¡te da pistas, no soluciones!
+
+## 📚 Apoyo si te atascas
+
+- 📍 `tools/pistas/semana-03.md` — pistas por TODO (3 niveles).
+- ✅ `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
+- 🐍 `tools/cheatsheets/02-python-ml.md` — el molde de todo modelo.
+- 🚑 `tools/06-errores-comunes.md` — "Expected 2D array" está aquí (nº1).

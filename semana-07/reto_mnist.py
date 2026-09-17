@@ -2,6 +2,8 @@
 # %% [markdown]
 # # 🧠 Semana 7 — Redes Neuronales: mirar números como una máquina
 #
+# > 📍 **¿Atascado?** Pistas: `tools/pistas/semana-07.md` · Autochequeo: `python autochequeo.py`
+#
 # **¿Qué vas a aprender hoy?**
 # A construir tu primera **red neuronal** y ponerla a leer dígitos escritos a
 # mano (el famoso dataset **MNIST**, con más de 70 000 imágenes).

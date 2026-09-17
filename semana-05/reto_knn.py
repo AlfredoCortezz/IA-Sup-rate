@@ -2,6 +2,8 @@
 # %% [markdown]
 # # 🎬 Semana 5 — K-Nearest Neighbors (KNN): el "club de los parecidos"
 #
+# > 📍 **¿Atascado?** Pistas: `tools/pistas/semana-05.md` · Autochequeo: `python autochequeo.py`
+#
 # **¿Qué vas a aprender hoy?**
 # A recomendar cosas usando una idea sencillísima: **"dime con quién andas y te
 # diré quién eres"**. Si dos películas se parecen mucho, probablemente te gusten

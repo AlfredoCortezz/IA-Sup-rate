@@ -2,6 +2,8 @@
 # %% [markdown]
 # # 💬 Semana 8 — NLP: ¿esa reseña es buena o mala?
 #
+# > 📍 **¿Atascado?** Pistas: `tools/pistas/semana-08.md` · Autochequeo: `python autochequeo.py`
+#
 # **¿Qué vas a aprender hoy?**
 # A enseñarle a una computadora a **entender el sentimiento** de un texto. Esto
 # es **Procesamiento de Lenguaje Natural (NLP)**, la tecnología detrás de los

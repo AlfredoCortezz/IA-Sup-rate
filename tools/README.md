@@ -12,6 +12,14 @@ aquí antes de preguntarle al profe (o a la IA 😉).
 | [`03-notebooks-y-scripts.md`](03-notebooks-y-scripts.md) | Cuando no sepas qué es un `.ipynb` o cómo abrir los retos |
 | [`04-nextjs-y-vercel.md`](04-nextjs-y-vercel.md) | Cuando llegues a las semanas 9–10 (Next.js y Vercel) |
 | [`05-vocabulario-ia.md`](05-vocabulario-ia.md) | Cuando leas una palabra rara de la IA (token, embedding, sesgo…) |
+| [`06-errores-comunes.md`](06-errores-comunes.md) | Cuando el código te dé un error y no sepas por dónde seguimos |
+| [`pistas/`](pistas/) | Pistas escalonadas (3 niveles) de los retos de la semana 3–8 |
+| [`cheatsheets/`](cheatsheets/) | Hojas de referencia imprimibles: git, Python+ML y Next.js |
+| [`data/`](data/) | Datasets extra con las mismas columnas que los retos |
+
+> 🚀 **Autochequeo:** cada semana 3–8 tiene un `autochequeo.py`. Córrelo dentro
+> de la carpeta de la semana con `python autochequeo.py`: te dice qué TODO
+> faltan y chequea tu reto. Sale "en verde" cuando está listo para entregar.
 
 > 💡 Consejo de equipo: el rol de **Investigador(a)** de la semana es quien
 > normalmente consulta esta carpeta y explica al resto.
@@ -26,6 +34,19 @@ semanas 3–8 (así no hay que mantener el mismo contenido dos veces):
 ```bash
 python tools/generar-notebooks.py
 ```
+
+`tools/data/generar_datasets.py` regenera los datasets extra (misma semilla):
+
+```bash
+python tools/data/generar_datasets.py
+```
+
+**Soluciones:** la carpeta `soluciones/` (con las soluciones de los retos y las
+respuestas modelo del autochequeo) **está en `.gitignore`** para que nunca se
+suba al repo que clonan los estudiantes.
+
+**CI automático:** `.github/workflows/autochequeo.yml` corre los 6 autochequeos
+en cada `push`. Un reto queda verificado en semáforo del histograma de GitHub.
 
 #### Control de intentos (Semanas 1 y 2)
 

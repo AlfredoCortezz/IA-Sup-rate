@@ -2,6 +2,8 @@
 # %% [markdown]
 # # 🛒 Semana 6 — K-Means: segmenta a tus clientes
 #
+# > 📍 **¿Atascado?** Pistas: `tools/pistas/semana-06.md` · Autochequeo: `python autochequeo.py`
+#
 # **¿Qué vas a aprender hoy?**
 # A **agrupar** cosas parecidas **SIN que nadie te diga las respuestas**. Esto se
 # llama **aprendizaje no supervisado**: la máquina descubre grupos solita.

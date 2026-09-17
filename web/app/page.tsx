@@ -46,6 +46,9 @@ export default function Home() {
           <a href="#" className="btn-sec">
             ✉️ Contáctame
           </a>
+          <a href="/progreso" className="btn-sec">
+            📊 Mi progreso
+          </a>
         </div>
       </header>
 
