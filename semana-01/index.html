@@ -89,6 +89,7 @@
     .barra-progreso div { height: 100%; width: 0%; background: #38bdf8; transition: width .4s; }
     .reset-docente { text-align: center; margin-top: 1rem; }
     .reset-docente button { background: none; border: none; color: #64748b; font-size: .8rem; cursor: pointer; text-decoration: underline; }
+    .resp-correcta { color: #16a34a; font-weight: 600; }
 
     /* ---------- REPORTE IMPRIMIBLE (solo se ve al imprimir) ---------- */
     #reporte { display: none; }
@@ -181,8 +182,13 @@
     <div id="resumen-bloqueado" class="info-intento"></div>
     <button class="btn" onclick="descargarPDF()">Descargar reporte en PDF</button>
     <div class="reset-docente">
-      <button onclick="reiniciarDocente()">¿Eres docente? Reiniciar intento</button>
+      <button onclick="reiniciarDocente()">¿Eres docente? Reiniciar intento</button> ·
+      <button onclick="verRespuestas()">Ver respuestas (docente)</button>
     </div>
+  </section>
+
+  <section id="modal-docente" class="panel hidden" style="margin-top:1rem">
+    <div id="contenido-docente"></div>
   </section>
 
   <p class="aviso" style="text-align:center">Guarda el PDF para tu <code>ENTREGA.md</code></p>
@@ -193,62 +199,32 @@
 
 <script>
   /* =========================================================
-     DATOS DEL QUIZ — edítalos aquí si quieres cambiar preguntas.
-     mito: true  → la afirmación es un MITO (falsa)
-           false → la afirmación es REALIDAD (verdadera)
+     BANCO DE PREGUNTAS CIFRADO
+     Las preguntas y respuestas están cifradas y se descifran en el
+     navegador solo para calificar. No son legibles en el repositorio.
      ========================================================= */
-  const MITOS = [
-    { texto: "La IA puede sentir emociones como un humano.", mito: true,
-      explicacion: "MITO. La IA no siente: solo calcula probabilidades sobre datos. Las emociones humanas aún no se pueden 'calcular'." },
-    { texto: "Los asistentes como Siri, Alexa o Google usan IA para entenderte.", mito: false,
-      explicacion: "REALIDAD. Reconocen tu voz, la convierten en texto y usan modelos para darte una respuesta." },
-    { texto: "La IA es una sola tecnología: todo es lo mismo.", mito: true,
-      explicacion: "MITO. Hay muchas familias: simbólica, conexionista, generativa, ML clásico… cada una resuelve problemas distintos." },
-    { texto: "Una IA puede inventar respuestas falsas y decirlas con total seguridad.", mito: false,
-      explicacion: "REALIDAD. Se llama ALUCINACIÓN: la IA 'completa' el texto con fluidez aunque no haya un dato real detrás." },
-    { texto: "Para crear un modelo de IA hace falta saber programar en Python.", mito: true,
-      explicacion: "MITO. Teachable Machine te permite entrenar un clasificador SIN código. Python es una herramienta, no un requisito." },
-    { texto: "Los filtros de spam de tu correo ya usan Machine Learning.", mito: false,
-      explicacion: "REALIDAD. Los filtros aprenden de miles de correos etiquetados como 'spam' o 'no spam'." },
-    { texto: "La IA de hoy funciona con reglas escritas a mano por programadores.", mito: true,
-      explicacion: "MITO. Eso era la IA SIMBÓLICA. La moderna (CONEXIONISTA) aprende de ejemplos en lugar de reglas hechas a mano." },
-    { texto: "Un clasificador solo aprende a partir de muchos ejemplos etiquetados.", mito: false,
-      explicacion: "REALIDAD. 'Etiquetado' = el ejemplo viene con su respuesta. Sin ejemplos, no hay aprendizaje supervisado." },
-    { texto: "Ninguna IA puede hoy escribir, dibujar o componer música.", mito: true,
-      explicacion: "MITO. Las IA generativas crean texto, imágenes y música a partir de un prompt (lo verás en la Semana 2)." },
-    { texto: "El sesgo viene de que el programador quiso discriminar a propósito.", mito: true,
-      explicacion: "MITO (casi siempre). El sesgo suele nacer de datos desbalanceados: si entrenas 'doctor' solo con fotos de hombres, el modelo aprende ese prejuicio sin que nadie lo ordenara." }
-  ];
+  const CLAVE_DATOS = "AISP-2026-CPG";
+  const DATOS_CIFRADOS = "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";
+  const HASH_DOCENTE = "70bcaee40867f5322ad7682804a22c4595e7712b7ccdf9bab6265f46b2f59ca0";
 
-  const TEORIA = [
-    { pregunta: "¿Cuál es la diferencia principal entre IA simbólica y conexionista?",
-      opciones: [
-        "Simbólica aprende de datos; conexionista usa reglas.",
-        "Simbólica usa reglas escritas a mano; conexionista aprende de ejemplos.",
-        "No hay diferencia; son sinónimos.",
-        "Simbólica es de hoy; conexionista es antigua."
-      ], correcta: 1 },
-    { pregunta: "¿Qué es 'entrenar' un modelo?",
-      opciones: [
-        "Darle ejemplos para que ajuste sus conexiones y mejore sus predicciones.",
-        "Repetirle miles de veces las mismas reglas en voz alta.",
-        "Conectar el modelo a internet todos los días.",
-        "Hacerle exámenes diarios como a ti en la escuela."
-      ], correcta: 0 },
-    { pregunta: "¿Qué es lo MÁS correcto que hace una IA como las del curso?",
-      opciones: [
-        "Piensa y decide con libre albedrío.",
-        "Calcula probabilidades y patrones a partir de datos.",
-        "Le copia las respuestas a un humano escondido.",
-        "Lee los pensamientos de quien la usa."
-      ], correcta: 1 }
-  ];
+  function descifrarDatos(cadenaB64, clave) {
+    const bin = atob(cadenaB64);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) {
+      bytes[i] = bin.charCodeAt(i) ^ clave.charCodeAt(i % clave.length);
+    }
+    return new TextDecoder("utf-8").decode(bytes);
+  }
+
+  const datosQuiz = JSON.parse(descifrarDatos(DATOS_CIFRADOS, CLAVE_DATOS));
+  const MITOS = datosQuiz.mitos;
+  const TEORIA = datosQuiz.teoria;
+
 
   /* =========================================================
      CONTROL DE INTENTO (un solo intento por navegador)
      ========================================================= */
   const CLAVE = "ia_sem1_intento";
-  const CODIGO_DOCENTE = "PROFE2026";   // código para reiniciar un intento
 
   function guardarIntento(obj) { try { localStorage.setItem(CLAVE, JSON.stringify(obj)); } catch (e) {} }
   function leerIntento() { try { const d = localStorage.getItem(CLAVE); return d ? JSON.parse(d) : null; } catch (e) { return null; } }
@@ -494,16 +470,47 @@
   }
 
   /* =========================================================
-     REINICIO DEL DOCENTE
+     ACCESO DEL DOCENTE
+     El código del docente nunca se guarda en texto plano: solo
+     se compara su huella (SHA-256). Preguntas y respuestas no
+     son legibles en el repositorio.
      ========================================================= */
-  function reiniciarDocente() {
-    const codigo = prompt("Código del docente para reiniciar el intento:");
-    if (codigo === CODIGO_DOCENTE) {
+  async function sha256Hex(texto) {
+    const datos = new TextEncoder().encode(texto);
+    const res = await crypto.subtle.digest("SHA-256", datos);
+    return Array.from(new Uint8Array(res)).map(b => b.toString(16).padStart(2, "0")).join("");
+  }
+
+  async function verificarDocente() {
+    const codigo = prompt("Código del docente:");
+    if (codigo === null) return false;
+    if (await sha256Hex(codigo) === HASH_DOCENTE) return true;
+    alert("Código incorrecto.");
+    return false;
+  }
+
+  async function reiniciarDocente() {
+    if (await verificarDocente()) {
       borrarIntento();
       location.reload();
-    } else if (codigo !== null) {
-      alert("Código incorrecto.");
     }
+  }
+
+  async function verRespuestas() {
+    if (!(await verificarDocente())) return;
+    const modal = document.getElementById("modal-docente");
+    let html = "<h3>Respuestas (solo docente)</h3>";
+    html += "<h4>Mitos / Realidades</h4><ol style='padding-left:1.2rem'>";
+    MITOS.forEach((m, i) => {
+      html += `<li><b>${m.texto}</b><br><span class='resp-correcta'>→ ${m.mito ? "MITO (falso)" : "REALIDAD (verdadero)"}</span><br>${m.explicacion}</li>`;
+    });
+    html += "</ol><h4>Teoría</h4><ol style='padding-left:1.2rem'>";
+    TEORIA.forEach((q, i) => {
+      html += `<li><b>${q.pregunta}</b><br><span class='resp-correcta'>→ ${q.opciones[q.correcta]}</span></li>`;
+    });
+    html += "</ol><p><button class='btn' onclick=\"document.getElementById('modal-docente').classList.add('hidden')\">Cerrar</button></p>";
+    modal.innerHTML = html;
+    modal.classList.remove("hidden");
   }
 
   init();
