@@ -1,118 +1,98 @@
-# 🧠 Semana 1 — ¿Qué es la IA de verdad? (Rompe el mito)
+# Semana 1 — ¿Qué es la IA de verdad?
 
-> **Misión del reto:** convertirte en un/a **Cazador(a) de Mitos** de la IA.
-> Tu equipo debe separar lo que la IA **sí** es de lo que **solo** parece en
-> las películas. Al final se sube a GitHub y se presenta en 3 minutos.
+## Entrega de la semana
 
-> 📄 **Importante — un solo intento:** el cuestionario `index.html` te pide tu
-> **nombre, equipo e integrantes** antes de empezar. Solo se puede realizar
-> **UNA vez**; al terminar se bloquea y debes **descargar el PDF** con tus
-> aciertos y errores. Ese PDF es tu evidencia.
+La primera semana tiene **dos entregables obligatorios** y un **punto extra**
+opcional:
 
----
+1. **Examen en línea** del archivo `index.html` de esta carpeta. La
+   calificación la obtiene directamente el cuestionario (de 0 a 100) y se
+   entrega el **reporte en PDF** con aciertos y errores.
+2. **Actividad Teachable Machine**: entrenar un mini modelo de clasificación y
+   entregar la evidencia (captura o enlace).
+3. **Punto extra (opcional)**: corregir los errores del examen y justificar con
+   fuentes verídicas la información corregida. Se suma como punto extra al
+   examen, en grupo.
 
-## 1. La teoría (10 minutos en equipo)
+### Cómo realizar el examen (paso a paso)
 
-1. Lee `tools/05-vocabulario-ia.md` (las filas de la **Semana 1**).
-2. Responde en equipo:
-   - ¿Cuál es la diferencia entre **IA simbólica** y **IA conexionista**?
-   - ¿La IA "piensa"? ¿Siente? ¿Es consciente?
-   - ¿Cómo se "entrena" un modelo? Busquen la palabra **entrenamiento**.
-3. Abre <https://teachablemachine.withgoogle.com> y entrena un modelo mini
-   (3 clases de 10 fotos con tu cámara). No es "mágico": es un clasificador
-   que aprende patrones de las fotos, igual que el cuestionario aprende de ti.
+1. Descarga el repositorio en tu laptop:
+   `git clone https://github.com/AlfredoCortezz/IA-Sup-rate.git`
+   (si no usas git, puedes descargar únicamente el archivo `index.html`).
+2. Abre `semana-01/index.html` en tu navegador (doble clic sobre el archivo).
+   La página funciona sin conexión a internet.
+3. Regístrate con tu **nombre completo**, tu **equipo** y los **integrantes**
+   de tu equipo.
+4. Responde el cuestionario. Solo se permite **un intento**: al terminar, la
+   página se bloquea automáticamente.
+5. Descarga el **reporte en PDF** con el botón de la página (en el diálogo de
+   impresión elige "Guardar como PDF"). Ese PDF es tu evidencia.
 
-> ⚠️ Si internet no coopera: la actividad de Teachable Machine se puede
-> **capturar en pantalla** y presentar después. El reto principal no depende
-> de ella.
+### Cómo realizar Teachable Machine (paso a paso)
 
-## 2. El reto: "Cazadores de Mitos" 🔍
+1. Abre `https://teachablemachine.withgoogle.com`.
+2. Entrena un modelo pequeño con tu cámara: 3 clases de unas 10 fotos cada una.
+3. Comprueba que no es magia: es un clasificador que aprende patrones de las
+   fotos, igual que el cuestionario aprende de ti.
+4. Guarda una **captura o el enlace** como evidencia.
 
-Cada afirmación de la lista es un **MITO** (falso) o una **REALIDAD** (verdad).
-Tu equipo debe decidir y **justificar cada una con al menos 1 línea**.
+### Punto extra (opcional)
 
-### Afirmaciones a clasificar
+Corrige los errores que marcó tu examen y explica, con **fuentes verídicas**
+(no respuestas generadas por IA), la información correcta de cada uno. Incluye
+la referencia de la fuente (título, enlace o libro). Se suma como punto extra
+al examen del grupo.
 
-| # | Afirmación |
-|---|------------|
-| 1 | "La IA puede sentir emociones como un humano." |
-| 2 | "Los asistentes como Siri, Alexa o Google usan IA para entenderte." |
-| 3 | "La IA es una sola tecnología: si la usaste una vez, ya conociste toda la IA que existe." |
-| 4 | "Una IA puede inventar respuestas falsas pero decirlas con total seguridad." (pista: **alucinación**) |
-| 5 | "Para crear un modelo de IA hace falta saber programar en Python." |
-| 6 | "Los filtros de spam de tu correo ya usan Machine Learning." |
-| 7 | "La IA de hoy funciona con reglas escritas a mano por programadores." (pista: ¿simbólica o conexionista?) |
-| 8 | "Un modelo entrenado como clasificador solo aprende a partir de muchos ejemplos etiquetados." |
-| 9 | "Ninguna IA puede hoy escribir, dibujar o componer música." |
-| 10 | "El sesgo nace del humano que programó a propósito discriminar a un grupo." (pista: ve a `tools/05` 👀) |
+### Reglas importantes
 
-> 💡 Las afirmaciones 1–6 tratan **mitos generales**; 7–10 te empujan a usar el
-> **vocabulario** de las filas de la Semana 1. Léanlo antes de contestar.
+- Un intento por estudiante (la página lo registra en el navegador).
+- Responde con base en la teoría de `guia-semana-01.pdf` y de
+  `tools/05-vocabulario-ia.md`.
+- La nota del examen (0 a 100) la calcula el propio cuestionario.
 
-## 3. Entregables (qué subir a GitHub)
+## Cómo entregar (cada estudiante crea su propia rama)
 
-1. **`semana-01/README.md`** → no lo borres, tu trabajo es:
-2. **`semana-01/RESPUESTAS.md`** → crea este archivo (cópialo de abajo) con:
-   - Los **nombres del equipo** y el rol de cada quien.
-   - Tabla con tus decisiones: `MITO` / `REALIDAD` + **justificación**.
-   - **captura / evidencia** de tu modelo de Teachable Machine (link o imagen).
-3. **`semana-01/reporte-semana1.pdf`** → abre **`index.html`** en el navegador,
-   regístrate con tu nombre y los integrantes del equipo, responde el
-   cuestionario y **descarga el PDF** (botón “Descargar reporte en PDF”).
-   Súbelo a la carpeta junto con tu entrega.
+Para que el docente pueda evaluarte, cada estudiante trabaja y entrega en su
+**propia rama**. Ejemplo:
 
-### Plantilla para `RESPUESTAS.md`
-
-```markdown
-# Cazadores de Mitos — Respuestas del equipo
-
-**Equipo:** #N
-| Nombre | Rol |
-|--------|-----|
-| Ana | Capitana |
-
-| # | ¿MITO o REALIDAD? | Justificación (1 línea) |
-|---|-------------------|-------------------------|
-| 1 | MITO | ... |
-| 2 | REALIDAD | ... |
-| ... | | |
-
-## Evidencia Teachable Machine
-[link o captura]
-
-## Aprendizaje del equipo (2 líneas)
-...
+```bash
+git clone https://github.com/AlfredoCortezz/IA-Sup-rate.git
+cd IA-Sup-rate
+git checkout -b tu-nombre-semana-01        # crea TU rama
+# copia aquí tu reporte (ej. reporte-semana1.pdf) dentro de semana-01/
+git add semana-01
+git commit -m "Entrega semana 1 - <tu nombre>"
+git push origin tu-nombre-semana-01
 ```
 
-## 4. Rúbrica de calificación (20 puntos)
+Después de hacer `push`, avisa al docente (puedes abrir un *pull request* o
+enviar el enlace de tu rama). Recuerda: **no** hagas `push` a la rama `main`.
 
-| Criterio | Puntos |
-|----------|--------|
-| Decisiones correctas (MITO/REALIDAD) | 8 |
-| Justificaciones claras (usan vocabulario de la S1) | 6 |
-| Evidencia Teachable Machine | 3 |
-| Presentación de 3 min (clara y en equipo) | 3 |
+### Plantilla de `ENTREGA.md`
 
-## 5. Autochequeo del equipo ✅
+Crea este archivo en `semana-01/` con tus datos:
 
-- [ ] Respondí las 10 afirmaciones con justificación.
-- [ ] Defino con mis palabras: simbólica vs. conexionista, entrenamiento, sesgo.
-- [ ] Mi equipo entrena un modelo en Teachable Machine (o lo captura).
-- [ ] Todos hicimos el cuestionario de `index.html` registrando nuestros datos.
-- [ ] Descargamos el **PDF del reporte** (aciertos y errores).
-- [ ] `RESPUESTAS.md` está subido en la rama `equipo-N-semana-01`.
+```markdown
+# Entrega Semana 1 — Qué es la IA de verdad
 
-> 🧪 **Ritual de cierre:** 3 minutos para explicar el mito que más les costó
-> derribar y por qué.
+**Estudiante:** <tu nombre completo>
+**Equipo:** <nombre del equipo>
+**Integrantes:** <nombre de los integrantes>
+**Fecha:** <fecha>
 
----
+## 1. Examen en línea
+Nota obtenida en el cuestionario: **__/100**
+Reporte del examen (`reporte-semana1.pdf`) adjunto en esta carpeta.
 
-## 🎬 Videos que te ayudan
+## 2. Actividad Teachable Machine
+[enlace o captura del mini modelo]
 
-- [Crash Course AI #1 — "What is Intelligence?"](https://www.youtube.com/watch?v=a0_lo_GDcFw): qué es (y qué NO es) la IA, con ejemplos reales.
-- [3Blue1Brown — "But what is a neural network?"](https://www.youtube.com/watch?v=aircAruvnKk): para adelantarse 3 semanas sin spoilers 😉.
+## 3. Punto extra (opcional)
+[corrección de los errores del examen con justificación y fuentes verídicas]
+```
 
-## 📚 Apoyo si te atascas
+## Contenido de estudio
 
-- `tools/05-vocabulario-ia.md` — el glosario del curso en cristiano.
-- `tools/06-errores-comunes.md` — los errores típicos de Python/git y cómo salir de ellos.
+- `guia-semana-01.pdf` — teoría y ejercicios de la semana (parte de la guía
+  oficial del curso dividida por semana).
+- `tools/05-vocabulario-ia.md` — glosario del curso.

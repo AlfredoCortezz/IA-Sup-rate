@@ -111,15 +111,15 @@
 <div id="app">
 
   <header>
-    <h1>🧠 ¿Qué es la IA de verdad?</h1>
+    <h1>¿Qué es la IA de verdad?</h1>
     <p>Mini cuestionario didáctico · Semana 1 · Un solo intento por estudiante</p>
   </header>
 
   <!-- ---------- PANTALLA 1: REGISTRO ---------- -->
   <section id="pantalla-registro" class="panel">
-    <h2>📝 Registro del intento</h2>
+    <h2>Registro del intento</h2>
     <p class="aviso">
-      Antes de comenzar, escribe tus datos. ⚠️ Solo tienes <b>UN intento</b>:
+      Antes de comenzar, escribe tus datos. Solo tienes <b>UN intento</b>:
       al terminar se guardará tu resultado y no podrás repetirlo.
     </p>
     <div class="campo">
@@ -139,7 +139,7 @@
         <input class="integrante" type="text" placeholder="Integrante 4" />
       </div>
     </div>
-    <button class="btn" onclick="comenzar()">🚀 Comenzar cuestionario</button>
+    <button class="btn" onclick="comenzar()">Comenzar cuestionario</button>
     <div id="error-registro" class="error-texto"></div>
   </section>
 
@@ -148,44 +148,44 @@
     <div class="info-intento" id="info-intento"></div>
 
     <section id="seccion-mitos">
-      <h2>🔍 Cazadores de mitos — ¿MITO o REALIDAD?</h2>
+      <h2>Cazadores de mitos — ¿MITO o REALIDAD?</h2>
       <div id="lista-mitos"></div>
       <p style="margin-top:.6rem"><strong>Ya clasifiqué: <span id="contador-mitos">0</span>/10</strong></p>
     </section>
 
     <section id="seccion-teoria">
-      <h2>📖 Teoría relámpago — elige la mejor respuesta</h2>
+      <h2>Teoría relámpago — elige la mejor respuesta</h2>
       <div id="lista-teoria"></div>
     </section>
 
     <div id="resultado" class="hidden">
-      <h2>🧾 Resultado final</h2>
+      <h2>Resultado final</h2>
       <p id="mensaje-resultado"></p>
       <div class="nota" id="nota-final">0/100</div>
       <div class="barra-progreso"><div id="barra"></div></div>
       <p class="aviso" style="margin-top:1rem">
-        📄 Descarga tu reporte en PDF con tus aciertos y errores (constancia del intento).
+        Descarga tu reporte en PDF con tus aciertos y errores (constancia del intento).
         En el diálogo elige <b>“Guardar como PDF”</b>.
       </p>
-      <button class="btn" onclick="descargarPDF()">📄 Descargar reporte en PDF</button>
+      <button class="btn" onclick="descargarPDF()">Descargar reporte en PDF</button>
     </div>
   </div>
 
   <!-- ---------- PANTALLA 3: INTENTO YA REALIZADO ---------- -->
   <section id="pantalla-bloqueado" class="panel hidden">
-    <h2>🔒 Intento ya registrado</h2>
+    <h2>Intento ya registrado</h2>
     <p class="aviso">
       Este navegador ya completó el cuestionario de la Semana 1. Solo se permite
       un intento. Puedes descargar de nuevo tu reporte con aciertos y errores.
     </p>
     <div id="resumen-bloqueado" class="info-intento"></div>
-    <button class="btn" onclick="descargarPDF()">📄 Descargar reporte en PDF</button>
+    <button class="btn" onclick="descargarPDF()">Descargar reporte en PDF</button>
     <div class="reset-docente">
       <button onclick="reiniciarDocente()">¿Eres docente? Reiniciar intento</button>
     </div>
   </section>
 
-  <p class="aviso" style="text-align:center">💡 Guarda el PDF para tu <code>ENTREGA.md</code></p>
+  <p class="aviso" style="text-align:center">Guarda el PDF para tu <code>ENTREGA.md</code></p>
 </div>
 
 <!-- ==================== REPORTE (solo impresión) ==================== -->
@@ -302,11 +302,11 @@
     const error = document.getElementById("error-registro");
 
     if (!nombre || !equipo) {
-      error.textContent = "⚠️ Escribe al menos tu nombre y el equipo.";
+      error.textContent = "Escribe al menos tu nombre y el equipo.";
       return;
     }
     if (integrantes.filter(Boolean).length < 2) {
-      error.textContent = "⚠️ Registra al menos 2 integrantes del equipo.";
+      error.textContent = "Registra al menos 2 integrantes del equipo.";
       return;
     }
     error.textContent = "";
@@ -315,7 +315,7 @@
     document.getElementById("pantalla-registro").classList.add("hidden");
     document.getElementById("pantalla-quiz").classList.remove("hidden");
     document.getElementById("info-intento").innerHTML =
-      `👤 <b>${nombre}</b> · 🏷️ ${equipo} · 👥 ${integrantes.filter(Boolean).join(", ")}`;
+      `Estudiante: <b>${nombre}</b> · Equipo: ${equipo} · Integrantes: ${integrantes.filter(Boolean).join(", ")}`;
   }
 
   /* =========================================================
@@ -421,8 +421,8 @@
     document.getElementById("resultado").classList.remove("hidden");
     document.getElementById("resultado").className = cracks ? "pase" : "refuerzo";
     document.getElementById("mensaje-resultado").textContent = cracks
-      ? "🏆 ¡Excelente! Registro guardado. Descarga tu PDF y entrégalo."
-      : "📚 Intento registrado. Descarga tu PDF: los errores también son evidencia de aprendizaje.";
+      ? "Excelente. Registro guardado. Descarga tu PDF y entrégalo."
+      : "Intento registrado. Descarga tu PDF: los errores también son evidencia de aprendizaje.";
     document.getElementById("nota-final").textContent = nota + "/100";
     document.getElementById("barra").style.width = nota + "%";
     document.getElementById("resultado").scrollIntoView({ behavior: "smooth" });
@@ -444,7 +444,7 @@
         <div class="reporte-item">
           <div><span class="etiqueta">${i + 1}. ${m.texto}</span></div>
           <div>Tu respuesta: <b>${elegidoTexto}</b> · Correcta: <b>${correctaTexto}</b> ·
-            <span class="${bien ? "ok" : "mal"}">${bien ? "✅ ACIERTO" : "❌ ERROR"}</span></div>
+            <span class="${bien ? "ok" : "mal"}">${bien ? "ACIERTO" : "ERROR"}</span></div>
           <div><i>${m.explicacion}</i></div>
         </div>`;
     });
@@ -459,7 +459,7 @@
           <div><span class="etiqueta">${i + 1}. ${q.pregunta}</span></div>
           <div>Tu respuesta: <b>${elegidoTexto}</b><br>
             Correcta: <b>${q.opciones[q.correcta]}</b> ·
-            <span class="${bien ? "ok" : "mal"}">${bien ? "✅ ACIERTO" : "❌ ERROR"}</span></div>
+            <span class="${bien ? "ok" : "mal"}">${bien ? "ACIERTO" : "ERROR"}</span></div>
         </div>`;
     });
 
