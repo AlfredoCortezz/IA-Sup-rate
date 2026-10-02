@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Semana 2 · IA Generativa — Prompt Battle</title>
 <style>
-  /* ==========================================================
-     APARIENCIA (puedes cambiar colores y fuentes sin miedo)
-     ========================================================== */
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: system-ui, "Segoe UI", Arial, sans-serif;
@@ -42,7 +39,7 @@
   textarea {
     width: 100%; min-height: 170px; background: #0f172a; color: #e2e8f0;
     border: 1px solid #334155; border-radius: 10px; padding: .8rem;
-    font-family: inherit; font-size: .95rem; resize: vertical;
+    font-family: inherit; font-size: .95rem; resize: vertical; margin-top: .7rem;
   }
   input[type="text"] {
     background: #0f172a; color: #e2e8f0; border: 1px solid #334155;
@@ -58,12 +55,6 @@
   button.btn:hover { filter: brightness(1.1); }
   button.btn.sec { background: #475569; color: #e2e8f0; }
   button.btn:disabled { opacity: .45; cursor: not-allowed; }
-  button.chip {
-    background: #0f172a; color: #cbd5e1; border: 1px dashed #475569;
-    border-radius: 99px; padding: .25rem .7rem; font-size: .8rem;
-    cursor: pointer; margin: .15rem;
-  }
-  button.chip:hover { border-color: #38bdf8; color: #7dd3fc; }
 
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   @media (max-width: 760px) { .grid-2 { grid-template-columns: 1fr; } }
@@ -84,7 +75,7 @@
   .checklist li.req { border-left: 3px solid #f59e0b; }
   .checklist li.av  { border-left: 3px solid #38bdf8; }
   .checklist li.ok  { background: #14532d; color: #d1fae5; }
-  .checklist .pista { color: #94a3b8; font-size: .78rem; }
+  .checklist li:not(.ok) { color: #94a3b8; }
 
   .contador { color: #94a3b8; font-size: .85rem; text-align: right; margin-top: .3rem; }
 
@@ -106,7 +97,6 @@
   .reset-docente { text-align: center; margin-top: 1rem; }
   .reset-docente button { background: none; border: none; color: #64748b; font-size: .8rem; cursor: pointer; text-decoration: underline; }
 
-  /* ---------- REPORTE IMPRIMIBLE ---------- */
   #reporte { display: none; }
   @media print {
     body { background: #fff; color: #000; padding: 0; max-width: 100%; }
@@ -126,17 +116,13 @@
 <div id="app">
 
   <header>
-    <h1>🤖 Semana 2 · IA Generativa: Prompt Battle</h1>
-    <p>Registro → Fase A (teoría) → Fase B (prompt en equipo) → Fase C (nota y PDF)</p>
+    <h1>Semana 2 · IA Generativa: Prompt Battle</h1>
+    <p>Registro &middot; Teoría &middot; Prompt &middot; Nota</p>
   </header>
 
-  <!-- ==================== REGISTRO ==================== -->
   <section class="panel" id="pantalla-registro">
-    <h2>📝 Registro del intento</h2>
-    <p class="aviso">
-      Completa los datos del equipo. ⚠️ Solo hay <b>UN intento</b>: al calcular la
-      nota final se guardará y no podrás repetirlo.
-    </p>
+    <h2>Registro del intento</h2>
+    <p class="aviso">Solo hay <b>un intento</b>: al calcular la nota final se guardará y no podrás repetirlo.</p>
     <div class="campo">
       <label for="nombre">Nombre de quien entrega *</label>
       <input type="text" id="nombre" placeholder="Ej. Ana Martínez" />
@@ -154,70 +140,47 @@
         <input type="text" class="integrante" placeholder="Integrante 4" />
       </div>
     </div>
-    <button class="btn" onclick="comenzar()">🚀 Comenzar</button>
+    <button class="btn" onclick="comenzar()">Comenzar</button>
     <div id="error-registro" class="error-texto"></div>
   </section>
 
-  <!-- ==================== FASE A ==================== -->
   <section class="fase fase-a oculto" id="fase-a">
-    <h2>🟦 Fase A — Evaluación teórica (necesitas 2/3 para desbloquear)</h2>
+    <h2>Fase A — Evaluación teórica (necesitas 2/3 para desbloquear)</h2>
     <div id="info-equipo" class="info-intento"></div>
     <div id="lista-teoria"></div>
-    <button class="btn" onclick="calificarFaseA()">✅ Calificar Fase A</button>
-    <button class="btn sec" onclick="reiniciarFaseA()">↺ Reiniciar respuestas</button>
+    <button class="btn" onclick="calificarFaseA()">Calificar Fase A</button>
+    <button class="btn sec" onclick="reiniciarFaseA()">Reiniciar respuestas</button>
     <div class="mensaje" id="mensaje-fase-a"></div>
   </section>
 
-  <!-- ==================== FASE B ==================== -->
   <section class="fase fase-b oculto" id="fase-b">
-    <h2>🟨 Fase B — Generador de prompts (trabajo en equipo de 4)</h2>
+    <h2>Fase B — Generador de prompts (equipo de 4)</h2>
     <div class="grid-2">
       <div>
-        <p class="aviso">1) El sistema te asigna un escenario al azar (puedes volver a sortear).</p>
-        <button class="btn" id="btn-sortear" onclick="asignarEscenario()">🎲 Asignar escenario</button>
+        <button class="btn" id="btn-sortear" onclick="asignarEscenario()">Asignar escenario</button>
         <div id="caja-escenario"></div>
-
-        <p class="aviso" style="margin-top:1rem">2) Redacten el prompt PERFECTO. Atajos de vocabulario:</p>
-        <p>
-          <button class="chip" onclick="insertar('Actúa como un/a ')">Actúa como…</button>
-          <button class="chip" onclick="insertar('El contexto es: ')">El contexto es…</button>
-          <button class="chip" onclick="insertar('No incluyas ')">No incluyas…</button>
-          <button class="chip" onclick="insertar('Dirigido a estudiantes de bachillerato. ')">Dirigido a…</button>
-          <button class="chip" onclick="insertar('Devuélvelo en formato de lista numerada. ')">Formato lista…</button>
-          <button class="chip" onclick="insertar('Incluye un ejemplo de ')">Incluye ejemplo…</button>
-          <button class="chip" onclick="insertar('Usa un tono ')">Usa un tono…</button>
-          <button class="chip" onclick="insertar('Explícalo paso a paso. ')">Paso a paso…</button>
-        </p>
-        <textarea id="prompt" placeholder="Escribe aquí el prompt del equipo... 🚩 (aquí es donde trabajan juntos)"
-                  oninput="actualizarChecklist()"></textarea>
+        <textarea id="prompt" placeholder="Prompt del equipo" oninput="actualizarChecklist()"></textarea>
       </div>
-
       <div>
-        <p class="aviso">3) Checklist de ingeniería de prompts (se revisa sola mientras escriben):</p>
         <ul class="checklist" id="checklist"></ul>
         <div class="contador" id="contador">0 caracteres</div>
       </div>
     </div>
 
-    <button class="btn" id="btn-final" onclick="calcularFinal()" disabled>📊 Fase C: Calcular nota final (única)</button>
+    <button class="btn" id="btn-final" onclick="calcularFinal()" disabled>Calcular nota final</button>
     <span class="aviso" id="aviso-final">Asigna un escenario y escribe tu prompt para habilitar la nota.</span>
   </section>
 
-  <!-- ==================== FASE C ==================== -->
   <section class="fase fase-c oculto" id="fase-c">
-    <h2>🟩 Fase C — Calificación final y constancia</h2>
+    <h2>Fase C — Calificación final</h2>
     <div id="resultado-final" style="display:none"></div>
   </section>
 
-  <!-- ==================== BLOQUEADO ==================== -->
   <section class="panel oculto" id="pantalla-bloqueado">
-    <h2>🔒 Intento ya registrado</h2>
-    <p class="aviso">
-      Este navegador ya entregó el Prompt Battle de la Semana 2. Solo se permite
-      un intento. Puedes volver a descargar tu reporte con aciertos y errores.
-    </p>
+    <h2>Intento ya registrado</h2>
+    <p class="aviso">Este navegador ya entregó el Prompt Battle de la Semana 2. Solo se permite un intento por navegador.</p>
     <div id="resumen-bloqueado" class="info-intento"></div>
-    <button class="btn" onclick="descargarPDF()">📄 Descargar reporte en PDF</button>
+    <button class="btn" onclick="descargarPDF()">Descargar reporte en PDF</button>
     <div class="reset-docente">
       <button onclick="reiniciarDocente()">¿Eres docente? Reiniciar intento</button>
     </div>
@@ -225,14 +188,9 @@
 
 </div>
 
-<!-- ==================== REPORTE (solo impresión) ==================== -->
 <div id="reporte"></div>
 
 <script>
-/* =========================================================
-   1) BANCO DE PREGUNTAS TEÓRICAS (Tokens, Alucinación, Sesgo)
-   correcta = índice de la opción correcta (empieza en 0)
-   ========================================================= */
 const TEORIA = [
   {
     pregunta: "¿Qué es un token en una IA generativa?",
@@ -269,66 +227,48 @@ const TEORIA = [
   }
 ];
 
-/* =========================================================
-   2) ESCENARIOS ÉTICOS/PRÁCTICOS (se sortean al azar)
-   ========================================================= */
 const ESCENARIOS = [
-  { titulo: "🎓 Discurso de graduación",
+  { titulo: "Discurso de graduación",
     reto: "Consigue que la IA escriba un discurso de graduación para tu generación que NO use clichés ni frases hechas." },
-  { titulo: "📋 Reglamento escolar en cristiano",
+  { titulo: "Reglamento escolar en cristiano",
     reto: "Pide un resumen amigable del reglamento del colegio para los estudiantes que llegan nuevos." },
-  { titulo: "📢 Detecta el sesgo en un anuncio",
+  { titulo: "Detecta el sesgo en un anuncio",
     reto: "Haz que la IA analice un anuncio publicitario e identifique posibles estereotipos o sesgos." },
-  { titulo: "🗓️ Plan de estudio de 10 semanas",
+  { titulo: "Plan de estudio de 10 semanas",
     reto: "Diseña, con ayuda de la IA, un plan realista para estudiar IA sin morir en el intento." },
-  { titulo: "♻️ Campaña de reciclaje en el cole",
+  { titulo: "Campaña de reciclaje en el cole",
     reto: "Genera eslóganes y un mini plan para convencer al colegio de reciclar mejor." },
-  { titulo: "🎮 Tutorial para nuevos jugadores",
+  { titulo: "Tutorial para nuevos jugadores",
     reto: "Explica un videojuego a alguien que nunca lo ha jugado, en pasos claros y sin tecnicismos." },
-  { titulo: "✉️ Carta al director",
+  { titulo: "Carta al director",
     reto: "Redacta una petición formal y argumentada para mejorar algo del colegio." },
-  { titulo: "🧠 Entrevista a un personaje histórico",
+  { titulo: "Entrevista a un personaje histórico",
     reto: "Simula una entrevista imaginaria a un personaje histórico con preguntas y respuestas verosímiles." }
 ];
 
-/* =========================================================
-   3) ELEMENTOS DE UN BUEN PROMPT
-   obligatorio = cuenta más en la nota.
-   ========================================================= */
 const ELEMENTOS = [
-  { id: "rol", etiqueta: 'Rol ("actúa como…")', obligatorio: true,
-    patron: /\b(act[uú]a|asume|eres un|eres una|rol de|como (experto|especialista|profesor|científico|periodista|abogado|médico|escritor))\b/i,
-    pista: "Ej: 'Actúa como un periodista científico…'" },
+  { id: "rol", etiqueta: "Rol (actúa como)", obligatorio: true,
+    patron: /\b(act[uú]a|asume|eres un|eres una|rol de|como (experto|especialista|profesor|científico|periodista|abogado|médico|escritor))\b/i },
   { id: "contexto", etiqueta: "Contexto (situación y datos)", obligatorio: true,
-    patron: /\b(contexto|situaci[oó]n|dirigido a|para (estudiantes|el colegio|la escuela|mi clase|un p[uú]blico)|tema|trata de|acerca de)\b/i,
-    pista: "Ej: 'El contexto es una campaña para el colegio…'" },
-  { id: "restricciones", etiqueta: "Restricciones (qué NO / límites)", obligatorio: true,
-    patron: /\b(no (incluyas|uses|hables|menciones|agregues)|sin (clich[eé]s|tecnicismos)|evita|evitar|m[aá]ximo|m[aá]x|m[ií]nimo|al menos|menos de|l[ií]mite|limita|solo|solamente|prohibido|debe tener)\b/i,
-    pista: "Ej: 'No uses clichés y no pases de 200 palabras.'" },
+    patron: /\b(contexto|situaci[oó]n|dirigido a|para (estudiantes|el colegio|la escuela|mi clase|un p[uú]blico)|tema|trata de|acerca de)\b/i },
+  { id: "restricciones", etiqueta: "Restricciones (qué no incluir)", obligatorio: true,
+    patron: /\b(no (incluyas|uses|hables|menciones|agregues)|sin (clich[eé]s|tecnicismos)|evita|evitar|m[aá]ximo|m[aá]x|m[ií]nimo|al menos|menos de|l[ií]mite|limita|solo|solamente|prohibido|debe tener)\b/i },
   { id: "audiencia", etiqueta: "Audiencia o lector", obligatorio: false,
-    patron: /\b(estudiantes|principiantes|adolescentes|ni[ñn]os|p[uú]blico|lector|dirigido a|audiencia)\b/i,
-    pista: "Ej: 'Dirigido a estudiantes de bachillerato.'" },
+    patron: /\b(estudiantes|principiantes|adolescentes|ni[ñn]os|p[uú]blico|lector|dirigido a|audiencia)\b/i },
   { id: "formato", etiqueta: "Formato de salida", obligatorio: false,
-    patron: /\b(formato|en (una )?(tabla|lista|vi[ñn]etas|p[aá]rrafos|esquema|json|markdown)|lista numerada|puntos|palabras)\b/i,
-    pista: "Ej: 'Devuélvelo en una tabla de 2 columnas.'" },
+    patron: /\b(formato|en (una )?(tabla|lista|vi[ñn]etas|p[aá]rrafos|esquema|json|markdown)|lista numerada|puntos|palabras)\b/i },
   { id: "ejemplo", etiqueta: "Pedir un ejemplo", obligatorio: false,
-    patron: /\b(ejemplo|ejemplos|por ejemplo|incluye un caso|muestra un)\b/i,
-    pista: "Ej: 'Incluye un ejemplo aplicado.'" },
+    patron: /\b(ejemplo|ejemplos|por ejemplo|incluye un caso|muestra un)\b/i },
   { id: "tono", etiqueta: "Tono del texto", obligatorio: false,
-    patron: /\b(tono|formal|informal|amigable|cercano|profesional|divertido|persuasivo|serio|motivador)\b/i,
-    pista: "Ej: 'Usa un tono cercano y motivador.'" },
+    patron: /\b(tono|formal|informal|amigable|cercano|profesional|divertido|persuasivo|serio|motivador)\b/i },
   { id: "pasos", etiqueta: "Estructura paso a paso", obligatorio: false,
-    patron: /\b(paso a paso|en pasos|secuencia|primero|despu[eé]s|luego|finalmente)\b/i,
-    pista: "Ej: 'Explícalo paso a paso.'" }
+    patron: /\b(paso a paso|en pasos|secuencia|primero|despu[eé]s|luego|finalmente)\b/i }
 ];
 
 const VERBOS = /\b(escribe|redacta|crea|genera|dise[ñn]a|explica|resume|compara|analiza|propone|inventa|elabora|convence|argumenta)\b/i;
 
 const MIN_TEORIA = 2;
 
-/* =========================================================
-   4) CONTROL DEL INTENTO ÚNICO
-   ========================================================= */
 const CLAVE = "ia_sem2_intento";
 const CODIGO_DOCENTE = "PROFE2026";
 
@@ -336,19 +276,13 @@ function guardarIntento(obj) { try { localStorage.setItem(CLAVE, JSON.stringify(
 function leerIntento() { try { const d = localStorage.getItem(CLAVE); return d ? JSON.parse(d) : null; } catch (e) { return null; } }
 function borrarIntento() { try { localStorage.removeItem(CLAVE); } catch (e) {} }
 
-/* =========================================================
-   5) ESTADO
-   ========================================================= */
 let registro = { nombre: "", equipo: "", integrantes: [] };
-let respuestasTeoria = {};       // índice → opción elegida
+let respuestasTeoria = {};
 let teoriaCorrectas = 0;
 let faseA_Aprobada = false;
 let escenarioActual = null;
 let finalizado = false;
 
-/* =========================================================
-   6) ARRANQUE
-   ========================================================= */
 function init() {
   const intento = leerIntento();
   if (intento) {
@@ -371,29 +305,23 @@ function mostrarBloqueado(intento) {
   window.__intento = intento;
 }
 
-/* =========================================================
-   7) REGISTRO → COMENZAR
-   ========================================================= */
 function comenzar() {
   const nombre = document.getElementById("nombre").value.trim();
   const equipo = document.getElementById("equipo").value.trim();
   const integrantes = [...document.querySelectorAll(".integrante")].map(i => i.value.trim());
   const error = document.getElementById("error-registro");
 
-  if (!nombre || !equipo) { error.textContent = "⚠️ Escribe tu nombre y el equipo."; return; }
-  if (integrantes.filter(Boolean).length < 2) { error.textContent = "⚠️ Registra al menos 2 integrantes."; return; }
+  if (!nombre || !equipo) { error.textContent = "Escribe tu nombre y el equipo."; return; }
+  if (integrantes.filter(Boolean).length < 2) { error.textContent = "Registra al menos 2 integrantes."; return; }
   error.textContent = "";
   registro = { nombre, equipo, integrantes };
 
   document.getElementById("pantalla-registro").classList.add("oculto");
   document.getElementById("fase-a").classList.remove("oculto");
   document.getElementById("info-equipo").innerHTML =
-    `👤 <b>${nombre}</b> · 🏷️ ${equipo} · 👥 ${integrantes.filter(Boolean).join(", ")}`;
+    `<b>${nombre}</b> · ${equipo} · ${integrantes.filter(Boolean).join(", ")}`;
 }
 
-/* =========================================================
-   8) FASE A — render y calificación (se puede reintentar)
-   ========================================================= */
 const contTeoria = document.getElementById("lista-teoria");
 TEORIA.forEach((q, i) => {
   const div = document.createElement("div");
@@ -427,15 +355,15 @@ function calificarFaseA() {
     else if (elegida !== -1) radios[elegida].closest("label").classList.add("error");
   });
 
-  if (respondidas < TEORIA.length) { mostrarMensajeA("⚠️ Faltan preguntas por responder.", false); return; }
+  if (respondidas < TEORIA.length) { mostrarMensajeA("Faltan preguntas por responder.", false); return; }
   teoriaCorrectas = correctas;
   if (correctas >= MIN_TEORIA) {
     faseA_Aprobada = true;
-    mostrarMensajeA(`🏆 ¡Aprobaste la teoría con ${correctas}/${TEORIA.length}! Fase B desbloqueada.`, true);
+    mostrarMensajeA(`Aprobaste la teoría con ${correctas}/${TEORIA.length}. Fase B desbloqueada.`, true);
     document.getElementById("fase-b").classList.remove("oculto");
     document.getElementById("fase-b").scrollIntoView({ behavior: "smooth" });
   } else {
-    mostrarMensajeA(`📚 Obtuviste ${correctas}/${TEORIA.length}. Necesitas ${MIN_TEORIA}. Repasa y vuelve a intentarlo (esto aún no consume tu intento).`, false);
+    mostrarMensajeA(`Obtuviste ${correctas}/${TEORIA.length} y necesitas ${MIN_TEORIA}. Repasa y vuelve a intentarlo (esto aún no consume tu intento).`, false);
   }
 }
 
@@ -453,9 +381,6 @@ function reiniciarFaseA() {
   document.getElementById("mensaje-fase-a").textContent = "";
 }
 
-/* =========================================================
-   9) FASE B — escenario aleatorio + checklist en vivo
-   ========================================================= */
 function asignarEscenario() {
   const antes = escenarioActual;
   do {
@@ -506,9 +431,8 @@ function actualizarChecklist() {
   ELEMENTOS.forEach(el => {
     const li = document.createElement("li");
     li.className = (el.obligatorio ? "req " : "av ") + (r.detectados[el.id] ? "ok" : "");
-    li.innerHTML = `<span>${r.detectados[el.id] ? "✅" : "⬜"} ${el.etiqueta}
-      <span class="pista">${el.pista}</span></span>
-      <span>${el.obligatorio ? "obligatorio" : "extra"}</span>`;
+    li.innerHTML = `<span>${r.detectados[el.id] ? "✓" : "○"} ${el.etiqueta}</span>` +
+                   `<span>${el.obligatorio ? "obligatorio" : "extra"}</span>`;
     ul.appendChild(li);
   });
 
@@ -520,17 +444,6 @@ function actualizarChecklist() {
     (faseA_Aprobada && escenarioActual && r.longitud >= 40) ? "none" : "inline";
 }
 
-function insertar(texto) {
-  if (finalizado) return;
-  const ta = document.getElementById("prompt");
-  ta.value += (ta.value && !ta.value.endsWith(" ") ? " " : "") + texto;
-  ta.focus();
-  actualizarChecklist();
-}
-
-/* =========================================================
-   10) FASE C — nota combinada, GUARDADO ÚNICO y reporte
-   ========================================================= */
 function calcularFinal() {
   if (finalizado) return;
   const texto = document.getElementById("prompt").value;
@@ -538,7 +451,6 @@ function calcularFinal() {
   const teoriaScore = (teoriaCorrectas / TEORIA.length) * 10;
   const nota100 = Math.round((teoriaScore * 0.35 + r.promptScore * 0.65) * 10);
 
-  // 🔒 Se guarda el intento: a partir de aquí no hay reintento.
   const intento = {
     nombre: registro.nombre,
     equipo: registro.equipo,
@@ -562,7 +474,6 @@ function calcularFinal() {
   window.__intento = intento;
   finalizado = true;
 
-  // Bloqueamos las interacciones restantes.
   document.querySelectorAll('#fase-a input, #fase-b textarea, #fase-b button').forEach(el => {
     if (el.id !== "btn-final") el.disabled = true;
   });
@@ -575,24 +486,20 @@ function calcularFinal() {
 
   const aprobado = nota100 >= 60;
   box.innerHTML = `
-    <p>${aprobado ? "🎉 ¡Reto superado!" : "🔎 Casi… pero el intento quedó registrado."}</p>
+    <p>${aprobado ? "Reto superado." : "Casi, pero el intento quedó registrado."}</p>
     <div class="nota">${nota100}/100</div>
     <ul class="desglose">
-      <li>📘 Fase A — Teoría: <b>${teoriaScore.toFixed(1)}/10</b> (peso 35 %) → ${teoriaCorrectas}/${TEORIA.length} correctas</li>
-      <li>✍️ Fase B — Prompt: <b>${r.promptScore.toFixed(1)}/10</b> (peso 65 %)</li>
-      <li>&nbsp;&nbsp;&nbsp;• Longitud útil: ${r.longitud} caracteres ${r.longitud >= 200 ? "✅" : "⚠️"}</li>
-      <li>&nbsp;&nbsp;&nbsp;• Verbo de acción: ${r.verbo ? "✅" : "⚠️"}</li>
+      <li>Fase A — Teoría: <b>${teoriaScore.toFixed(1)}/10</b> (peso 35 %) → ${teoriaCorrectas}/${TEORIA.length} correctas</li>
+      <li>Fase B — Prompt: <b>${r.promptScore.toFixed(1)}/10</b> (peso 65 %)</li>
+      <li>&nbsp;&nbsp;&nbsp;• Longitud: ${r.longitud} caracteres</li>
+      <li>&nbsp;&nbsp;&nbsp;• Verbo de acción: ${r.verbo ? "sí" : "no"}</li>
       <li>&nbsp;&nbsp;&nbsp;• Extras: ${r.avanzados}/${r.avTotal}</li>
     </ul>
-    <p class="aviso">📄 Descarga el reporte en PDF (aciertos y errores). En el diálogo elige “Guardar como PDF”.</p>
-    <button class="btn" onclick="descargarPDF()">📄 Descargar reporte en PDF</button>
+    <button class="btn" onclick="descargarPDF()">Descargar reporte en PDF</button>
   `;
   seccion.scrollIntoView({ behavior: "smooth" });
 }
 
-/* =========================================================
-   11) REPORTE PDF
-   ========================================================= */
 function construirReporte(intento) {
   const integrantes = (intento.integrantes || []).filter(Boolean).join(", ") || "(sin registrar)";
 
@@ -606,14 +513,14 @@ function construirReporte(intento) {
         <div><b>${i + 1}. ${q.pregunta}</b></div>
         <div>Tu respuesta: <b>${elegidoTexto}</b><br>
           Correcta: <b>${q.opciones[q.correcta]}</b> ·
-          <span class="${bien ? "ok" : "mal"}">${bien ? "✅ ACIERTO" : "❌ ERROR"}</span></div>
+          <span class="${bien ? "ok" : "mal"}">${bien ? "Acierto" : "Error"}</span></div>
       </div>`;
   });
 
   const esc = intento.escenario || { titulo: "(sin escenario)", reto: "" };
 
   return `
-    <h1>Reporte de la Semana 2 — “IA Generativa: Prompt Battle”</h1>
+    <h1>Reporte de la Semana 2 — Prompt Battle</h1>
     <p>
       <b>Entrega:</b> ${intento.nombre}<br>
       <b>Equipo:</b> ${intento.equipo}<br>
@@ -623,7 +530,7 @@ function construirReporte(intento) {
       (Teoría ${intento.teoriaScore.toFixed(1)}/10 · Prompt ${intento.promptScore.toFixed(1)}/10)
     </p>
 
-    <h2>Fase A — Evaluación teórica (aciertos y errores)</h2>
+    <h2>Fase A — Evaluación teórica</h2>
     ${filasTeoria}
 
     <h2>Fase B — Escenario sorteado</h2>
@@ -638,7 +545,7 @@ function construirReporte(intento) {
       Verbo de acción: ${intento.verbo ? "sí" : "no"}
     </p>
 
-    <h2>Firma de conformidad</h2>
+    <h2>Conformidad</h2>
     <p>Nombre y firma del estudiante: ______________________________________</p>
     <p style="margin-top:24px">Nombre y firma del docente: __________________________________________</p>
   `;
@@ -651,9 +558,6 @@ function descargarPDF() {
   window.print();
 }
 
-/* =========================================================
-   12) REINICIO DEL DOCENTE
-   ========================================================= */
 function reiniciarDocente() {
   const codigo = prompt("Código del docente para reiniciar el intento:");
   if (codigo === CODIGO_DOCENTE) { borrarIntento(); location.reload(); }
