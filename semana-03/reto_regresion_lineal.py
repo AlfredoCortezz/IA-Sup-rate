@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 # %% [markdown]
-# # 📈 Semana 3 — Regresión Lineal: adivina tu calificación
+# # Semana 3 — Regresión Lineal: adivina tu calificación
 #
-# > 📍 **¿Atascado?** Pistas: `tools/pistas/semana-03.md` · Autochequeo: `python autochequeo.py`
+# > **¿Atascado?** Pistas: `tools/pistas/semana-03.md` · Autochequeo: `python autochequeo.py`
 #
 # **¿Qué vas a aprender hoy?**
 # A pedirle a una computadora que **prediga un número**. Por ejemplo: "si
 # estudio 6 horas, ¿cuánto saco?".
 #
-# ## La analogía 🎯
+# ## La analogía
 # Imagina que pones 20 puntos en una gráfica (horas de estudio vs. calificación)
 # y luego pasas una **regla** por en medio, lo más pegada posible a los puntos.
 # Esa recta es tu "modelo": sirve para leer cuánto sacarías con CUALQUIER
@@ -26,7 +26,7 @@
 # 4. Entrenar el modelo y evaluarlo.
 # 5. Interpretar la pendiente como personas de verdad.
 #
-# > 🚩 Cada bloque con **TODO** es tuyo. Las demás celdas ya están listas.
+# > Cada bloque con **TODO** es tuyo. Las demás celdas ya están listas.
 
 # %%
 # ==============================================================
@@ -55,7 +55,7 @@ np.random.seed(SEMILLA)
 
 def todo(mensaje):
     """Marca un paso pendiente. Si ves esto, ¡te toca programar a ti!"""
-    raise NotImplementedError(f"🚩 TODO pendiente: {mensaje}")
+    raise NotImplementedError(f"TODO pendiente: {mensaje}")
 
 
 # %% [markdown]
@@ -87,7 +87,7 @@ print("\n¿Cuántos datos tenemos y qué promedio hay?")
 print(df.describe())
 
 # %% [markdown]
-# ## 3) Dibujar los datos (siempre mira antes de modelar) 👀
+# ## 3) Dibujar los datos (siempre mira antes de modelar)
 # Un buen científico de datos SIEMPRE grafica primero. Si los puntos forman una
 # línea, la regresión lineal tiene sentido. Si forman una nube, no.
 
@@ -101,7 +101,7 @@ plt.grid(alpha=0.3)
 plt.show()
 
 # %% [markdown]
-# ## 4) Separar en X (pistas) y y (respuesta) 🚩 TODO
+# ## 4) Separar en X (pistas) y y (respuesta) — TODO
 #
 # - **X** = la "pista" que le damos al modelo (las horas de estudio).
 # - **y** = lo que queremos predecir (la calificación).
@@ -110,12 +110,12 @@ plt.show()
 # seleccionamos columnas con doble corchete: `df[["horas_estudio"]]`.
 
 # %%
-# 🚩 TODO: crea X (la columna horas_estudio como tabla) y y (la calificación).
+# TODO: crea X (la columna horas_estudio como tabla) y y (la calificación).
 # Reemplaza la siguiente línea por tu código:
 todo("define X = df[['horas_estudio']] y y = df['calificacion']")
 
 # %% [markdown]
-# ## 5) Entrenar con una parte y evaluar con OTRA 🚩 TODO
+# ## 5) Entrenar con una parte y evaluar con OTRA — TODO
 #
 # Esto es **clave**: si dejamos al modelo ver todas las respuestas, podría
 # "memorizarlas" y lucir perfecto. Entonces apartamos un 20 % para probar.
@@ -124,31 +124,31 @@ todo("define X = df[['horas_estudio']] y y = df['calificacion']")
 # - `random_state=SEMILLA` → que el reparto sea siempre igual.
 
 # %%
-# 🚩 TODO: usa train_test_split para crear X_train, X_test, y_train, y_test.
+# TODO: usa train_test_split para crear X_train, X_test, y_train, y_test.
 todo("X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=SEMILLA)")
 
 # %% [markdown]
-# ## 6) Crear y entrenar el modelo 🚩 TODO
+# ## 6) Crear y entrenar el modelo — TODO
 #
 # Entrenar (`fit`) es el momento en que la máquina ajusta la recta. Sí, es una
 # sola línea. La magia está en entender QUÉ hace.
 
 # %%
-# 🚩 TODO: crea el modelo y entrénalo con los datos de entrenamiento.
+# TODO: crea el modelo y entrénalo con los datos de entrenamiento.
 todo("modelo = LinearRegression(); modelo.fit(X_train, y_train)")
 
 # %% [markdown]
-# ## 7) Predecir y medir el error 🚩 TODO
+# ## 7) Predecir y medir el error — TODO
 #
 # - **MAE** = error promedio en puntos (mientras más bajo, mejor).
 # - **R²** = qué tanto explica el modelo (1.0 = perfecto, 0 = no sirve).
 
 # %%
-# 🚩 TODO: predice con X_test y calcula mean_absolute_error y r2_score.
+# TODO: predice con X_test y calcula mean_absolute_error y r2_score.
 todo("y_pred = modelo.predict(X_test) y luego calcula el MAE y el R²")
 
 # %% [markdown]
-# ## 8) Interpretar el modelo (lo más importante) 🤔
+# ## 8) Interpretar el modelo (lo más importante)
 # Un modelo sin interpretación es solo números. Aquí la recta tiene un
 # significado real:
 #
@@ -156,7 +156,7 @@ todo("y_pred = modelo.predict(X_test) y luego calcula el MAE y el R²")
 # - `modelo.intercept_` → la nota base con 0 horas.
 
 # %%
-# 🚩 TODO: imprime el coeficiente y el intercepto, y explica con tus palabras.
+# TODO: imprime el coeficiente y el intercepto, y explica con tus palabras.
 # Pregunta guía para tu equipo: ¿la pendiente es realista? ¿Cuánto sacaría
 # alguien que estudia 8 horas?
 todo("imprime modelo.coef_ y modelo.intercept_ con una frase que los explique")
@@ -166,23 +166,23 @@ todo("imprime modelo.coef_ y modelo.intercept_ con una frase que los explique")
 # Si tu modelo es bueno, la línea debe pasar "por en medio" de la nube.
 
 # %%
-# 🚩 TODO: dibuja de nuevo el scatter y encima la recta del modelo.
+# TODO: dibuja de nuevo el scatter y encima la recta del modelo.
 # Ayuda: usa np.linspace(0, 10, 100) para crear horas de 0 a 10 y predice sobre
 # ellas con modelo.predict(...). Pásale una tabla 2D.
 todo("dibuja el scatter y superpón la recta de predicción")
 
 # %% [markdown]
-# ## 10) 🔥 Reto extra (equipo): segunda característica
+# ## 10) Reto extra (equipo): segunda característica
 #
 # Agrega las `horas_sueno` al dataset y úsalas como segunda feature. ¿Mejora el
 # R²? ¿Qué pasa si dormir mucho correlaciona con no estudiar? **Discutan.**
 
 # %%
-# 🚩 TODO (opcional): crea horas_sueno, agrégalas a X y compara el nuevo R².
-print("Aquí va el reto extra ✨")
+# TODO (opcional): crea horas_sueno, agrégalas a X y compara el nuevo R².
+print("Aquí va el reto extra: agrega horas_sueno como segunda feature.")
 
 # %% [markdown]
-# ## ✅ Autochequeo del equipo
+# ## Autochequeo del equipo
 # Antes de entregar, respondan en su `ENTREGA.md`:
 #
 # - [ ] ¿Qué significa el intercepto en ESTE problema?
@@ -192,4 +192,4 @@ print("Aquí va el reto extra ✨")
 # - [ ] ¿La regresión lineal serviría para predecir el precio de una casa? ¿Por qué?
 #
 # Cuando las 5 estén respondidas con tus palabras: **reto de la Semana 3
-# superado** 🎉
+# superado**.
