@@ -1,4 +1,4 @@
-# 📖 Vocabulario de la IA — el glosario en cristiano
+# Vocabulario de la IA — el glosario en cristiano
 
 Cuando leas una palabra rara, búscala aquí. Está ordenado por las semanas.
 
@@ -50,5 +50,5 @@ Cuando leas una palabra rara, búscala aquí. Está ordenado por las semanas.
 | **Backend** | Lo que vive en el servidor: base de datos, lógica, APIs. |
 | **Deploy** | Subir tu app a internet para que el mundo la use. |
 
-> 💡 ¿Encontraste una palabra que no está aquí? Búscala, anótala y pídeles a tus
+> ¿Encontraste una palabra que no está aquí? Búscala, anótala y pídeles a tus
 > compas que llenen su propia fila en la próxima presentación.

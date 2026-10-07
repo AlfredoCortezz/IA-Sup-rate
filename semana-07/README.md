@@ -1,47 +1,47 @@
-# 🧠 Semana 7 — Redes Neuronales: leer dígitos (MNIST)
+# Semana 7 — Redes Neuronales: leer dígitos (MNIST)
 
 > **Misión:** construir y entrenar tu primera **red neuronal**, y ponerla a leer
-> números escritos a mano. El clásico "hola mundo" de la IA. 🔢
+> números escritos a mano. El clásico "hola mundo" de la IA.
 
 ---
 
-## 🎯 ¿Qué es una red neuronal (versión simple)?
+## ¿Qué es una red neuronal (versión simple)?
 
 Un equipo de **neuronas diminutas** organizadas en capas. Cada pixel entra,
 cada neurona multiplica por **pesos** y vota, y la última capa elige el dígito
 más probable. Entrenar = ajustar esos pesos para acertar.
 
 ```
-pixeles → [capa oculta de neuronas] → "es un 7" (81 %)
+pixeles -> [capa oculta de neuronas] -> "es un 7" (81 %)
 ```
 
-> ℹ️ Usamos `MLPClassifier` de scikit-learn **para entender el concepto** sin
+> Usamos `MLPClassifier` de scikit-learn **para entender el concepto** sin
 > pelearse con frameworks pesados. En producción se usa TensorFlow/PyTorch, pero
 > la idea (capas + pesos + votos) es la misma.
 
-## 🧰 Archivos
+## Archivos
 
 | Archivo | Para qué |
 |---------|----------|
 | `reto_mnist.py` | El reto como script |
 | `reto_mnist.ipynb` | El mismo reto como notebook (recomendado: Colab) |
 
-> ⚠️ `fetch_openml("mnist_784")` **descarga internet** la primera vez (queda en
+> `fetch_openml("mnist_784")` **descarga internet** la primera vez (queda en
 > caché). Si falla, el código tiene **plan B**: usa `load_digits` (8×8), que ya
 > viene instalado. Ideal para Google Colab.
 
-## 🚩 Los pasos
+## Los pasos
 
 1. Cargar MNIST con plan B (ya está).
 2. Ver los dígitos como imágenes (ya está).
-3. **Normalizar** los pixeles a 0–1 ← tú.
-4. **Separa train/test con `stratify`** ← tú.
-5. **Definir la red** (`MLPClassifier`, capas ocultas) ← tú.
-6. **Entrenar** ← tú.
-7. **Evaluar**: accuracy + matriz de confusión ← tú.
-8. 🔥 Reto: probar arquitecturas `(32,)`, `(64,)`, `(128, 64)`, `(256,128,64)`.
+3. **Normalizar** los pixeles a 0–1  (tú).
+4. **Separa train/test con `stratify`**  (tú).
+5. **Definir la red** (`MLPClassifier`, capas ocultas)  (tú).
+6. **Entrenar**  (tú).
+7. **Evaluar**: accuracy + matriz de confusión  (tú).
+8. Reto: probar arquitecturas `(32,)`, `(64,)`, `(128, 64)`, `(256,128,64)`.
 
-## 📦 Entregables
+## Entregables
 
 1. `semana-07/ENTREGA.md`:
    - Equipo e integrantes.
@@ -75,7 +75,7 @@ pixeles → [capa oculta de neuronas] → "es un 7" (81 %)
 1. Cada imagen tiene __ entradas porque...
 ```
 
-## 📊 Rúbrica (20 puntos)
+## Rúbrica (20 puntos)
 
 | Criterio | Puntos |
 |----------|--------|
@@ -84,7 +84,7 @@ pixeles → [capa oculta de neuronas] → "es un 7" (81 %)
 | Evaluación con accuracy + matriz de confusión | 5 |
 | Experimentación de arquitecturas con conclusión | 5 |
 
-## ✅ Autochequeo
+## Autochequeo
 
 - [ ] Sé cuántos valores de entrada tiene cada imagen y por qué.
 - [ ] Puedo explicar qué hace una neurona (peso × entrada + voto).
@@ -92,22 +92,22 @@ pixeles → [capa oculta de neuronas] → "es un 7" (81 %)
 - [ ] Comparé al menos 3 arquitecturas y saqué conclusiones.
 - [ ] `ENTREGA.md` subido en `equipo-N-semana-07`.
 
-> 🧪 **Reto relámpago:** ¿qué dígitos se confunden más entre sí (4/9, 3/8, 1/7)?
+> **Reto relámpago:** ¿qué dígitos se confunden más entre sí (4/9, 3/8, 1/7)?
 > Dibújalos lado a lado y verás que ¡a ti también te cuestan!
 
 ---
 
-## 🎬 Videos que te ayudan
+## Videos que te ayudan
 
 - [3Blue1Brown — "But what is a neural network?"](https://www.youtube.com/watch?v=aircAruvnKk): la neurona, los pesos y el voto, visualizado.
 
-## 🤖 Pídele ayuda al tutor de IA
+## Pídele ayuda al tutor de IA
 
 El tutor responde *"¿por qué 784 entradas?"*, *"¿qué es hidden_layer_sizes?"*, etc.
 
-## 📚 Apoyo si te atascas
+## Apoyo si te atascas
 
-- 📍 `tools/pistas/semana-07.md` — pistas por TODO (3 niveles).
-- ✅ `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
-- 🐍 `tools/cheatsheets/02-python-ml.md` — el molde de todo modelo.
-- 🚑 `tools/06-errores-comunes.md` — errores de instalación/importación.
+- `tools/pistas/semana-07.md` — pistas por TODO (3 niveles).
+- `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
+- `tools/cheatsheets/02-python-ml.md` — el molde de todo modelo.
+- `tools/06-errores-comunes.md` — errores de instalación/importación.

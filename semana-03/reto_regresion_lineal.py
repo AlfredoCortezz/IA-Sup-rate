@@ -101,7 +101,7 @@ plt.grid(alpha=0.3)
 plt.show()
 
 # %% [markdown]
-# ## 4) Separar en X (pistas) y y (respuesta) — TODO
+# ## 4) Separar en X (pistas) y y (respuesta) (TODO)
 #
 # - **X** = la "pista" que le damos al modelo (las horas de estudio).
 # - **y** = lo que queremos predecir (la calificación).
@@ -115,20 +115,20 @@ plt.show()
 todo("define X = df[['horas_estudio']] y y = df['calificacion']")
 
 # %% [markdown]
-# ## 5) Entrenar con una parte y evaluar con OTRA — TODO
+# ## 5) Entrenar con una parte y evaluar con OTRA (TODO)
 #
 # Esto es **clave**: si dejamos al modelo ver todas las respuestas, podría
 # "memorizarlas" y lucir perfecto. Entonces apartamos un 20 % para probar.
 #
-# - `test_size=0.2` → 20 % para prueba, 80 % para entrenar.
-# - `random_state=SEMILLA` → que el reparto sea siempre igual.
+# - `test_size=0.2`: 20 % para prueba, 80 % para entrenar.
+# - `random_state=SEMILLA`: que el reparto sea siempre igual.
 
 # %%
 # TODO: usa train_test_split para crear X_train, X_test, y_train, y_test.
 todo("X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=SEMILLA)")
 
 # %% [markdown]
-# ## 6) Crear y entrenar el modelo — TODO
+# ## 6) Crear y entrenar el modelo (TODO)
 #
 # Entrenar (`fit`) es el momento en que la máquina ajusta la recta. Sí, es una
 # sola línea. La magia está en entender QUÉ hace.
@@ -138,7 +138,7 @@ todo("X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, r
 todo("modelo = LinearRegression(); modelo.fit(X_train, y_train)")
 
 # %% [markdown]
-# ## 7) Predecir y medir el error — TODO
+# ## 7) Predecir y medir el error (TODO)
 #
 # - **MAE** = error promedio en puntos (mientras más bajo, mejor).
 # - **R²** = qué tanto explica el modelo (1.0 = perfecto, 0 = no sirve).
@@ -152,8 +152,8 @@ todo("y_pred = modelo.predict(X_test) y luego calcula el MAE y el R²")
 # Un modelo sin interpretación es solo números. Aquí la recta tiene un
 # significado real:
 #
-# - `modelo.coef_` → cuántos puntos sube la nota por cada hora extra.
-# - `modelo.intercept_` → la nota base con 0 horas.
+# - `modelo.coef_`: cuántos puntos sube la nota por cada hora extra.
+# - `modelo.intercept_`: la nota base con 0 horas.
 
 # %%
 # TODO: imprime el coeficiente y el intercepto, y explica con tus palabras.

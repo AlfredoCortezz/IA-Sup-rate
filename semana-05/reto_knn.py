@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
 # %% [markdown]
-# # 🎬 Semana 5 — K-Nearest Neighbors (KNN): el "club de los parecidos"
+# # Semana 5 — K-Nearest Neighbors (KNN): el "club de los parecidos"
 #
-# > 📍 **¿Atascado?** Pistas: `tools/pistas/semana-05.md` · Autochequeo: `python autochequeo.py`
+# > **¿Atascado?** Pistas: `tools/pistas/semana-05.md` · Autochequeo: `python autochequeo.py`
 #
 # **¿Qué vas a aprender hoy?**
 # A recomendar cosas usando una idea sencillísima: **"dime con quién andas y te
 # diré quién eres"**. Si dos películas se parecen mucho, probablemente te gusten
 # las dos.
 #
-# ## La analogía 🎯
+# ## La analogía
 # KNN = "los **K vecinos más cercanos**". Para adivinar algo de una película
 # nueva, miro las **K películas más parecidas** y me fijo en lo que opinan.
 #
-# - Si quiero adivinar el rating → promedio el rating de sus vecinas.
-# - Si quiero recomendarla → devuelvo las vecinas más cercanas.
+# - Si quiero adivinar el rating: promedio el rating de sus vecinas.
+# - Si quiero recomendarla: devuelvo las vecinas más cercanas.
 #
-# ## ⚠️ El detalle que lo cambia todo: las ESCALAS
+# ## El detalle que lo cambia todo: las ESCALAS
 # Imaginemos que comparamos `year` (de 1990 a 2020) contra `accion` (de 0 a 10).
 # ¡El año tiene números MUCHÍSIMO más grandes! Entonces "distancia" se mediría
 # casi solo por el año, y las demás características no contarían.
@@ -48,11 +48,11 @@ np.random.seed(SEMILLA)
 
 
 def todo(mensaje):
-    raise NotImplementedError(f"🚩 TODO pendiente: {mensaje}")
+    raise NotImplementedError(f"TODO pendiente: {mensaje}")
 
 
 # %% [markdown]
-# ## 2) Nuestro catálogo de películas 🍿
+# ## 2) Nuestro catálogo de películas
 # Cada película se describe con "qué tanto" tiene de cada género (0 a 10) y su
 # rating (0 a 10). Tú puedes añadir tus películas favoritas al final.
 
@@ -87,7 +87,7 @@ print(catalogo)
 print("\nNuestro catálogo tiene", len(catalogo), "películas.")
 
 # %% [markdown]
-# ## 3) Elegir las características 🚩 TODO
+# ## 3) Elegir las características (TODO)
 #
 # Antes de medir distancias debemos decidir **qué describe** a una película.
 # Usaremos: `year`, `accion`, `comedia`, `romance`.
@@ -96,11 +96,11 @@ print("\nNuestro catálogo tiene", len(catalogo), "películas.")
 # predecir en el paso 5).
 
 # %%
-# 🚩 TODO: crea la lista CARACTERISTICAS y una tabla X con esas columnas.
+# TODO: crea la lista CARACTERISTICAS y una tabla X con esas columnas.
 todo("CARACTERISTICAS = ['year','accion','comedia','romance']; X = catalogo[CARACTERISTICAS]")
 
 # %% [markdown]
-# ## 4) Escalar 🚩 TODO
+# ## 4) Escalar (TODO)
 #
 # Recuerda el problema de las escalas. Aplicamos `StandardScaler` que convierte
 # cada columna a "cuántas desviaciones estándar" del promedio. Todas quedan
@@ -111,11 +111,11 @@ todo("CARACTERISTICAS = ['year','accion','comedia','romance']; X = catalogo[CARA
 # escala aprendida).
 
 # %%
-# 🚩 TODO: crea el escalador, aprende y transforma X en X_escalado.
+# TODO: crea el escalador, aprende y transforma X en X_escalado.
 todo("escalador = StandardScaler(); X_escalado = escalador.fit_transform(X)")
 
 # %% [markdown]
-# ## 5) "Dime tus 3 películas vecinas" 🚩 TODO
+# ## 5) "Dime tus 3 películas vecinas" (TODO)
 #
 # Con `NearestNeighbors(n_neighbors=3)` y `.fit(X_escalado)` podemos preguntar
 # por las más cercanas a cualquier película.
@@ -124,36 +124,36 @@ todo("escalador = StandardScaler(); X_escalado = escalador.fit_transform(X)")
 # `.iloc[índice]` para sacar el título.
 
 # %%
-# 🚩 TODO: entrena NearestNeighbors con k=3 y encuentra las vecinas de "Matrix".
+# TODO: entrena NearestNeighbors con k=3 y encuentra las vecinas de "Matrix".
 todo("vecinos = NearestNeighbors(n_neighbors=3).fit(X_escalado); imprime las 3 más parecidas a Matrix")
 
 # %% [markdown]
-# ## 6) Predecir el rating de una película no vista 🚩 TODO
+# ## 6) Predecir el rating de una película no vista (TODO)
 #
 # Ahora usamos `KNeighborsRegressor`: para predecir el rating de una película
 # desconocida, promedio el rating de sus películas vecinas.
 #
-# 🚩 Pasos:
+# Pasos:
 # 1. Separa `y = catalogo["rating"]` y haz `train_test_split`.
 # 2. Crea `KNeighborsRegressor(n_neighbors=3)` y entrena con los datos escalados.
 # 3. Predice y mide el `mean_absolute_error`.
 #
-# ⚠️ Recuerda escalar X_train y X_test con el MISMO escalador (fit en train,
+# Recuerda escalar X_train y X_test con el MISMO escalador (fit en train,
 # transform en ambos).
 
 # %%
-# 🚩 TODO: entrena el regresor KNN y reporta su MAE.
+# TODO: entrena el regresor KNN y reporta su MAE.
 todo("prepara X_train/X_test, escala, entrena KNeighborsRegressor y calcula el MAE")
 
 # %% [markdown]
-# ## 7) Nuestra función de recomendación 🚩 TODO
+# ## 7) Nuestra función de recomendación (TODO)
 #
 # Une todo: dada una película del catálogo, devuelve títulos parecidos con su
 # rating, **sin incluirla a ella misma** (¡porque siempre se parecerá a sí misma
 # con distancia 0!).
 
 # %%
-# 🚩 TODO: completa la función recomendar(titulo, k=3).
+# TODO: completa la función recomendar(titulo, k=3).
 def recomendar(titulo, k=3):
     # 1) saca el índice de esa película
     # 2) pide a KNN sus k+1 vecinos (el +1 es porque aparecerá ella misma)
@@ -162,16 +162,16 @@ def recomendar(titulo, k=3):
 
 
 # %% [markdown]
-# ## 8) 🔥 Reto extra
+# ## 8) Reto extra
 # Prueba `k=1`, `k=3` y `k=7`. ¿Cambian las recomendaciones? ¿Cuál se siente
 # "mejor" y por qué? **Aquí no hay una única respuesta correcta**; argumenta.
 
 # %%
-# 🚩 TODO (opcional): prueba distintos valores de k y compara.
-print("Reto extra de KNN ✨")
+# TODO (opcional): prueba distintos valores de k y compara.
+print("Reto extra de KNN")
 
 # %% [markdown]
-# ## ✅ Autochequeo del equipo
+# ## Autochequeo del equipo
 #
 # - [ ] ¿Por qué KNN necesita escalar los datos? Explícalo con el año vs. el género.
 # - [ ] ¿Qué pasa si pongo `k=1`? ¿Y si pongo un `k` enorme?
@@ -179,4 +179,4 @@ print("Reto extra de KNN ✨")
 # - [ ] ¿Por qué no usamos `titulo` como característica?
 # - [ ] ¿Se te ocurre una app real que use este método? ¿Cuál?
 #
-# ¡Reto de la Semana 5 completado! 🎉
+# ¡Reto de la Semana 5 completado!

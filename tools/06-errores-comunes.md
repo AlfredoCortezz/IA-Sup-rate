@@ -1,4 +1,4 @@
-# 🚑 tools/06 — Errores comunes (y cómo salir de ellos)
+# tools/06 — Errores comunes (y cómo salir de ellos)
 
 > **Antes de preguntarle al profe (o a cualquier IA), lee el error.**
 > El 80 % de los errores de este curso caben en esta página. El truco no es
@@ -7,14 +7,14 @@
 
 ---
 
-## 🐍 Errores de Python (lo que va a pasar en las Semanas 3–8)
+## Errores de Python (lo que va a pasar en las Semanas 3–8)
 
 ### 1. `ValueError: Expected 2D array, got 1D array instead`
 **Dónde:** Semana 3, al entrenar o predecir con `LinearRegression`.
 **Por qué:** scikit-learn espera que `X` sea una **tabla 2D** (filas × columnas).
 Si hiciste `X = df["horas_estudio"]` te dio una *serie* (1D).
-**Arreglo:** doble corchete → `X = df[["horas_estudio"]]`.
-📌 Memo: *serie* = 1D, *tabla* = 2D. El modelo quiere tabla.
+**Arreglo:** doble corchete: `X = df[["horas_estudio"]]`.
+Memo: *serie* = 1D, *tabla* = 2D. El modelo quiere tabla.
 
 ### 2. `NameError: name 'pandas' is not defined`
 **Por qué:** usaste `pandas.DataFrame(...)` pero importaste a medias.
@@ -68,7 +68,7 @@ Python 3 (no un Python viejo de Windows).
 
 ---
 
-## 🌐 Errores de git (Semanas 1–10)
+## Errores de git (Semanas 1–10)
 
 ### 11. `fatal: not a git repository`
 **Arreglo:** tienes que estar *dentro* de la carpeta clonada. `cd` hasta el
@@ -95,7 +95,7 @@ echo "<nombre>" >> .gitignore          # y nunca más se sube
 
 ---
 
-## ⚛️ Errores de Next.js / npm (Semanas 9–10)
+## Errores de Next.js / npm (Semanas 9–10)
 
 ### 15. `'npm' is not recognized as an internal or external command`
 **Arreglo:** instala Node.js desde <https://nodejs.org> (versión LTS) y **cierra
@@ -132,7 +132,7 @@ aparezca el error 16 o 17. Súele ser una instalación a medias: borra
 
 ---
 
-## 🧭 Cómo leer cualquier error (rutina de 3 pasos)
+## Cómo leer cualquier error (rutina de 3 pasos)
 
 1. **LEE el mensaje completo** (no solo la última línea). Busca la palabra clave
    de la lista: `NameError`, `ValueError`, `KeyError`, `ModuleNotFoundError`,
@@ -142,10 +142,10 @@ aparezca el error 16 o 17. Súele ser una instalación a medias: borra
    **línea** del problema (p. ej. `File "reto_regresion_lineal.py", line 126`).
    Revisa ESA línea y la anterior.
 
-> 💡 **No borres el error.** Pégalo tal cual en tu pregunta al profe, tutor o
+> **No borres el error.** Pégalo tal cual en tu pregunta al profe, tutor o
 > IA. "Me sale un error en la línea 126" + el texto completo = respuesta en 1 minuto.
 
-## 🧪 El mismo error en forma de reto
+## El mismo error en forma de reto
 
 - [ ] Puedo explicar qué significa `ValueError` con mis palabras.
 - [ ] Sé la diferencia entre *serie* (1D) y *tabla* (2D).

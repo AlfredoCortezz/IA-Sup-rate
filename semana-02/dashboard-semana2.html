@@ -431,7 +431,7 @@ function actualizarChecklist() {
   ELEMENTOS.forEach(el => {
     const li = document.createElement("li");
     li.className = (el.obligatorio ? "req " : "av ") + (r.detectados[el.id] ? "ok" : "");
-    li.innerHTML = `<span>${r.detectados[el.id] ? "✓" : "○"} ${el.etiqueta}</span>` +
+    li.innerHTML = `<span>${r.detectados[el.id] ? "OK " : ""}${el.etiqueta}</span>` +
                    `<span>${el.obligatorio ? "obligatorio" : "extra"}</span>`;
     ul.appendChild(li);
   });
@@ -489,7 +489,7 @@ function calcularFinal() {
     <p>${aprobado ? "Reto superado." : "Casi, pero el intento quedó registrado."}</p>
     <div class="nota">${nota100}/100</div>
     <ul class="desglose">
-      <li>Fase A — Teoría: <b>${teoriaScore.toFixed(1)}/10</b> (peso 35 %) → ${teoriaCorrectas}/${TEORIA.length} correctas</li>
+      <li>Fase A — Teoría: <b>${teoriaScore.toFixed(1)}/10</b> (peso 35 %): ${teoriaCorrectas}/${TEORIA.length} correctas</li>
       <li>Fase B — Prompt: <b>${r.promptScore.toFixed(1)}/10</b> (peso 65 %)</li>
       <li>&nbsp;&nbsp;&nbsp;• Longitud: ${r.longitud} caracteres</li>
       <li>&nbsp;&nbsp;&nbsp;• Verbo de acción: ${r.verbo ? "sí" : "no"}</li>

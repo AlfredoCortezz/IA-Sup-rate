@@ -1,25 +1,25 @@
-# 🌳 Semana 4 — Árbol de Decisión: el Titanic 🚢
+# Semana 4 — Árbol de Decisión: el Titanic
 
 > **Misión:** entrenar un modelo que decida **¿sobreviviría esta persona?**
 > usando un árbol de decisiones, e **interpretar** cómo razona.
 
 ---
 
-## 🎯 ¿Qué es un árbol de decisión?
+## ¿Qué es un árbol de decisión?
 
 Es el juego de las **20 preguntas** convertido en IA. El modelo aprende cuál
 pregunta separa mejor a los sobrevivientes de los que no:
 
 ```
-¿Eres mujer?  ──Sí──►  ¿3ª clase?  ──No──►  SOBREVIVIÓ
-     │                     └──Sí──►  MURIÓ
-     └──No──►  ¿Eres niño?  ──Sí──►  SOBREVIVIÓ
-                    └──No──►  MURIÓ
+¿Eres mujer?  ──Sí──>  ¿3ª clase?  ──No──>  SOBREVIVIÓ
+     │                     └──Sí──>  MURIÓ
+     └──No──>  ¿Eres niño?  ──Sí──>  SOBREVIVIÓ
+                    └──No──>  MURIÓ
 ```
 
 Ventaja enorme: puedes **ver** y **explicar** por qué decidió lo que decidió.
 
-## 🧰 Archivos
+## Archivos
 
 | Archivo | Para qué |
 |---------|----------|
@@ -29,7 +29,7 @@ Ventaja enorme: puedes **ver** y **explicar** por qué decidió lo que decidió.
 > El dataset viene incluido en `seaborn` (`sns.load_dataset("titanic")`), no
 > necesitas descargar nada a mano.
 
-## 🚩 Los pasos (busca los `TODO` en el código)
+## Los pasos (busca los `TODO` en el código)
 
 1. Cargar el dataset (ya está).
 2. Explorar supervivencia por sexo y clase (ya está).
@@ -38,14 +38,14 @@ Ventaja enorme: puedes **ver** y **explicar** por qué decidió lo que decidió.
 5. **Crear el árbol** con `max_depth=3` y entrenarlo.
 6. **Evaluar**: `accuracy_score`, `confusion_matrix`, `classification_report`.
 7. **Dibujar el árbol** con `plot_tree` y guardarlo (`arbol_titanic.png`).
-8. 🔥 Reto: comparar `max_depth` de 1 a 10 y **ver el sobreajuste**.
+8. Reto: comparar `max_depth` de 1 a 10 y **ver el sobreajuste**.
 
-## 📦 Entregables
+## Entregables
 
 1. `semana-04/ENTREGA.md` con equipo, integrantes y roles, más:
    - `accuracy` final y su comparación con el "baseline" (decir siempre "no").
    - La **primera pregunta (raíz)** de tu árbol y una explicación.
-   - Tabla del reto de `max_depth`: profundidad → accuracy train/test.
+   - Tabla del reto de `max_depth`: profundidad vs. accuracy train/test.
    - Respuestas al autochequeo.
 2. La imagen `arbol_titanic.png`.
 3. El `.py` o `.ipynb` completado.
@@ -76,16 +76,16 @@ Ventaja enorme: puedes **ver** y **explicar** por qué decidió lo que decidió.
 1. ...
 ```
 
-## 📊 Rúbrica (20 puntos)
+## Rúbrica (20 puntos)
 
 | Criterio | Puntos |
 |----------|--------|
-| Preprocesamiento correcto (nulos y texto→número) | 5 |
+| Preprocesamiento correcto (nulos y texto a número) | 5 |
 | El modelo entrena y se evalúa bien | 6 |
 | Árbol dibujado e interpretado | 6 |
 | `ENTREGA.md` + reflexión individual | 3 |
 
-## ✅ Autochequeo
+## Autochequeo
 
 - [ ] Sé qué es una "hoja" y la "raíz" del árbol.
 - [ ] Puedo explicar por qué convertimos `sex` a 0/1.
@@ -93,22 +93,22 @@ Ventaja enorme: puedes **ver** y **explicar** por qué decidió lo que decidió.
 - [ ] Mi árbol está guardado como imagen.
 - [ ] `ENTREGA.md` subido en `equipo-N-semana-04`.
 
-> 🧪 **Reto relámpago:** antes de correr el código, apuesten: ¿qué 3 columnas
+> **Reto relámpago:** antes de correr el código, apuesten: ¿qué 3 columnas
 > creen que predecirán mejor la supervivencia? Comparen con lo que eligió el árbol.
 
 ---
 
-## 🎬 Videos que te ayudan
+## Videos que te ayudan
 
 - [StatQuest — Decision and Classification Trees](https://www.youtube.com/watch?v=_L39rN6gz7Y): la raíz, las hojas y por qué "la pregunta correcta" importa.
 
-## 🤖 Pídele ayuda al tutor de IA
+## Pídele ayuda al tutor de IA
 
 El tutor del curso responde *"¿qué es max_depth?"*, *"¿qué es sobreajuste?"*, etc.
 
-## 📚 Apoyo si te atascas
+## Apoyo si te atascas
 
-- 📍 `tools/pistas/semana-04.md` — pistas por TODO (3 niveles).
-- ✅ `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
-- 🐍 `tools/cheatsheets/02-python-ml.md` — el molde de todo modelo.
-- 🚑 `tools/06-errores-comunes.md` — valores NaN / texto a número.
+- `tools/pistas/semana-04.md` — pistas por TODO (3 niveles).
+- `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
+- `tools/cheatsheets/02-python-ml.md` — el molde de todo modelo.
+- `tools/06-errores-comunes.md` — valores NaN / texto a número.

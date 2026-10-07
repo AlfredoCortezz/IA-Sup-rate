@@ -1,4 +1,4 @@
-# 🚀 Next.js y Vercel — tu portafolio en internet (semanas 9–10)
+# Next.js y Vercel — tu portafolio en internet (semanas 9–10)
 
 El proyecto de las semanas 9 y 10 está en la carpeta **`web/`**. Es un proyecto
 **Next.js** con **TypeScript**.
@@ -25,7 +25,7 @@ npm install
 npm run dev
 ```
 
-Abre tu navegador en <http://localhost:3000> 🎉.
+Abre tu navegador en <http://localhost:3000>.
 
 ## Si algo no compila
 
@@ -40,14 +40,14 @@ tipo de TypeScript o un componente mal importado.
 ## Desplegar en Vercel (gratis, semanas 9–10)
 
 1. Crea una cuenta en <https://vercel.com> (con GitHub es súper fácil).
-2. Botón **Add New → Project**.
+2. Botón **Add New** > **Project**.
 3. Importa tu repositorio de GitHub y selecciona la carpeta `web/` como
    **Root Directory**.
 4. Deja todo por defecto y pulsa **Deploy**.
 5. En menos de un minuto tendrás un link tipo `tu-proyecto.vercel.app` para
-   presumirlo en el grupo 🥳.
+   presumirlo en el grupo.
 
-> 💡 Cada vez que hagas `git push` a tu rama main, **Vercel vuelve a
+> Cada vez que hagas `git push` a tu rama main, **Vercel vuelve a
 > desplegar automáticamente**. Github + Vercel = tu código se publica solo.
 
 ## Estructura que verás en `web/`
@@ -55,13 +55,13 @@ tipo de TypeScript o un componente mal importado.
 ```
 web/
 ├── app/
-│   ├── layout.tsx      ← el "esqueleto" que envuelve toda la página
-│   ├── page.tsx        ← TU portafolio (Semana 9, cámbialo a tu estilo)
-│   ├── globals.css     ← estilos globales
-│   └── api/proyectos/route.ts  ← API de ejemplo (Semana 10: consúmela)
-├── components/         ← piezas reutilizables (tarjeta, formulario…)
-└── data/proyectos.ts   ← datos de ejemplo: reemplázalos por tus proyectos reales
+│   ├── layout.tsx # el "esqueleto" que envuelve toda la página
+│   ├── page.tsx # TU portafolio (Semana 9, cámbialo a tu estilo)
+│   ├── globals.css # estilos globales
+│   └── api/proyectos/route.ts # API de ejemplo (Semana 10: consúmela)
+├── components/ # piezas reutilizables (tarjeta, formulario…)
+└── data/proyectos.ts # datos de ejemplo: reemplázalos por tus proyectos reales
 ```
 
-> 🧪 **Reto relámpago:** corre `npm run dev` y cambia tu nombre en
+> **Reto relámpago:** corre `npm run dev` y cambia tu nombre en
 > `app/page.tsx`. Si se ve en pantalla, ya hiciste tu primer cambio web.

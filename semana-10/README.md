@@ -1,23 +1,23 @@
-# 🚀 Semana 10 — Conecta una API y publica tu portafolio en Vercel
+# Semana 10 — Conecta una API y publica tu portafolio en Vercel
 
 > **Misión final:** que tu portafolio **pida y envíe datos a una API** (como lo
 > hacen las apps de verdad) y luego **publicarlo en internet** con un link
-> público para compartirlo con el mundo. 🌍
+> público para compartirlo con el mundo.
 
 ---
 
-## 🎯 ¿Qué vas a aprender?
+## ¿Qué vas a aprender?
 
 Cómo dos programas conversan por internet con **REST**:
 
 ```
   NAVEGADOR (tu portafolio)                 SERVIDOR (la API)
         │                                        │
-        │  GET /api/proyectos ──────────────────►│  devuelve JSON con la lista
-        │  ◄──────────────────────────  {proyectos: [...]}
+        │  GET /api/proyectos ──────────────────>│  devuelve JSON con la lista
+        │  <──────────────────────────  {proyectos: [...]}
         │                                        │
-        │  POST /api/proyectos (con datos) ─────►│  crea uno nuevo (status 201)
-        │  ◄──────────────────────────  {proyecto: {...}}
+        │  POST /api/proyectos (con datos) ─────>│  crea uno nuevo (status 201)
+        │  <──────────────────────────  {proyecto: {...}}
 ```
 
 | Método | Para qué |
@@ -27,7 +27,7 @@ Cómo dos programas conversan por internet con **REST**:
 | `DELETE` | Borrar |
 | `PUT` / `PATCH` | Actualizar |
 
-## 🧰 Qué mirar (ya está todo montado)
+## Qué mirar (ya está todo montado)
 
 | Archivo | Qué enseña |
 |---------|------------|
@@ -36,20 +36,20 @@ Cómo dos programas conversan por internet con **REST**:
 | `web/components/ProyectosSection.tsx` | Estados de carga, error y recarga |
 | `web/components/ProyectoForm.tsx` | El formulario que hace `POST` |
 
-> 🔍 **Truco de detective:** abre la pestaña **Network** (o Red) del navegador,
+> **Truco de detective:** abre la pestaña **Network** (o Red) del navegador,
 > agrega un proyecto desde el formulario y **mira la petición POST**. Verás el
 > JSON viajando. ¡Eso es una API en vivo!
 
-## 🚩 Los pasos
+## Los pasos
 
 1. `npm run dev` y agrega un proyecto con el **formulario** (mira la petición en Network).
 2. Lee `app/api/proyectos/route.ts` y contesta: ¿qué pasa si falta el título?
-3. 🔥 **Reto de código:** implementa el método **DELETE** creando
-   `app/api/proyectos/[id]/route.ts` y un botón "🗑️" en la tarjeta.
-4. 🔥 **Reto extra:** un filtro por tecnología o un buscador.
+3. **Reto de código:** implementa el método **DELETE** creando
+   `app/api/proyectos/[id]/route.ts` y un botón para borrar en la tarjeta.
+4. **Reto extra:** un filtro por tecnología o un buscador.
 5. **Despliega en Vercel** (`tools/04-nextjs-y-vercel.md`) y comparte el link.
 
-## 📦 Entregables
+## Entregables
 
 1. `semana-10/ENTREGA.md` con:
    - Equipo e integrantes.
@@ -66,7 +66,7 @@ Cómo dos programas conversan por internet con **REST**:
 | Integrante | Rol |
 |------------|-----|
 
-## 🌐 Link de producción
+## Link de producción
 https://tu-portafolio.vercel.app
 
 ## Evidencia
@@ -80,7 +80,7 @@ Implementamos DELETE porque...
 1. La diferencia entre GET y POST es...
 ```
 
-## 📊 Rúbrica (20 puntos)
+## Rúbrica (20 puntos)
 
 | Criterio | Puntos |
 |----------|--------|
@@ -89,7 +89,7 @@ Implementamos DELETE porque...
 | **Desplegado en Vercel** y link público funcionando | 6 |
 | Reto extra (DELETE/filtro) + `ENTREGA.md` completo | 4 |
 
-## ✅ Autochequeo
+## Autochequeo
 
 - [ ] Entiendo la diferencia entre `GET` y `POST`.
 - [ ] Sé qué es un status `200`, `201` y `400`.
@@ -97,22 +97,22 @@ Implementamos DELETE porque...
 - [ ] Mi portafolio está **público en Vercel**.
 - [ ] `ENTREGA.md` subido en `equipo-N-semana-10`.
 
-> 🎓 **Cierre del curso:** comparte tu link con la clase y explica en 3 minutos
+> **Cierre del curso:** comparte tu link con la clase y explica en 3 minutos
 > cuál fue **tu** aportación a cada fase (desmitificación, ML, web). ¡Lo lograste!
 
 ---
 
-## 🎬 Guías oficiales:
+## Guías oficiales:
 
 - [Vercel: cómo desplegar un proyecto Next.js](https://vercel.com/docs/getting-started-with-vercel/import-to-vercel) — publica tu portafolio en minutos.
 - [MDN: "Using the Fetch API"](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch) — GET y POST desde el navegador.
 
-## 🤖 Pídele ayuda al tutor de IA
+## Pídele ayuda al tutor de IA
 
 El tutor responde dudas de API: *"¿GET y POST?"*, *"¿qué es un status 400?"*, etc. (¡y también preguntas de las semanas 3–8!).
 
-## 📚 Apoyo si te atascas
+## Apoyo si te atascas
 
-- 📍 `tools/cheatsheets/03-nextjs.md` — rutas, endpoint `route.ts` y códigos de estado.
-- 📍 `tools/04-nextjs-y-vercel.md` — desplegar paso a paso.
-- 🚑 `tools/06-errores-comunes.md` — `npm run build` fallando o "Module not found".
+- `tools/cheatsheets/03-nextjs.md` — rutas, endpoint `route.ts` y códigos de estado.
+- `tools/04-nextjs-y-vercel.md` — desplegar paso a paso.
+- `tools/06-errores-comunes.md` — `npm run build` fallando o "Module not found".

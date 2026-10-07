@@ -59,7 +59,7 @@ registrar("def recomendar" in contenido,
           sugerencia="Sin ella el reto no está completo: define def recomendar(titulo, k=3):")
 
 # 3) ¿Corre sin errores?
-print("\n🔎 Ejecutando tu reto...")
+print("\nEjecutando tu reto...")
 ok_run, salida, err = ejecutar_reto(ruta)
 registrar(ok_run, "Tu script corre de principio a fin sin errores.",
           sugerencia=f"Al correr dio este mensaje:\n{err[-1200:]}")

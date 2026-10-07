@@ -3,13 +3,13 @@
  *  CLIENTE DE API — así habla el frontend con un backend
  * ============================================================
  *  Por defecto hablamos con NUESTRA propia API simulada, la que vive en
- *  `app/api/proyectos/route.ts` (mismo dominio → funciona en Vercel).
+ *  `app/api/proyectos/route.ts` (mismo dominio: funciona en Vercel).
  *
  *  Si algún día quieres apuntar a un backend REAL:
- *    - NestJS  → variable de entorno  NEXT_PUBLIC_API_URL=http://localhost:3001
- *    - FastAPI → variable de entorno  NEXT_PUBLIC_API_URL=http://localhost:8000
+ *    - NestJS: variable de entorno  NEXT_PUBLIC_API_URL=http://localhost:3001
+ *    - FastAPI: variable de entorno  NEXT_PUBLIC_API_URL=http://localhost:8000
  *
- *  🚩 TODO (Semana 10): cambia las rutas por las de tu backend real y adapta
+ * TODO (Semana 10): cambia las rutas por las de tu backend real y adapta
  *  los campos a lo que devuelva. La estructura de estas funciones (try/catch,
  *  validación de status) es la MISMA que usarás en un proyecto de verdad.
  */

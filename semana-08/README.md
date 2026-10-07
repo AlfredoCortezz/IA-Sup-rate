@@ -1,43 +1,43 @@
-# 💬 Semana 8 — NLP: análisis de sentimiento
+# Semana 8 — NLP: análisis de sentimiento
 
 > **Misión:** enseñarle a una computadora a distinguir una reseña **positiva**
 > de una **negativa**. La base de los filtros de spam y de los moderadores de
-> comentarios. 🗣️
+> comentarios.
 
 ---
 
-## 🎯 ¿Qué es NLP?
+## ¿Qué es NLP?
 
 **Natural Language Processing** = hacer que la máquina trabaje con texto humano.
 El problema central: las computadoras entienden **números**, no letras. Así que
-convertimos texto → números (**vectorizar**) y clasificamos.
+convertimos texto a números (**vectorizar**) y clasificamos.
 
 | Vectorizador | Qué hace |
 |--------------|----------|
 | `CountVectorizer` | Cuenta cuántas veces aparece cada palabra |
 | `TfidfVectorizer` | Cuenta, pero resta peso a palabras comunes ("de", "la") |
 
-> ⚠️ **Regla de oro (¡sale en la rúbrica!):** `fit` del vectorizador se hace SOLO
+> **Regla de oro (¡sale en la rúbrica!):** `fit` del vectorizador se hace SOLO
 > con el texto de entrenamiento. Si no, sería "hacer trampa".
 
-## 🧰 Archivos
+## Archivos
 
 | Archivo | Para qué |
 |---------|----------|
 | `reto_nlp.py` | El reto como script |
 | `reto_nlp.ipynb` | El mismo reto como notebook |
 
-## 🚩 Los pasos
+## Los pasos
 
 1. Dataset de reseñas (ya está).
-2. **Separar train/test** ← tú.
-3. **Vectorizar** (`TfidfVectorizer`) ← tú.
-4. **Entrenar** `MultinomialNB` ← tú.
-5. **Evaluar** (accuracy + matriz de confusión) ← tú.
-6. Probar reseñas **nuevas** escritas por el equipo ← tú.
-7. 🔥 Reto: palabras más positivas y más negativas.
+2. **Separar train/test**  (tú).
+3. **Vectorizar** (`TfidfVectorizer`)  (tú).
+4. **Entrenar** `MultinomialNB`  (tú).
+5. **Evaluar** (accuracy + matriz de confusión)  (tú).
+6. Probar reseñas **nuevas** escritas por el equipo  (tú).
+7. Reto: palabras más positivas y más negativas.
 
-## 📦 Entregables
+## Entregables
 
 1. `semana-08/ENTREGA.md`:
    - Equipo e integrantes.
@@ -68,7 +68,7 @@ convertimos texto → números (**vectorizar**) y clasificamos.
 1. Convertimos texto a números porque...
 ```
 
-## 📊 Rúbrica (20 puntos)
+## Rúbrica (20 puntos)
 
 | Criterio | Puntos |
 |----------|--------|
@@ -77,7 +77,7 @@ convertimos texto → números (**vectorizar**) y clasificamos.
 | Predicción de reseñas nuevas funcionando | 5 |
 | Aportación individual (2 reseñas por integrante) + reflexión | 4 |
 
-## ✅ Autochequeo
+## Autochequeo
 
 - [ ] Puedo explicar por qué el texto se convierte en números.
 - [ ] Sé la diferencia entre `fit_transform` y `transform`.
@@ -85,23 +85,23 @@ convertimos texto → números (**vectorizar**) y clasificamos.
 - [ ] Encontré las palabras "delatoras" de cada sentimiento.
 - [ ] `ENTREGA.md` subido en `equipo-N-semana-08`.
 
-> 🧪 **Reto relámpago:** escriban una reseña con **sarcasmo** ("qué maravilla,
+> **Reto relámpago:** escriban una reseña con **sarcasmo** ("qué maravilla,
 > se rompió a la primera"). ¿El modelo acierta? ¿Por qué el sarcasmo es
 > dificilísimo para la IA? Guárdenlo para la discusión de la Semana 9.
 
 ---
 
-## 🎬 Videos que te ayudan
+## Videos que te ayudan
 
 - [StatQuest — Naive Bayes clearly explained](https://www.youtube.com/watch?v=O2L2Uv9pdDA): la lógica de "contar palabras" detrás del clasificador.
 
-## 🤖 Pídele ayuda al tutor de IA
+## Pídele ayuda al tutor de IA
 
 El tutor responde *"¿Tfidf o CountVectorizer?"*, *"¿por qué fit solo en train?"*, etc.
 
-## 📚 Apoyo si te atascas
+## Apoyo si te atascas
 
-- 📍 `tools/pistas/semana-08.md` — pistas por TODO (3 niveles).
-- ✅ `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
-- 🐍 `tools/cheatsheets/02-python-ml.md` — regla de oro del apartado 5.
-- 📊 `tools/data/resenas_extra.csv` — 60 reseñas extra para entrenar.
+- `tools/pistas/semana-08.md` — pistas por TODO (3 niveles).
+- `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
+- `tools/cheatsheets/02-python-ml.md` — regla de oro del apartado 5.
+- `tools/data/resenas_extra.csv` — 60 reseñas extra para entrenar.

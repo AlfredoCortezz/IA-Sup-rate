@@ -1,8 +1,8 @@
-# 🐍 Python + Machine Learning — Cheatsheet (Semanas 3–8)
+# Python + Machine Learning — Cheatsheet (Semanas 3–8)
 
 > Imprimible: una página con lo que vas a usar TODAS las semanas.
 
-## 1. Pandas: la tabla de datos 🗃️
+## 1. Pandas: la tabla de datos
 
 ```python
 import pandas as pd
@@ -12,9 +12,9 @@ df.head()                            # primeras 5 filas
 df.describe()                        # estadísticas
 df.isnull().sum()                    # ¿dónde faltan datos?
 df["columna"]                        # serie (1D)
-df[["a", "b"]]                       # tabla (2D) ← para X
+df[["a", "b"]]                       # tabla (2D), para X
 df["columna"].fillna(df["columna"].median())   # rellenar nulos
-df["texto"].map({"male": 0, "female": 1})      # texto → número
+df["texto"].map({"male": 0, "female": 1})      # texto a número
 df.drop("columna", axis=1)           # quitar una columna
 df.groupby("clave").mean()           # promedios por grupo
 df["nueva"] = df["a"] + df["b"]      # crear una columna
@@ -35,13 +35,13 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # 3) crear, entrenar, predecir
 modelo = Algo()               # LinearRegression(), DecisionTreeClassifier(), ...
-modelo.fit(X_train, y_train)  # ← entrenar
+modelo.fit(X_train, y_train)  # entrenar
 y_pred = modelo.predict(X_test)
 ```
 
 > `random_state=42` = mismo resultado todas las veces. **Ponlo SIEMPRE.**
 
-## 3. Métricas que usamos en el curso 📏
+## 3. Métricas que usamos en el curso
 
 | Métrica | Qué mide | ¿Bueno? |
 |---------|----------|---------|
@@ -57,7 +57,7 @@ y_pred = modelo.predict(X_test)
 from sklearn.metrics import mean_absolute_error, r2_score, accuracy_score, confusion_matrix
 ```
 
-## 4. Escalado (KNN y K-Means: ¡obligatorio!) ⚖️
+## 4. Escalado (KNN y K-Means: ¡obligatorio!)
 
 ```python
 from sklearn.preprocessing import StandardScaler
@@ -77,7 +77,7 @@ X_test_es  = escalador.transform(X_test)       # aplica la misma escala
 | `.fit_transform(X)` | Aprende Y aplica | **Solo sobre entrenamiento** |
 | `.transform(X)` | Aplica lo ya aprendido | Sobre prueba y datos nuevos |
 
-> ⚠️ Si `transform` sobre el examen usa información del examen → **trampa**.
+> Si `transform` sobre el examen usa información del examen: **trampa**.
 > Vectorizador, escalador y cualquier transformación: `fit` solo en train.
 
 ## 6. Gráficas rápidas (matplotlib)
@@ -90,8 +90,8 @@ plt.scatter(x, y, alpha=0.6)        # nube de puntos
 plt.plot(x, y, color="orange")      # línea
 plt.xlabel("..."); plt.ylabel("...")
 plt.title("..."); plt.grid(alpha=0.3)
-plt.savefig("mi_grafica.png", dpi=120)   # ← primero
-plt.show()                               # ← después
+plt.savefig("mi_grafica.png", dpi=120)   # primero
+plt.show()                               # después
 ```
 
 ## 7. Modelos que usaste semana a semana

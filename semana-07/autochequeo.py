@@ -3,7 +3,7 @@
 #  AUTOCHEQUEO · Semana 7 — Red Neuronal (MNIST)
 #  Feedback inmediato para tu equipo. NO da la solución.
 #  Uso:  python autochequeo.py
-#  ⏱️  Este reto tarda: entrena una red neuronal de verdad.
+#  Este reto tarda: entrena una red neuronal de verdad.
 # ============================================================
 import os
 import re
@@ -63,7 +63,7 @@ registrar("stratify" in contenido,
           sugerencia="stratify=y_todo mantiene la misma proporción de dígitos en train y test.")
 
 # 3) ¿Corre sin errores? (¡puede tardar 1-3 minutos!)
-print("\n🔎 Ejecutando tu reto. Si descarga MNIST, espera un poco...")
+print("\nEjecutando tu reto. Si descarga MNIST, espera un poco...")
 ok_run, salida, err = ejecutar_reto(ruta, timeout=1200)
 registrar(ok_run, "Tu red neuronal entrena y corre sin errores.",
           sugerencia=f"Al correr dio este mensaje:\n{err[-1200:]}")

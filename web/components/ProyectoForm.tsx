@@ -9,21 +9,20 @@ import { crearProyecto, type NuevoProyecto } from "@/lib/api";
  * "use client" arriba significa: este componente corre en el NAVEGADOR,
  * por eso puede usar useState y eventos como onSubmit.
  *
- * 🚩 TODO (Semana 10): agrega validación (título obligatorio, mínimo de
+ * TODO (Semana 10): agrega validación (título obligatorio, mínimo de
  * caracteres), campos nuevos (link, imagen) y mensajes de error claros.
  */
 export function ProyectoForm({ onCreado }: { onCreado: () => void }) {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [tecnologias, setTecnologias] = useState("");
-  const [emoji, setEmoji] = useState("🚀");
   const [enviando, setEnviando] = useState(false);
   const [mensaje, setMensaje] = useState<string | null>(null);
 
   async function manejarEnvio(evento: React.FormEvent) {
     evento.preventDefault();
 
-    // 🚩 TODO: valida aquí antes de enviar (por ejemplo, que el título no esté vacío).
+    // TODO: valida aquí antes de enviar (por ejemplo, que el título no esté vacío).
     if (!titulo.trim() || !descripcion.trim()) {
       setMensaje("El título y la descripción son obligatorios.");
       return;
@@ -36,7 +35,6 @@ export function ProyectoForm({ onCreado }: { onCreado: () => void }) {
         .split(",")
         .map((t) => t.trim())
         .filter(Boolean),
-      emoji: emoji || "🚀",
       semana: 10,
     };
 
@@ -47,8 +45,7 @@ export function ProyectoForm({ onCreado }: { onCreado: () => void }) {
       setTitulo("");
       setDescripcion("");
       setTecnologias("");
-      setEmoji("🚀");
-      setMensaje("¡Proyecto agregado! 🎉");
+      setMensaje("¡Proyecto agregado!");
       onCreado();
     } catch (error) {
       setMensaje(error instanceof Error ? error.message : "Error al crear el proyecto");
@@ -59,17 +56,9 @@ export function ProyectoForm({ onCreado }: { onCreado: () => void }) {
 
   return (
     <form className="form" onSubmit={manejarEnvio}>
-      <h3>➕ Agregar un proyecto</h3>
+      <h3>Agregar un proyecto</h3>
 
       <div className="form-fila">
-        <input
-          type="text"
-          placeholder="Emoji (ej. 🤖)"
-          value={emoji}
-          onChange={(e) => setEmoji(e.target.value)}
-          maxLength={2}
-          aria-label="Emoji"
-        />
         <input
           type="text"
           placeholder="Título del proyecto"

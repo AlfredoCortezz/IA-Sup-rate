@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 # %% [markdown]
-# # 🛒 Semana 6 — K-Means: segmenta a tus clientes
+# # Semana 6 — K-Means: segmenta a tus clientes
 #
-# > 📍 **¿Atascado?** Pistas: `tools/pistas/semana-06.md` · Autochequeo: `python autochequeo.py`
+# > **¿Atascado?** Pistas: `tools/pistas/semana-06.md` · Autochequeo: `python autochequeo.py`
 #
 # **¿Qué vas a aprender hoy?**
 # A **agrupar** cosas parecidas **SIN que nadie te diga las respuestas**. Esto se
 # llama **aprendizaje no supervisado**: la máquina descubre grupos solita.
 #
-# ## La analogía 🎯
+# ## La analogía
 # Imagina que entras a un salón con 240 personas y te piden separarlas en 4
 # grupos "que tengan sentido", pero NADIE te dice por qué criterio. Tú miras y
 # dices: "ah, estos son jóvenes que gastan poquito, estos son ejecutivos…".
@@ -19,7 +19,7 @@
 # 3. Mueve cada centroide al promedio de su grupo.
 # 4. Repite hasta que ya no se muevan.
 #
-# ## 🧠 Diferencia clave con las semanas pasadas
+# ## Diferencia clave con las semanas pasadas
 #
 # | Supervisado (S3–S5) | No supervisado (S6) |
 # |---------------------|---------------------|
@@ -51,7 +51,7 @@ np.random.seed(SEMILLA)
 
 
 def todo(mensaje):
-    raise NotImplementedError(f"🚩 TODO pendiente: {mensaje}")
+    raise NotImplementedError(f"TODO pendiente: {mensaje}")
 
 
 # %% [markdown]
@@ -62,10 +62,10 @@ def todo(mensaje):
 # - `visitas_por_mes`
 #
 # Los datos vienen "revueltos" de 4 grupos reales que están **escondidos**. Al
-# final compararemos si K-Means los redescubrió. 🤫
+# final compararemos si K-Means los redescubrió.
 
 # %%
-# Centros "secretos" (no se los digas al modelo 😉)
+# Centros "secretos" (no se los digas al modelo)
 centros = [
     [22,  80,  4],   # grupo A
     [30, 350, 15],   # grupo B
@@ -86,7 +86,7 @@ print("\nResumen estadístico:")
 print(df.describe().round(1))
 
 # %% [markdown]
-# ## 3) Mirar antes de agrupar 👀
+# ## 3) Mirar antes de agrupar
 # Grafiquemos `edad` vs `gasto_mensual`. ¿Se ven grupos a simple vista?
 
 # %%
@@ -99,18 +99,18 @@ plt.grid(alpha=0.3)
 plt.show()
 
 # %% [markdown]
-# ## 4) Escalar 🚩 TODO
+# ## 4) Escalar (TODO)
 # `gasto_mensual` llega a 1500, mientras que `visitas` llega a 25. Sin escalar,
 # el gasto aplastaría a las demás variables en el cálculo de distancia.
 #
-# **Pista:** reutiliza lo que aprendiste en la Semana 5 → `StandardScaler`.
+# **Pista:** reutiliza lo que aprendiste en la Semana 5: `StandardScaler`.
 
 # %%
-# 🚩 TODO: escala df en una variable df_escalado (usa fit_transform).
+# TODO: escala df en una variable df_escalado (usa fit_transform).
 todo("escalador = StandardScaler(); df_escalado = escalador.fit_transform(df)")
 
 # %% [markdown]
-# ## 5) ¿Cuántos grupos? El método del codo 🚩 TODO
+# ## 5) ¿Cuántos grupos? El método del codo (TODO)
 #
 # Probamos k = 2, 3, 4, 5, 6, 7, 8 y guardamos la **inercia** (qué tan
 # "apretados" quedan los grupos; más bajo = más compacto). Al graficarla, a
@@ -120,22 +120,22 @@ todo("escalador = StandardScaler(); df_escalado = escalador.fit_transform(df)")
 # y luego lee `modelo.inertia_`.
 
 # %%
-# 🚩 TODO: recorre k de 2 a 8, guarda la inercia y dibuja el codo.
+# TODO: recorre k de 2 a 8, guarda la inercia y dibuja el codo.
 todo("haz el bucle de k, guarda inercias y grafica inercia vs k")
 
 # %% [markdown]
-# ## 6) Entrenar K-Means con el k elegido 🚩 TODO
+# ## 6) Entrenar K-Means con el k elegido (TODO)
 #
 # Elige tu k del codo (aquí los datos tienen 4 grupos escondidos). Entrena,
 # guarda las etiquetas en `df["cluster"]` y **pinta cada cluster de un color**.
 # Opcional: marca los centroides con una "X".
 
 # %%
-# 🚩 TODO: entrena KMeans con tu k, asigna df["cluster"] = modelo.labels_ y grafica.
+# TODO: entrena KMeans con tu k, asigna df["cluster"] = modelo.labels_ y grafica.
 todo("entrena KMeans, asigna etiquetas al DataFrame y pinta los clusters")
 
 # %% [markdown]
-# ## 7) Interpretar: ponle nombre a cada grupo 🚩 TODO
+# ## 7) Interpretar: ponle nombre a cada grupo (TODO)
 #
 # Esto es lo que le importa a la empresa. Calcula el **promedio por cluster** con
 # `df.groupby("cluster").mean()` y, con esos números, **bautiza** cada segmento.
@@ -144,21 +144,21 @@ todo("entrena KMeans, asigna etiquetas al DataFrame y pinta los clusters")
 # "Jubilados tranquilos". Los nombres dependen de TUS datos.
 
 # %%
-# 🚩 TODO: imprime el promedio por cluster y escribe el nombre de cada uno.
+# TODO: imprime el promedio por cluster y escribe el nombre de cada uno.
 todo("df.groupby('cluster').mean() y pon un nombre razonado a cada cluster")
 
 # %% [markdown]
-# ## 8) 🔥 Reto extra
+# ## 8) Reto extra
 # 1. Calcula el `silhouette_score` para varios k. Mientras más cercano a 1,
 #    mejor están separados los grupos. ¿Coincide con tu codo?
 # 2. Compara tus clusters con `y_real` (la respuesta secreta). ¿Acertó K-Means?
 
 # %%
-# 🚩 TODO (opcional): silhouette_score y comparación con y_real.
-print("Reto extra de clustering ✨")
+# TODO (opcional): silhouette_score y comparación con y_real.
+print("Reto extra de clustering")
 
 # %% [markdown]
-# ## ✅ Autochequeo del equipo
+# ## Autochequeo del equipo
 #
 # - [ ] ¿Qué diferencia hay entre aprendizaje supervisado y no supervisado?
 # - [ ] ¿Qué es un centroide?
@@ -166,4 +166,4 @@ print("Reto extra de clustering ✨")
 # - [ ] Nombres que le pusimos a nuestros clusters: ___.
 # - [ ] Una empresa, ¿para qué usaría esto? Den un ejemplo real.
 #
-# ¡Reto de la Semana 6 completado! 🎉
+# ¡Reto de la Semana 6 completado!

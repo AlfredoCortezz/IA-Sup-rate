@@ -1,4 +1,4 @@
-# ⚛️ Next.js + TypeScript — Cheatsheet (Semanas 9–10)
+# Next.js + TypeScript — Cheatsheet (Semanas 9–10)
 
 > Imprimible: todo lo que repites en el portafolio y su API.
 
@@ -6,12 +6,12 @@
 
 ```bash
 npm install          # instala dependencias (solo la 1ª vez)
-npm run dev          # servidor local → http://localhost:3000
+npm run dev          # servidor local: http://localhost:3000
 npm run build        # compila "para producción" (comprueba errores)
 npm run typecheck    # revisa los tipos TypeScript
 ```
 
-> Si `npm` no existe → instala Node.js LTS y **reabre la terminal**.
+> Si `npm` no existe: instala Node.js LTS y **reabre la terminal**.
 
 ## 2. Anatomía de una página (App Router)
 
@@ -33,7 +33,7 @@ export function Tarjeta({ titulo, enlace }: Props) {
   return (
     <article>
       <h3>{titulo}</h3>
-      {enlace && <a href={enlace}>Ver →</a>}
+      {enlace && <a href={enlace}>Ver: </a>}
     </article>
   );
 }
@@ -46,14 +46,14 @@ Se usa así: `<Tarjeta titulo="Mi proyecto" enlace="https://..." />`
 ## 4. Componentes "use client" vs servidor
 
 ```tsx
-"use client";   // ← primera línea: usa useState, onClick... (corre en el navegador)
+"use client";   // primera línea: usa useState, onClick... (corre en el navegador)
 
 import { useState } from "react";
 const [contador, setContador] = useState(0);
 ```
 
-- **Sin** `"use client"` → componente de servidor (más rápido, no hay estado).
-- **Con** `"use client"` → puede interactuar (formularios, clicks, chats).
+- **Sin** `"use client"`: componente de servidor (más rápido, no hay estado).
+- **Con** `"use client"`: puede interactuar (formularios, clicks, chats).
 
 ## 5. Consumir una API (fetch)
 
@@ -104,7 +104,7 @@ let link: string | undefined;        // unión: puede no estar
 link ?? "default";                   // ?? = valor por defecto si es null/undefined
 ```
 
-> `string | undefined` + usar el valor sin `??` → error de TypeScript. **Ese
+> `string | undefined` + usar el valor sin `??`: error de TypeScript. **Ese
 > error es el editor cuidándote.** Arreglo: `valor ?? "fallback"`.
 
 ## 8. TypeScript en el JSON (objeto tipado)
@@ -121,7 +121,7 @@ export type Proyecto = {
 ## 9. Desplegar en Vercel (el final del curso)
 
 1. Sube tu repo a GitHub (`git push` de tu rama).
-2. Entra a <https://vercel.com> → **Add New** → **Project**.
+2. Entra a <https://vercel.com> y pulsa **Add New** > **Project**.
 3. Importa tu repo, elige el framework **Next.js** y pulsa **Deploy**.
 4. ¡Link público gratis! Cada `push` a la rama principal lo actualiza solo.
 

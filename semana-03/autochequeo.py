@@ -54,7 +54,7 @@ if pendientes:
 ok("No quedan TODO pendientes en el código.")
 
 # 2) ¿Corre sin errores?
-print("\n🔎 Ejecutando tu reto (las gráficas se dibujan sin abrir ventanas)...")
+print("\nEjecutando tu reto (las gráficas se dibujan sin abrir ventanas)...")
 ok_run, salida, err = ejecutar_reto(ruta)
 registrar(ok_run, "Tu script corre de principio a fin sin errores.",
           sugerencia=f"Al correr dio este mensaje:\n{err[-1200:]}")
@@ -77,7 +77,7 @@ if ok_run:
               "La gráfica de la recta está guardada como figura_semana3.png.",
               sugerencia="En el paso 9 añade plt.savefig('figura_semana3.png') antes de plt.show().")
     registrar("horas_sueno" in baja,
-              "Intentaste el 🔥 reto extra (horas de sueño como 2ª característica).",
+              "Intentaste el reto extra (horas de sueño como 2ª característica).",
               sugerencia="El extra es opcional, pero sube nota. ¡Aunque sea una línea, anótalo!")
 
 sys.exit(0 if resumen() else 1)

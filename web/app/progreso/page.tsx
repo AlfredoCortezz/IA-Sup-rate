@@ -4,19 +4,18 @@ import { useEffect, useState } from "react";
 
 /**
  * ============================================================
- *  📊 PANEL DE PROGRESO — el curso de un vistazo
+ *  PANEL DE PROGRESO — el curso de un vistazo
  * ============================================================
  *  Muestra las 10 semanas (fases, puntaje, roles) con casillas
  *  que se guardan en localStorage del navegador: tu progreso
  *  sobrevive a recargas y a cerrar la pestaña.
  *
- *  🚩 TODO (Semana 10): conecta esto a la API (POST /api/... para
+ *  TODO (Semana 10): conecta esto a la API (POST /api/... para
  *  guardar en el "backend") y muéstralo como una sección de tu web.
  */
 
 type Semana = {
   numero: number;
-  emoji: string;
   titulo: string;
   fase: string;
   puntos: number;
@@ -24,23 +23,23 @@ type Semana = {
 };
 
 const SEMANAS: Semana[] = [
-  { numero: 1, emoji: "🕵️", titulo: "¿Qué es la IA de verdad?", fase: "Fundamentos", puntos: 10, descripcion: "Cazador(a) de mitos + cuestionario en index.html." },
-  { numero: 2, emoji: "⚡", titulo: "IA Generativa: tu copiloto", fase: "Fundamentos", puntos: 10, descripcion: "Prompt Battle en dashboard-semana2.html." },
-  { numero: 3, emoji: "📈", titulo: "Regresión Lineal", fase: "Machine Learning", puntos: 20, descripcion: "Predecir tu nota con horas de estudio." },
-  { numero: 4, emoji: "🚢", titulo: "Árbol de Decisión (Titanic)", fase: "Machine Learning", puntos: 25, descripcion: "Interpretar decisiones + sobreajuste." },
-  { numero: 5, emoji: "🎬", titulo: "KNN: recomendador", fase: "Machine Learning", puntos: 20, descripcion: "Escalar, distancias y k vecinos." },
-  { numero: 6, emoji: "🛍️", titulo: "K-Means: clientes", fase: "Machine Learning", puntos: 20, descripcion: "Clustering sin supervisión + método del codo." },
-  { numero: 7, emoji: "🔢", titulo: "Redes Neuronales (MNIST)", fase: "IA profunda", puntos: 25, descripcion: "Leer dígitos con MLPClassifier." },
-  { numero: 8, emoji: "💬", titulo: "NLP: sentimiento", fase: "IA profunda", puntos: 20, descripcion: "Tfidf + Naive Bayes sobre reseñas." },
-  { numero: 9, emoji: "🖥️", titulo: "Tu portafolio con Next.js", fase: "Desarrollo Web", puntos: 25, descripcion: "Componentes, TypeScript y tu página." },
-  { numero: 10, emoji: "🚀", titulo: "API + despliegue en Vercel", fase: "Desarrollo Web", puntos: 25, descripcion: "Conectar la API y publicar tu link." },
+  { numero: 1, titulo: "¿Qué es la IA de verdad?", fase: "Fundamentos", puntos: 10, descripcion: "Cazador(a) de mitos + cuestionario en index.html." },
+  { numero: 2, titulo: "IA Generativa: tu copiloto", fase: "Fundamentos", puntos: 10, descripcion: "Prompt Battle en dashboard-semana2.html." },
+  { numero: 3, titulo: "Regresión Lineal", fase: "Machine Learning", puntos: 20, descripcion: "Predecir tu nota con horas de estudio." },
+  { numero: 4, titulo: "Árbol de Decisión (Titanic)", fase: "Machine Learning", puntos: 25, descripcion: "Interpretar decisiones + sobreajuste." },
+  { numero: 5, titulo: "KNN: recomendador", fase: "Machine Learning", puntos: 20, descripcion: "Escalar, distancias y k vecinos." },
+  { numero: 6, titulo: "K-Means: clientes", fase: "Machine Learning", puntos: 20, descripcion: "Clustering sin supervisión + método del codo." },
+  { numero: 7, titulo: "Redes Neuronales (MNIST)", fase: "IA profunda", puntos: 25, descripcion: "Leer dígitos con MLPClassifier." },
+  { numero: 8, titulo: "NLP: sentimiento", fase: "IA profunda", puntos: 20, descripcion: "Tfidf + Naive Bayes sobre reseñas." },
+  { numero: 9, titulo: "Tu portafolio con Next.js", fase: "Desarrollo Web", puntos: 25, descripcion: "Componentes, TypeScript y tu página." },
+  { numero: 10, titulo: "API + despliegue en Vercel", fase: "Desarrollo Web", puntos: 25, descripcion: "Conectar la API y publicar tu link." },
 ];
 
 const ROLES = [
-  { emoji: "👑", rol: "Capitán / Integrador", tarea: "organiza, junta las piezas y sube el reto a GitHub" },
-  { emoji: "🔍", rol: "Investigador(a)", tarea: "busca teoría, documenta y cita fuentes" },
-  { emoji: "💻", rol: "Código / Datos", tarea: "escribe el código, limpia datos y prueba" },
-  { emoji: "🎤", rol: "Presentador(a)", tarea: "prepara la explicación y defiende el reto" },
+  { rol: "Capitán / Integrador", tarea: "organiza, junta las piezas y sube el reto a GitHub" },
+  { rol: "Investigador(a)", tarea: "busca teoría, documenta y cita fuentes" },
+  { rol: "Código / Datos", tarea: "escribe el código, limpia datos y prueba" },
+  { rol: "Presentador(a)", tarea: "prepara la explicación y defiende el reto" },
 ];
 
 const TOTAL_PUNTOS = SEMANAS.reduce((acc, s) => acc + s.puntos, 0);
@@ -93,7 +92,7 @@ export default function ProgresoPage() {
   return (
     <main className="contenedor">
       <header className="hero">
-        <p className="saludo">🎯 Mi progreso en el curso</p>
+        <p className="saludo">Mi progreso en el curso</p>
         <h1>IA Sup-rate · 10 semanas</h1>
         <p className="frase">
           Marca cada reto cuando lo termines. Tu progreso se guarda en este
@@ -109,13 +108,13 @@ export default function ProgresoPage() {
           />
         </div>
         <p className="progreso-texto">
-          ✅ {totalHechas}/10 semanas · {puntosConseguidos}/{TOTAL_PUNTOS} pts ·{" "}
+          {totalHechas}/10 semanas · {puntosConseguidos}/{TOTAL_PUNTOS} pts ·{" "}
           {porcentaje}%
         </p>
       </header>
 
       <section className="seccion">
-        <h2>🗓️ Plan de las 10 semanas</h2>
+        <h2>Plan de las 10 semanas</h2>
         {SEMANAS.map((s) => {
           const hecho = !!hechas[s.numero];
           return (
@@ -126,11 +125,11 @@ export default function ProgresoPage() {
                 aria-label={`${hecho ? "Desmarcar" : "Marcar"} semana ${s.numero}`}
                 onClick={() => alternar(s.numero)}
               >
-                {hecho ? "✅" : "⬜"}
+                <span className="semana-check-marca" aria-hidden />
               </button>
               <div className="semana-info">
                 <h3>
-                  {s.emoji} Semana {s.numero} — {s.titulo}
+                  Semana {s.numero} — {s.titulo}
                 </h3>
                 <p className="semana-detalles">
                   {s.descripcion}{" "}
@@ -146,11 +145,11 @@ export default function ProgresoPage() {
       </section>
 
       <section className="seccion">
-        <h2>👥 Roles del equipo</h2>
+        <h2>Roles del equipo</h2>
         <div className="tags">
           {ROLES.map((r) => (
             <span key={r.rol} className="tag" title={r.tarea}>
-              {r.emoji} {r.rol}
+              {r.rol}
             </span>
           ))}
         </div>
@@ -162,7 +161,7 @@ export default function ProgresoPage() {
 
       {totalHechas > 0 && (
         <button type="button" className="btn-sec" onClick={reiniciar}>
-          ♻️ Reiniciar mi progreso
+          Reiniciar mi progreso
         </button>
       )}
     </main>

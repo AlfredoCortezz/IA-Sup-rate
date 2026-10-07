@@ -1,7 +1,7 @@
-# 🧰 tools/ — Caja de herramientas del curso
+# tools/ — Caja de herramientas del curso
 
 Este folder es tu **tutor personal**. Si te atascas o no entiendes algo, entra
-aquí antes de preguntarle al profe (o a la IA 😉).
+aquí antes de preguntarle al profe (o a la IA).
 
 ## Índice
 
@@ -17,16 +17,16 @@ aquí antes de preguntarle al profe (o a la IA 😉).
 | [`cheatsheets/`](cheatsheets/) | Hojas de referencia imprimibles: git, Python+ML y Next.js |
 | [`data/`](data/) | Datasets extra con las mismas columnas que los retos |
 
-> 🚀 **Autochequeo:** cada semana 3–8 tiene un `autochequeo.py`. Córrelo dentro
+> **Autochequeo:** cada semana 3–8 tiene un `autochequeo.py`. Córrelo dentro
 > de la carpeta de la semana con `python autochequeo.py`: te dice qué TODO
 > faltan y chequea tu reto. Sale "en verde" cuando está listo para entregar.
 
-> 💡 Consejo de equipo: el rol de **Investigador(a)** de la semana es quien
+> Consejo de equipo: el rol de **Investigador(a)** de la semana es quien
 > normalmente consulta esta carpeta y explica al resto.
 
 ---
 
-### 🔧 Solo para el/la docente
+### Solo para el/la docente
 
 `generar-notebooks.py` regenera los `.ipynb` a partir de los `.py` de las
 semanas 3–8 (así no hay que mantener el mismo contenido dos veces):
@@ -54,10 +54,10 @@ en cada `push`. Un reto queda verificado en semáforo del histograma de GitHub.
   equipo e integrantes** y permiten **un solo intento**.
 - El intento se guarda en el `localStorage` del navegador (clave
   `ia_sem1_intento` / `ia_sem2_intento`). Funciona en Chrome, Edge y Firefox.
-  ⚠️ Si el alumno usa **modo incógnito**, borra los datos del navegador o cambia
+  Si el alumno usa **modo incógnito**, borra los datos del navegador o cambia
   de equipo, el control se reinicia. Para un control estricto, sírvelos desde un
   servidor o pídele que descargue el PDF y lo suba.
 - El botón **“Reiniciar intento”** pide el código docente: **`PROFE2026`**
   (cámbialo en la constante `CODIGO_DOCENTE` de cada archivo si quieres).
 - El **PDF** se genera con el diálogo de impresión del navegador
-  (`Ctrl+P` → “Guardar como PDF”). No necesita internet ni librerías externas.
+  (`Ctrl+P`: “Guardar como PDF”). No necesita internet ni librerías externas.

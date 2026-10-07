@@ -1,4 +1,4 @@
-# 📊 Banco de datasets (Semanas 3–8)
+# Banco de datasets (Semanas 3–8)
 
 > Conjuntos **extra** con las MISMAS columnas que los retos, para repetir,
 > ampliar o practicar. Los retos ya generan datos en su código; esta carpeta
@@ -12,7 +12,7 @@ Desde la raíz del repo:
 python tools/data/generar_datasets.py
 ```
 
-Todos salen con `SEED = 42` → mismo resultado siempre.
+Todos salen con `SEED = 42`: mismo resultado siempre.
 
 ## Los archivos
 
@@ -44,7 +44,7 @@ df = pd.read_csv("../../tools/data/clientes_mall.csv")
 df = pd.read_csv("../../tools/data/horas_sueno.csv")
 ```
 
-> 💡 Si trabajas en Google Colab o en una carpeta distinta, ajusta la ruta
+> Si trabajas en Google Colab o en una carpeta distinta, ajusta la ruta
 > relativa para que apunte a `tools/data/` de tu copia del repo.
 
 ## Regla de oro al ampliar

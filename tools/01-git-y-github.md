@@ -1,4 +1,4 @@
-# 🐙 Git y GitHub — La máquina del tiempo de tu código
+# Git y GitHub — La máquina del tiempo de tu código
 
 **Git** guarda "fotos" (commits) de tu proyecto. **GitHub** es una nube donde
 guardas esas fotos para que tu equipo vea el mismo proyecto.
@@ -54,11 +54,11 @@ git pull origin main
    ```
 4. Crea un **Pull Request** en GitHub para que el profe revise (botón verde "Compare & pull request").
 
-## ⚠️ Errores típicos (y cómo no llorar)
+## Errores típicos (y cómo no llorar)
 
-- **"Olvidé qué archivos cambié"** → `git status` en la terminal.
-- **"Borré algo sin querer"** → si ya lo habías hecho commit, `git restore <archivo>`.
-- **"Quiero deshacer el último commit"** → `git reset --soft HEAD~1` (no pierde tu trabajo).
-- **"Dos compañeros editaron el mismo archivo"** → HABLEN ANTES entre el equipo; los conflictos se arreglan conversando, no con magia.
+- **"Olvidé qué archivos cambié"**: `git status` en la terminal.
+- **"Borré algo sin querer"**: si ya lo habías hecho commit, `git restore <archivo>`.
+- **"Quiero deshacer el último commit"**: `git reset --soft HEAD~1` (no pierde tu trabajo).
+- **"Dos compañeros editaron el mismo archivo"**: HABLEN ANTES entre el equipo; los conflictos se arreglan conversando, no con magia.
 
-> 🧪 **Reto relámpago:** crea un archivo `team.txt`, haz un commit y súbelo. `tools/01` está resuelto cuando tus compañeros también ven tu archivo.
+> **Reto relámpago:** crea un archivo `team.txt`, haz un commit y súbelo. `tools/01` está resuelto cuando tus compañeros también ven tu archivo.

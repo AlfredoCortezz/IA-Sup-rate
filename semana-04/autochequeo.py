@@ -54,7 +54,7 @@ if pendientes:
 ok("No quedan TODO pendientes en el código.")
 
 # 2) ¿Corre sin errores?
-print("\n🔎 Ejecutando tu reto... (seaborn descarga el Titanic la primera vez)")
+print("\nEjecutando tu reto... (seaborn descarga el Titanic la primera vez)")
 ok_run, salida, err = ejecutar_reto(ruta)
 registrar(ok_run, "Tu script corre de principio a fin sin errores.",
           sugerencia=f"Al correr dio este mensaje:\n{err[-1200:]}")
@@ -72,6 +72,6 @@ if ok_run:
               sugerencia="En el paso 8 usa plt.savefig('arbol_titanic.png') antes de plt.show().")
     registrar("sobreajuste" in baja or "max_depth" in baja,
               "Mencionas profundidad o sobreajuste en la salida.",
-              sugerencia="El reto extra (comparar max_depth 1→sin límite) es clave. Anótalo en la ENTREGA.")
+              sugerencia="El reto extra (comparar max_depth de 1 a sin límite) es clave. Anótalo en la ENTREGA.")
 
 sys.exit(0 if resumen() else 1)

@@ -1,10 +1,10 @@
-# 🤖 Semana 2 — IA Generativa: tu copiloto (Prompt Battle)
+# Semana 2 — IA Generativa: tu copiloto (Prompt Battle)
 
 > **Misión del reto:** entender cómo "piensa" una IA generativa (tokens,
 > embeddings, atención) y demostrar que dominas el arte del **prompt**.
 > Todo se juega y se califica en un solo archivo: `dashboard-semana2.html`.
 
-> 📄 **Importante — un solo intento:** antes de empezar el dashboard te pide tu
+> **Importante — un solo intento:** antes de empezar el dashboard te pide tu
 > **nombre, equipo e integrantes**. La nota final se calcula **UNA sola vez**
 > (al pulsar “Fase C”); después el dashboard se bloquea y debes **descargar el
 > PDF** del reporte con tus aciertos y errores. Ese PDF es tu constancia.
@@ -26,32 +26,32 @@
 > Lee `tools/05-vocabulario-ia.md` (filas de la Semana 2) y esta tabla. El quiz
 > del dashboard sale **exactamente** de aquí.
 
-## 2. Cómo funciona el dashboard 🎮
+## 2. Cómo funciona el dashboard
 
 Abre **`dashboard-semana2.html`** (doble clic o arrástralo al navegador).
 Tiene 3 fases y las tres cuentan para tu nota:
 
-### 🟦 Fase A — Evaluación Teórica (bloquea el resto)
+### Fase A — Evaluación Teórica (bloquea el resto)
 - 3 preguntas de opción múltiple (Tokens, Alucinaciones, Sesgos).
 - El dashboard **califica solo**. Necesitas **≥ 2 aciertos** para desbloquear
   la Fase B.
-- Son 3 puntos → valen el **35 %** de la nota final.
+- Son 3 puntos: valen el **35 %** de la nota final.
 
-### 🟨 Fase B — Generador de Prompts Automático
-- El botón **🎲 Asignar escenario** sortea un reto ético/práctico.
+### Fase B — Generador de Prompts Automático
+- El botón **Asignar escenario** sortea un reto ético/práctico.
 - **Los 4 integrantes** redactan **UN** prompt perfecto en la caja de texto.
 - El panel derecho te da **feedback en vivo** con la checklist de ingeniería
   de prompts (rol, contexto, restricciones, formato, audiencia, tono…).
 - Vale el **65 %** de la nota final.
 
-### 🟩 Fase C — Calificación Final y Reporte PDF
-- El dashboard combina teoría + estructura del prompt → **nota sobre 100**.
+### Fase C — Calificación Final y Reporte PDF
+- El dashboard combina teoría + estructura del prompt: **nota sobre 100**.
 - Al calcularla, el intento queda **bloqueado** (no se puede repetir).
 - Genera tu **reporte en PDF** con el nombre del equipo, integrantes, el
   escenario, el prompt redactado y el detalle de **aciertos y errores**.
 - **Descarga el PDF** (“Guardar como PDF”) y súbelo a tu `ENTREGA.md`.
 
-> ⚠️ Si cierras el dashboard antes de calcular la nota, puedes seguir. Pero una
+> Si cierras el dashboard antes de calcular la nota, puedes seguir. Pero una
 > vez calculada la nota final, **ya no hay vuelta atrás**.
 
 ## 3. Reparto sugerido de roles (equipo de 4)
@@ -108,7 +108,7 @@ Para que nadie se quede sin aportar su parte del prompt:
 | Fase B: calidad/creatividad y elementos avanzados | 4 |
 | Reporte PDF + `ENTREGA.md` completos | 3 |
 
-## 6. Autochequeo del equipo ✅
+## 6. Autochequeo del equipo
 
 - [ ] Entiendo qué es un **token** con un ejemplo propio.
 - [ ] Puedo explicar por qué la IA **alucina**.
@@ -117,17 +117,17 @@ Para que nadie se quede sin aportar su parte del prompt:
 - [ ] Descargué el **reporte PDF** y está en la carpeta.
 - [ ] `ENTREGA.md` subido en la rama `equipo-N-semana-02`.
 
-> 🧪 **Reto extra (opcional):** cambien UNA palabra del prompt (por ejemplo, el
+> **Reto extra (opcional):** cambien UNA palabra del prompt (por ejemplo, el
 > rol) y comparen la respuesta de la IA. ¿Cuánto cambió? Anótenlo en la reflexión.
 
 ---
 
-## 🎬 Videos que te ayudan
+## Videos que te ayudan
 
 - [3Blue1Brown — "But what is a GPT?"](https://3blue1brown.substack.com/p/but-what-is-a-gpt): cómo el punteo "token a token" genera el texto.
 - [Crash Course AI #1](https://www.youtube.com/watch?v=a0_lo_GDcFw): contexto de qué es "inteligencia" (si te perdiste la semana pasada).
 
-## 📚 Apoyo si te atascas
+## Apoyo si te atascas
 
 - `tools/05-vocabulario-ia.md` — tokens, embeddings, alucinaciones y sesgo.
 - `tools/06-errores-comunes.md` — si algo falla antes de empezar, busca aquí.

@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 # %% [markdown]
-# # 🌳 Semana 4 — Árbol de Decisión: ¿sobrevivirías al Titanic? 🚢
+# # Semana 4 — Árbol de Decisión: ¿sobrevivirías al Titanic?
 #
-# > 📍 **¿Atascado?** Pistas: `tools/pistas/semana-04.md` · Autochequeo: `python autochequeo.py`
+# > **¿Atascado?** Pistas: `tools/pistas/semana-04.md` · Autochequeo: `python autochequeo.py`
 #
 # **¿Qué vas a aprender hoy?**
 # A que la máquina decida "sí o no" haciendo **preguntas en cadena**, como en el
 # juego de las 20 preguntas. Eso es un **árbol de decisión**.
 #
-# ## La analogía 🎯
+# ## La analogía
 # Imagina que pierdes un objeto en tu casa. Para encontrarlo preguntas:
 #
-# 1. ¿Está en mi cuarto? → **Sí** → ¿Está en el escritorio? → **No** → ...
-# 2. ¿Está en la sala? → **No** → ...
+# 1. ¿Está en mi cuarto? Si **Sí**, ¿está en el escritorio? Si **No**, ...
+# 2. ¿Está en la sala? Si **No**, sigue preguntando ...
 #
 # Cada respuesta descarta un montón de posibilidades y te acerca a la
 # respuesta. Un árbol de decisión hace exactamente eso:
@@ -57,7 +57,7 @@ np.random.seed(SEMILLA)
 
 def todo(mensaje):
     """Marca un paso pendiente. Si esto te detiene, ¡es tu turno de programar!"""
-    raise NotImplementedError(f"🚩 TODO pendiente: {mensaje}")
+    raise NotImplementedError(f"TODO pendiente: {mensaje}")
 
 
 # %% [markdown]
@@ -74,7 +74,7 @@ print("\nAlgunas columnas:")
 print(df[["survived", "pclass", "sex", "age", "fare"]].head())
 
 # %% [markdown]
-# ## 3) Explorar: ¿quién sobrevivió más? 👀
+# ## 3) Explorar: ¿quién sobrevivió más?
 # Antes de modelar, mira los datos. Aquí hacemos `groupby` para ver los
 # porcentajes de supervivencia por sexo y por clase. Este hallazgo guiará al
 # árbol sin que se lo digas.
@@ -90,14 +90,14 @@ print("\n¿Faltan datos en alguna columna?")
 print(df[["age", "fare", "embarked", "sex"]].isnull().sum())
 
 # %% [markdown]
-# ## 4) Preparar los datos 🚩 TODO
+# ## 4) Preparar los datos (TODO)
 #
 # Los modelos **no entienden texto**, solo números. Y **no aceptan huecos**
 # (`NaN`). Así que:
 #
 # - Elegir las columnas útiles (**features**): `pclass`, `sex`, `age`,
 #   `sibsp`, `parch`, `fare`.
-# - Convertir `sex` a números: `male` → 0, `female` → 1.
+# - Convertir `sex` a números: `male`: 0, `female`: 1.
 # - Rellenar o eliminar las edades faltantes (hay muchos `NaN` en `age`).
 #
 # **Pista:** `df["sex"].map({"male": 0, "female": 1})` convierte el texto a
@@ -105,12 +105,12 @@ print(df[["age", "fare", "embarked", "sex"]].isnull().sum())
 # rellena con un valor (por ejemplo, la mediana: `df["age"].median()`).
 
 # %%
-# 🚩 TODO: 1) selecciona las features, 2) convierte sex, 3) maneja los NaN.
+# TODO: 1) selecciona las features, 2) convierte sex, 3) maneja los NaN.
 # Empieza así y completa lo que falta:
 todo("crea 'datos' con las columnas útiles, convierte sex y maneja los NaN")
 
 # %% [markdown]
-# ## 5) Separar X (pistas) e y (respuesta) 🚩 TODO
+# ## 5) Separar X (pistas) e y (respuesta) (TODO)
 #
 # - **X** = todas las columnas menos `survived`.
 # - **y** = `survived` (lo que queremos predecir).
@@ -118,47 +118,47 @@ todo("crea 'datos' con las columnas útiles, convierte sex y maneja los NaN")
 # Y luego reparte entrenamiento/prueba con `train_test_split`.
 
 # %%
-# 🚩 TODO: define X e y, y sepáralos en X_train, X_test, y_train, y_test.
+# TODO: define X e y, y sepáralos en X_train, X_test, y_train, y_test.
 todo("X = datos.drop('survived', axis=1); y = datos['survived']; y el split 80/20")
 
 
 # %% [markdown]
-# ## 6) Crear el árbol y entrenarlo 🚩 TODO
+# ## 6) Crear el árbol y entrenarlo (TODO)
 #
 # `max_depth` es la **profundidad máxima** del árbol: cuántas preguntas encadena.
-# - Muy chico (1–2) → el árbol no aprende (subentrenamiento).
-# - Muy grande (sin límite) → se memoriza los datos (¡sobreajuste!).
+# - Muy chico (1–2): el árbol no aprende (subentrenamiento).
+# - Muy grande (sin límite): se memoriza los datos (¡sobreajuste!).
 #
 # Empieza con `max_depth=3` y analiza. Recuerda fijar `random_state=SEMILLA`.
 
 # %%
-# 🚩 TODO: crea DecisionTreeClassifier con max_depth=3 y entrénalo.
+# TODO: crea DecisionTreeClassifier con max_depth=3 y entrénalo.
 todo("arbol = DecisionTreeClassifier(max_depth=3, random_state=SEMILLA); arbol.fit(...)")
 
 # %% [markdown]
-# ## 7) Evaluar el modelo 🚩 TODO
+# ## 7) Evaluar el modelo (TODO)
 #
-# - `accuracy_score` → % de aciertos (cuidado: predecir "todos mueren" ya da ~62 %).
-# - `confusion_matrix` → tabla de aciertos/errores por clase.
-# - `classification_report` → precisión y recall detallados.
+# - `accuracy_score`: % de aciertos (cuidado: predecir "todos mueren" ya da ~62 %).
+# - `confusion_matrix`: tabla de aciertos/errores por clase.
+# - `classification_report`: precisión y recall detallados.
 
 # %%
-# 🚩 TODO: predice con X_test y muestra accuracy, matriz de confusión y reporte.
+# TODO: predice con X_test y muestra accuracy, matriz de confusión y reporte.
 todo("y_pred = arbol.predict(X_test); imprime accuracy_score, confusion_matrix y classification_report")
 
 # %% [markdown]
-# ## 8) ¡Dibujar el árbol! 🌳 (la parte divertida)
+# ## 8) ¡Dibujar el árbol! (la parte divertida)
 # `plot_tree` dibuja las preguntas y las hojas con colores. Aquí VES cómo
 # piensa el modelo, algo que con una red neuronal no puedes.
 
 # %%
-# 🚩 TODO: usa plot_tree con las columnas de X como nombres de features.
+# TODO: usa plot_tree con las columnas de X como nombres de features.
 # Sugerencia: plt.figure(figsize=(14, 7)); plot_tree(arbol, feature_names=list(X.columns),
 # class_names=["No","Sí"], filled=True); plt.savefig("arbol_titanic.png"); plt.show()
 todo("dibuja el árbol con plot_tree y guárdalo con plt.savefig('arbol_titanic.png')")
 
 # %% [markdown]
-# ## 9) 🔥 Reto: cazar el sobreajuste
+# ## 9) Reto: cazar el sobreajuste
 # Entrena árboles con `max_depth` = 1, 2, 3, 5, 10 y **sin límite**. Compara la
 # precisión en entrenamiento vs. en prueba.
 #
@@ -166,11 +166,11 @@ todo("dibuja el árbol con plot_tree y guárdalo con plt.savefig('arbol_titanic.
 # entrenamiento pero menos en prueba. ¿Por qué? (pista: memorizar vs. entender).
 
 # %%
-# 🚩 TODO: bucle sobre profundidades y tabla comparando train vs test.
-print("Aquí va el experimento de sobreajuste 🔬")
+# TODO: bucle sobre profundidades y tabla comparando train vs test.
+print("Aquí va el experimento de sobreajuste")
 
 # %% [markdown]
-# ## ✅ Autochequeo del equipo
+# ## Autochequeo del equipo
 # Responde en tu `ENTREGA.md`:
 #
 # - [ ] ¿Cuál fue la primera pregunta (raíz) de tu árbol y por qué crees que la eligió?
@@ -179,4 +179,4 @@ print("Aquí va el experimento de sobreajuste 🔬")
 # - [ ] ¿Qué le pasa al modelo con `max_depth=20`?
 # - [ ] ¿Por qué no podemos usar `name` o `ticket` como feature?
 #
-# ¡Con esto cierras el reto de la Semana 4! 🎉
+# ¡Con esto cierras el reto de la Semana 4!

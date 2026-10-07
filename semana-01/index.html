@@ -238,8 +238,8 @@
   let respondidos = 0;
   let aciertosTeoria = new Set();
   let teoriaRespondidas = new Set();
-  let respuestasMitos = {};   // índice → true/false elegido
-  let respuestasTeoria = {};  // índice → opción elegida
+  let respuestasMitos = {};   // índice: true/false elegido
+  let respuestasTeoria = {};  // índice: opción elegida
   let finalizado = false;
 
   /* =========================================================
@@ -269,7 +269,7 @@
   }
 
   /* =========================================================
-     REGISTRO → COMENZAR
+     REGISTRO / COMENZAR
      ========================================================= */
   function comenzar() {
     const nombre = document.getElementById("nombre").value.trim();
@@ -391,7 +391,7 @@
       respuestasMitos,
       respuestasTeoria,
     };
-    guardarIntento(intento);           // 🔒 a partir de aquí ya no hay reintento
+    guardarIntento(intento);           // a partir de aquí ya no hay reintento
     window.__intento = intento;
 
     document.getElementById("resultado").classList.remove("hidden");
@@ -502,11 +502,11 @@
     let html = "<h3>Respuestas (solo docente)</h3>";
     html += "<h4>Mitos / Realidades</h4><ol style='padding-left:1.2rem'>";
     MITOS.forEach((m, i) => {
-      html += `<li><b>${m.texto}</b><br><span class='resp-correcta'>→ ${m.mito ? "MITO (falso)" : "REALIDAD (verdadero)"}</span><br>${m.explicacion}</li>`;
+      html += `<li><b>${m.texto}</b><br><span class='resp-correcta'>${m.mito ? "MITO (falso)" : "REALIDAD (verdadero)"}</span><br>${m.explicacion}</li>`;
     });
     html += "</ol><h4>Teoría</h4><ol style='padding-left:1.2rem'>";
     TEORIA.forEach((q, i) => {
-      html += `<li><b>${q.pregunta}</b><br><span class='resp-correcta'>→ ${q.opciones[q.correcta]}</span></li>`;
+      html += `<li><b>${q.pregunta}</b><br><span class='resp-correcta'>${q.opciones[q.correcta]}</span></li>`;
     });
     html += "</ol><p><button class='btn' onclick=\"document.getElementById('modal-docente').classList.add('hidden')\">Cerrar</button></p>";
     modal.innerHTML = html;

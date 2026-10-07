@@ -1,11 +1,11 @@
-# 📈 Semana 3 — Regresión Lineal: adivina tu calificación
+# Semana 3 — Regresión Lineal: adivina tu calificación
 
 > **Misión:** enseñarle a una computadora a **predecir un número** (tu nota)
 > a partir de tus horas de estudio. Tu primer modelo de Machine Learning real.
 
 ---
 
-## 🎯 ¿Qué es la regresión lineal? (en 3 líneas)
+## ¿Qué es la regresión lineal? (en 3 líneas)
 
 Pones los datos en una gráfica y trazas la **recta que mejor pasa por en
 medio**. Esa recta te deja predecir valores que nunca viste. La fórmula es:
@@ -13,37 +13,37 @@ medio**. Esa recta te deja predecir valores que nunca viste. La fórmula es:
 $$calificación = 2.5 + 6.0 \times horas$$
 
 Ese `6.0` (la **pendiente**) significa "cada hora extra sube 6 puntos". Ese es
-todo el secreto. 🪄
+todo el secreto.
 
-## 🧰 Archivos de esta semana
+## Archivos de esta semana
 
 | Archivo | Para qué |
 |---------|----------|
 | `reto_regresion_lineal.py` | El reto como script (córrelo con `python`) |
 | `reto_regresion_lineal.ipynb` | El mismo reto en notebook (Google Colab / Jupyter) |
 
-> ⚠️ Los dos tienen **el mismo contenido**. Elige el que prefieras
+> Los dos tienen **el mismo contenido**. Elige el que prefieras
 > (`tools/03-notebooks-y-scripts.md` te ayuda a decidir).
 
-## 🚩 Cómo resolver el reto
+## Cómo resolver el reto
 
-Abre el archivo y busca las marcas `🚩 TODO`. Son **9 pasos**:
+Abre el archivo y busca las marcas `TODO`. Son **9 pasos**:
 
 1. Importar las herramientas (ya está).
 2. Crear el dataset (ya está).
 3. Graficar y observar (ya está).
-4. **Separar X e y** ← tú.
-5. **train_test_split** ← tú.
-6. **Crear y entrenar el modelo** ← tú.
-7. **Predecir y medir MAE/R²** ← tú.
-8. **Interpretar coeficiente e intercepto** ← tú.
-9. **Dibujar la recta** ← tú.
-10. 🔥 Reto extra: añadir `horas_sueno` como segunda característica.
+4. **Separar X e y**  (tú).
+5. **train_test_split**  (tú).
+6. **Crear y entrenar el modelo**  (tú).
+7. **Predecir y medir MAE/R²**  (tú).
+8. **Interpretar coeficiente e intercepto**  (tú).
+9. **Dibujar la recta**  (tú).
+10. Reto extra: añadir `horas_sueno` como segunda característica.
 
-> 💡 Cuando un `todo(...)` te detiene con `🚩 TODO pendiente`, NO es un error:
+> Cuando un `todo(...)` te detiene con `TODO pendiente`, NO es un error:
 > es la señal de dónde debes escribir tu código.
 
-## 📦 Entregables
+## Entregables
 
 1. `semana-03/ENTREGA.md` con:
    - Equipo e integrantes (con roles).
@@ -77,7 +77,7 @@ Abre el archivo y busca las marcas `🚩 TODO`. Son **9 pasos**:
 ...
 ```
 
-## 📊 Rúbrica (20 puntos)
+## Rúbrica (20 puntos)
 
 | Criterio | Puntos |
 |----------|--------|
@@ -86,7 +86,7 @@ Abre el archivo y busca las marcas `🚩 TODO`. Son **9 pasos**:
 | Interpreta pendiente/intercepto con sentido | 4 |
 | Gráfica guardada + `ENTREGA.md` completo | 3 |
 
-## ✅ Autochequeo rápido
+## Autochequeo rápido
 
 - [ ] Entiendo qué es una feature (X) y una respuesta (y).
 - [ ] Sé por qué separo datos de entrenamiento y de prueba.
@@ -94,23 +94,23 @@ Abre el archivo y busca las marcas `🚩 TODO`. Son **9 pasos**:
 - [ ] Tengo mi gráfica guardada como evidencia.
 - [ ] `ENTREGA.md` subido en la rama `equipo-N-semana-03`.
 
-> 🧪 **Reto relámpago:** antes de codificar, dibujen a mano una nube de puntos y
+> **Reto relámpago:** antes de codificar, dibujen a mano una nube de puntos y
 > una recta. Luego comparen con la que saca la máquina.
 
 ---
 
-## 🎬 Videos que te ayudan
+## Videos que te ayudan
 
 - [StatQuest — Linear Regression clearly explained](https://www.youtube.com/watch?v=nk2CQITm_eo): la recta, la pendiente y el error, sin fórmulas raras.
 
-## 🤖 Pídele ayuda al tutor de IA
+## Pídele ayuda al tutor de IA
 
 El tutor del curso (`web/`) responde dudas tipo *"¿por qué separar train y test?"*
 o *"me da un error 2D"* — ¡te da pistas, no soluciones!
 
-## 📚 Apoyo si te atascas
+## Apoyo si te atascas
 
-- 📍 `tools/pistas/semana-03.md` — pistas por TODO (3 niveles).
-- ✅ `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
-- 🐍 `tools/cheatsheets/02-python-ml.md` — el molde de todo modelo.
-- 🚑 `tools/06-errores-comunes.md` — "Expected 2D array" está aquí (nº1).
+- `tools/pistas/semana-03.md` — pistas por TODO (3 niveles).
+- `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
+- `tools/cheatsheets/02-python-ml.md` — el molde de todo modelo.
+- `tools/06-errores-comunes.md` — "Expected 2D array" está aquí (nº1).

@@ -59,7 +59,7 @@ registrar("fit_transform(X_train" in contenido.replace(" ", ""),
           sugerencia="La regla de oro: vectorizador.fit_transform(X_train) y luego solo .transform(X_test).")
 
 # 3) ¿Corre sin errores?
-print("\n🔎 Ejecutando tu reto...")
+print("\nEjecutando tu reto...")
 ok_run, salida, err = ejecutar_reto(ruta)
 registrar(ok_run, "Tu script corre de principio a fin sin errores.",
           sugerencia=f"Al correr dio este mensaje:\n{err[-1200:]}")

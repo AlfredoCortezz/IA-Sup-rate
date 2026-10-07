@@ -15,7 +15,7 @@ import { ProyectoForm } from "./ProyectoForm";
  *   3. Si falla, mostramos el error y un botón de reintentar.
  *   4. Si el usuario crea algo, recargamos la lista.
  *
- * 🚩 TODO (Semana 10): agrega ordenar/filtrar por tecnología, mostrar un
+ * TODO (Semana 10): agrega ordenar/filtrar por tecnología, mostrar un
  * contador de proyectos, o un botón de eliminar (método DELETE).
  */
 export function ProyectosSection() {
@@ -46,7 +46,7 @@ export function ProyectosSection() {
         <div className="proyectos-header">
           <h3>Proyectos ({proyectos.length})</h3>
           <button className="btn-sec" onClick={cargar} disabled={cargando}>
-            🔄 Recargar
+            Recargar
           </button>
         </div>
 
@@ -54,7 +54,7 @@ export function ProyectosSection() {
 
         {error && (
           <div className="estado error">
-            <p>😵 {error}</p>
+            <p>{error}</p>
             <button onClick={cargar}>Reintentar</button>
           </div>
         )}

@@ -3,13 +3,13 @@
  *  ENDPOINT: /api/tutor — el "cerebro" del tutor de IA
  * ============================================================
  *  POST/JSON  { "mensaje": "¿por qué separar train y test?" }
- *  →          { ok: true, respuesta: "<pistas>" }
+ *  respuesta: { ok: true, respuesta: "<pistas>" }
  *
  *  No llama a ninguna API externa: usa el corpus de `lib/tutor.ts`.
  *  Si algún día conectas un modelo real, sustituye buscarRespuesta()
  *  por la llamada a OpenAI/Groq pasándole el corpus como contexto.
  *
- *  🚩 TODO (Semana 10): puedes guardar el historial en memoria o en
+ * TODO (Semana 10): puedes guardar el historial en memoria o en
  *  una base de datos y permitir "continuar la conversación".
  */
 

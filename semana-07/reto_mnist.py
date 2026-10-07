@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 # %% [markdown]
-# # 🧠 Semana 7 — Redes Neuronales: mirar números como una máquina
+# # Semana 7 — Redes Neuronales: mirar números como una máquina
 #
-# > 📍 **¿Atascado?** Pistas: `tools/pistas/semana-07.md` · Autochequeo: `python autochequeo.py`
+# > **¿Atascado?** Pistas: `tools/pistas/semana-07.md` · Autochequeo: `python autochequeo.py`
 #
 # **¿Qué vas a aprender hoy?**
 # A construir tu primera **red neuronal** y ponerla a leer dígitos escritos a
 # mano (el famoso dataset **MNIST**, con más de 70 000 imágenes).
 #
-# ## La analogía 🎯
+# ## La analogía
 # Una red neuronal es como un **equipo enorme de jueces diminutos** organizados
 # en capas:
 #
@@ -16,10 +16,10 @@
 #   ENTRADA           CAPA OCULTA              SALIDA
 #   (784 pixeles)     (64 "neuronas")          (10 opciones)
 #
-#    ▢ ▢ ▢ ▢             ◯ ◯ ◯ ◯                 0  ← "es un cero"     12 %
-#    ▢ ▢ ▢ ▢   ────►     ◯ ◯ ◯ ◯   ────►         1  ← "es un uno"       3 %
-#    ▢ ▢ ▢ ▢             ◯ ◯ ◯ ◯                 ...                    ...
-#    ...                 ...                      7  ← "es un siete"    81 %
+#    . . . .             o o o o                 0  -> "es un cero"     12 %
+#    . . . .   ----->     o o o o   ----->         1  -> "es un uno"       3 %
+#    . . . .             o o o o                 ...                    ...
+#    ...                 ...                      7  -> "es un siete"    81 %
 # ```
 #
 # - Cada **pixel** manda su valor a la capa oculta.
@@ -27,9 +27,9 @@
 #   "vota" por cada resultado.
 # - La capa de salida elige el dígito más probable.
 #
-# Entrenar = ajustar MILLONES de pesos para acertar. Eso es todo el misterio. 🤯
+# Entrenar = ajustar MILLONES de pesos para acertar. Eso es todo el misterio.
 #
-# > ℹ️ Usamos la red neuronal de `scikit-learn` (`MLPClassifier`) porque es la
+# > Usamos la red neuronal de `scikit-learn` (`MLPClassifier`) porque es la
 # > forma más simple de **entender** el concepto. En la industria se usan
 # > TensorFlow o PyTorch (marco de trabajo de la próxima fase), pero la idea es
 # > exactamente la misma: **capas, pesos y votos**.
@@ -39,8 +39,8 @@
 # 2. Ver los dígitos como imágenes.
 # 3. Normalizar los pixeles (0 a 1 en vez de 0 a 255).
 # 4. Separar entrenamiento/prueba.
-# 5. Definir la red (capas y neuronas) 🚩.
-# 6. Entrenar y medir precisión 🚩.
+# 5. Definir la red (capas y neuronas).
+# 6. Entrenar y medir precisión.
 
 # %%
 # ==============================================================
@@ -59,7 +59,7 @@ np.random.seed(SEMILLA)
 
 
 def todo(mensaje):
-    raise NotImplementedError(f"🚩 TODO pendiente: {mensaje}")
+    raise NotImplementedError(f"TODO pendiente: {mensaje}")
 
 
 # %% [markdown]
@@ -68,7 +68,7 @@ def todo(mensaje):
 # (puede tardar un poquito). Si no hay internet, usamos `load_digits`, una
 # versión miniatura de 8×8 que viene instalada con scikit-learn.
 #
-# > 🌐 **En Google Colab** esto funciona perfecto. En tu PC necesitas internet
+# > **En Google Colab** esto funciona perfecto. En tu PC necesitas internet
 # > la primera vez (luego queda guardado en caché).
 
 # %%
@@ -92,7 +92,7 @@ print("\nDataset:", nombre_dataset)
 print("Forma de X:", X_todo.shape, "| Clases:", sorted(set(y_todo)))
 
 # %% [markdown]
-# ## 3) Ver los dígitos 👀
+# ## 3) Ver los dígitos
 # Cada fila de X es UNA imagen aplanada (los pixeles en fila india). Para verla,
 # hay que darle forma cuadrada con `.reshape(lado, lado)`.
 
@@ -109,70 +109,70 @@ plt.tight_layout()
 plt.show()
 
 # %% [markdown]
-# ## 4) Normalizar 🚩 TODO
+# ## 4) Normalizar TODO
 # Los pixeles van de **0 a 255**. Las redes neuronales aprenden mejor con números
 # **pequeños**, así que dividimos entre 255 para dejarlos entre 0 y 1.
 #
-# 🚩 Crea `X_norm = X_todo / 255.0`. (En el plan B de 8×8, `load_digits` ya viene
+# Crea `X_norm = X_todo / 255.0`. (En el plan B de 8×8, `load_digits` ya viene
 # de 0 a 16; igual dividan entre 16 para dejarlo entre 0 y 1. Lo dejamos simple:
 # divide entre el máximo de X_todo.)
 
 # %%
-# 🚩 TODO: normaliza los datos.
+# TODO: normaliza los datos.
 todo("X_norm = X_todo / X_todo.max()")
 
 # %% [markdown]
-# ## 5) Separar entrenamiento y prueba 🚩 TODO
+# ## 5) Separar entrenamiento y prueba TODO
 # Usa `stratify=y_todo`: eso garantiza que haya la misma proporción de "0", "1",
 # "7", etc., tanto en entrenamiento como en prueba. **Si no, podría tocar un
 # examen sin ningún 9** y el modelo fallaría injustamente.
 
 # %%
-# 🚩 TODO: train_test_split con test_size=0.2, random_state=SEMILLA y stratify.
+# TODO: train_test_split con test_size=0.2, random_state=SEMILLA y stratify.
 todo("X_train, X_test, y_train, y_test = train_test_split(..., stratify=y_todo)")
 
 # %% [markdown]
-# ## 6) Definir la RED NEURONAL 🚩 TODO
+# ## 6) Definir la RED NEURONAL TODO
 #
 # Aquí decides la arquitectura. En `MLPClassifier`:
 #
-# - `hidden_layer_sizes=(64,)` → **una** capa oculta de 64 neuronas.
+# - `hidden_layer_sizes=(64,)`: **una** capa oculta de 64 neuronas.
 #   - `(128, 64)` sería **dos** capas (128 y luego 64).
 #   - Más neuronas/capas = más poder… y más riesgo de sobreajuste.
-# - `activation="relu"` → la función que deja pasar "señales" fuertes.
-# - `max_iter=20` → cuántas vueltas da al entrenamiento (épocas).
-#   - Muy pocas → no aprende. Muchísimas → tarda y puede memorizar.
-# - `random_state=SEMILLA` → resultados repetibles.
+# - `activation="relu"`: la función que deja pasar "señales" fuertes.
+# - `max_iter=20`: cuántas vueltas da al entrenamiento (épocas).
+#   - Muy pocas: no aprende. Muchísimas: tarda y puede memorizar.
+# - `random_state=SEMILLA`: resultados repetibles.
 #
 # **Empieza con `hidden_layer_sizes=(64,)`, `max_iter=20`. Luego experimenta.**
 
 # %%
-# 🚩 TODO: crea la red (MLPClassifier) y guárdala en 'red'.
+# TODO: crea la red (MLPClassifier) y guárdala en 'red'.
 todo("red = MLPClassifier(hidden_layer_sizes=(64,), activation='relu', max_iter=20, random_state=SEMILLA)")
 
 # %% [markdown]
-# ## 7) Entrenar la red 🚩 TODO
+# ## 7) Entrenar la red TODO
 #
-# ⏳ Puede tardar entre unos segundos y un par de minutos. Mientras entrena,
+# Puede tardar entre unos segundos y un par de minutos. Mientras entrena,
 # piensa: ¿cuántos pesos está ajustando? (entrada × oculta + oculta × salida).
 
 # %%
-# 🚩 TODO: entrena con red.fit(X_train, y_train).
+# TODO: entrena con red.fit(X_train, y_train).
 todo("red.fit(X_train, y_train)")
 
 # %% [markdown]
-# ## 8) Evaluar: ¿qué tan buena lectora es? 🚩 TODO
+# ## 8) Evaluar: ¿qué tan buena lectora es? TODO
 #
-# - `accuracy_score` → % de dígitos bien leídos (un buen modelo pasa el 95 %).
-# - `confusion_matrix` → los dígitos que más confunde (¿4 con 9? ¿3 con 8?).
+# - `accuracy_score`: % de dígitos bien leídos (un buen modelo pasa el 95 %).
+# - `confusion_matrix`: los dígitos que más confunde (¿4 con 9? ¿3 con 8?).
 # - Muestra también 5 imágenes que el modelo haya **fallado** y reflexiona.
 
 # %%
-# 🚩 TODO: predice y muestra accuracy + matriz de confusión.
+# TODO: predice y muestra accuracy + matriz de confusión.
 todo("y_pred = red.predict(X_test); imprime accuracy_score y confusion_matrix")
 
 # %% [markdown]
-# ## 9) 🔥 Reto: experimenta con la arquitectura
+# ## 9) Reto: experimenta con la arquitectura
 # Prueba estas configuraciones y anota la precisión de cada una:
 #
 # | Arquitectura | max_iter | ¿Accuracy? |
@@ -186,11 +186,11 @@ todo("y_pred = red.predict(X_test); imprime accuracy_score y confusion_matrix")
 # tiempo de entrenamiento? ¿Dónde empieza el sobreajuste?
 
 # %%
-# 🚩 TODO (opcional): recorre arquitecturas y compara accuracies.
-print("Aquí va la experimentación de arquitecturas 🧪")
+# TODO (opcional): recorre arquitecturas y compara accuracies.
+print("Aquí va la experimentación de arquitecturas")
 
 # %% [markdown]
-# ## ✅ Autochequeo del equipo
+# ## Autochequeo del equipo
 #
 # - [ ] ¿Cuántos valores de entrada tiene cada imagen y por qué?
 # - [ ] ¿Qué hace una "neurona" dentro de la red?
@@ -198,4 +198,4 @@ print("Aquí va la experimentación de arquitecturas 🧪")
 # - [ ] ¿Para qué sirve `stratify` en el split?
 # - [ ] Nuestra mejor accuracy fue ___ %. ¿Qué dígitos confundía más?
 #
-# ¡Reto de la Semana 7 completado! 🎉 Ya entrenaste una red neuronal de verdad.
+# ¡Reto de la Semana 7 completado! Ya entrenaste una red neuronal de verdad.

@@ -175,9 +175,6 @@ a {
   transform: translateY(-3px);
   border-color: var(--acento);
 }
-.card-emoji {
-  font-size: 1.8rem;
-}
 .card h3 {
   font-size: 1.05rem;
   margin: 0.3rem 0 0.4rem;
@@ -473,8 +470,23 @@ a {
 .semana-check {
   background: transparent;
   border: none;
-  font-size: 1.3rem;
+  padding: 0;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.semana-check-marca {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--borde);
+  border-radius: 6px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.semana-fila.hecho .semana-check-marca {
+  background: var(--verde);
+  border-color: var(--verde);
 }
 .semana-info h3 {
   font-size: 1rem;

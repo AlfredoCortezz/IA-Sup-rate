@@ -12,19 +12,19 @@ estructura, las pistas y el camino; el trabajo lo realiza cada equipo.
 
 ```
 IA-Sup-rate/
-├── README.md                ← índice maestro del curso
-├── tools/                   ← guías de apoyo, pistas, cheatsheets y datasets
-├── web/                     ← proyecto Next.js + TypeScript (semanas 9–10)
-├── semana-01/               ← Qué es la IA de verdad (examen en línea)
-├── semana-02/               ← IA generativa: Prompt Battle
-├── semana-03/               ← Regresión lineal (predicción de calificaciones)
-├── semana-04/               ← Árbol de decisión (Titanic)
-├── semana-05/               ← KNN (recomendador de películas)
-├── semana-06/               ← K-Means (segmentación de clientes)
-├── semana-07/               ← Redes neuronales (dígitos MNIST)
-├── semana-08/               ← NLP (sentimiento de reseñas)
-├── semana-09/               ← Portafolio con Next.js (en web/)
-└── semana-10/               ← API y despliegue en Vercel (en web/)
+├── README.md # índice maestro del curso
+├── tools/ # guías de apoyo, pistas, cheatsheets y datasets
+├── web/ # proyecto Next.js + TypeScript (semanas 9–10)
+├── semana-01/ # Qué es la IA de verdad (examen en línea)
+├── semana-02/ # IA generativa: Prompt Battle
+├── semana-03/ # Regresión lineal (predicción de calificaciones)
+├── semana-04/ # Árbol de decisión (Titanic)
+├── semana-05/ # KNN (recomendador de películas)
+├── semana-06/ # K-Means (segmentación de clientes)
+├── semana-07/ # Redes neuronales (dígitos MNIST)
+├── semana-08/ # NLP (sentimiento de reseñas)
+├── semana-09/ # Portafolio con Next.js (en web/)
+└── semana-10/ # API y despliegue en Vercel (en web/)
 ```
 
 Cada carpeta `semana-XX/` contiene:

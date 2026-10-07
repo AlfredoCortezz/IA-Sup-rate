@@ -7,7 +7,7 @@ import { TutorChat } from "@/components/TutorChat";
  * METADATOS: el título y la descripción que aparecen en la pestaña del
  * navegador y cuando compartes el link.
  *
- * 🚩 TODO (Semana 9): pon tu nombre y tu descripción.
+ * TODO (Semana 9): pon tu nombre y tu descripción.
  */
 export const metadata: Metadata = {
   title: "Mi Portafolio de IA",

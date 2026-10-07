@@ -1,11 +1,11 @@
-# 🛒 Semana 6 — K-Means: segmentación de clientes
+# Semana 6 — K-Means: segmentación de clientes
 
 > **Misión:** agrupar 240 clientes en "tipos de persona" **sin que nadie te diga
-> cuáles son los grupos**. Descubre los patrones por tu cuenta. 🔍
+> cuáles son los grupos**. Descubre los patrones por tu cuenta.
 
 ---
 
-## 🎯 ¿Qué es K-Means y qué lo hace distinto?
+## ¿Qué es K-Means y qué lo hace distinto?
 
 K-Means agrupa puntos parecidos alrededor de **centroides** (los promedios del
 grupo). A diferencia de las semanas 3–5, aquí **no hay respuestas correctas**:
@@ -16,7 +16,7 @@ es **aprendizaje no supervisado**.
 | Con etiquetas | Sin etiquetas |
 | Predice | Descubre grupos |
 
-## 🧰 Archivos
+## Archivos
 
 | Archivo | Para qué |
 |---------|----------|
@@ -25,17 +25,17 @@ es **aprendizaje no supervisado**.
 
 > Los clientes son **ficticios** y se generan con `make_blobs`. No hay descargas.
 
-## 🚩 Los pasos
+## Los pasos
 
 1. Generar clientes (ya está).
 2. Graficar (ya está).
-3. **Escalar** ← tú.
-4. **Método del codo** para elegir k ← tú.
-5. **Entrenar K-Means** y pintar los grupos ← tú.
-6. **Interpretar y nombrar** cada segmento ← tú.
-7. 🔥 Reto: `silhouette_score` y comparar con los grupos "secretos".
+3. **Escalar**  (tú).
+4. **Método del codo** para elegir k  (tú).
+5. **Entrenar K-Means** y pintar los grupos  (tú).
+6. **Interpretar y nombrar** cada segmento  (tú).
+7. Reto: `silhouette_score` y comparar con los grupos "secretos".
 
-## 📦 Entregables
+## Entregables
 
 1. `semana-06/ENTREGA.md`:
    - Equipo e integrantes.
@@ -64,7 +64,7 @@ El codo se ve en k=__. Elegimos k=__ porque...
 1. Supervisado = ... No supervisado = ...
 ```
 
-## 📊 Rúbrica (20 puntos)
+## Rúbrica (20 puntos)
 
 | Criterio | Puntos |
 |----------|--------|
@@ -73,7 +73,7 @@ El codo se ve en k=__. Elegimos k=__ porque...
 | Clusters graficados y coherentes | 5 |
 | Nombres de segmentos justificados con los promedios | 6 |
 
-## ✅ Autochequeo
+## Autochequeo
 
 - [ ] Sé qué es un centroide.
 - [ ] Puedo explicar por qué necesitamos escalar (otra vez).
@@ -81,23 +81,23 @@ El codo se ve en k=__. Elegimos k=__ porque...
 - [ ] Los nombres de mis clusters se basan en los promedios reales.
 - [ ] `ENTREGA.md` subido en `equipo-N-semana-06`.
 
-> 🧪 **Reto relámpago:** ¿para qué crees que una tienda usa esto? Escribe un
+> **Reto relámpago:** ¿para qué crees que una tienda usa esto? Escribe un
 > ejemplo de campaña distinta para cada uno de tus segmentos.
 
 ---
 
-## 🎬 Videos que te ayudan
+## Videos que te ayudan
 
 - [StatQuest — K-means clustering](https://www.youtube.com/watch?v=4b5d3muPQmA): centroides, asignación y el porqué del "codo".
 
-## 🤖 Pídele ayuda al tutor de IA
+## Pídele ayuda al tutor de IA
 
 El tutor responde *"¿qué es el codo de K-Means?"*, *"¿qué es un centroide?"*, etc.
 
-## 📚 Apoyo si te atascas
+## Apoyo si te atascas
 
-- 📍 `tools/pistas/semana-06.md` — pistas por TODO (3 niveles).
-- ✅ `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
-- 🐍 `tools/cheatsheets/02-python-ml.md` — métricas y molde de modelo.
-- 📊 `tools/data/clientes_mall.csv` — 300 clientes para practicar más.
-- 🚑 `tools/06-errores-comunes.md` — errores típicos al escalar/entrenar.
+- `tools/pistas/semana-06.md` — pistas por TODO (3 niveles).
+- `python autochequeo.py` dentro de esta carpeta — comprueba tu reto automáticamente.
+- `tools/cheatsheets/02-python-ml.md` — métricas y molde de modelo.
+- `tools/data/clientes_mall.csv` — 300 clientes para practicar más.
+- `tools/06-errores-comunes.md` — errores típicos al escalar/entrenar.

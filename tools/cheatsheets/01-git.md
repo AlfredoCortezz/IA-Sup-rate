@@ -1,4 +1,4 @@
-# 🖨️ Git — Cheatsheet de bolsillo (Semanas 1–10)
+# Git — Cheatsheet de bolsillo (Semanas 1–10)
 
 > Imprimible: una página para tener al lado mientras trabajas.
 
@@ -21,7 +21,7 @@ git commit -m "Semana 3: reto de regresión completado"
 git push origin equipo-3-semana-03             # 3) súbelo a tu rama
 ```
 
-> ⚠️ `git add .` sube TODO. Si no quieres subir algo, no uses `.`
+> `git add .` sube TODO. Si no quieres subir algo, no uses `.`
 > (o ponlo en `.gitignore`).
 
 ## Ramas (tu espacio personal)
@@ -44,19 +44,19 @@ git checkout equipo-3-semana-03      # volver a una rama
 
 ## Trampa común de novatos
 
-- `git commit` sin `git add` → no guarda nada (el "espacio de preparación" existe).
-- `git push` sin `commit` → no sube nada.
-- Escribir el mensaje SIN `-m` → te abre un editor raro. Para salir de vim:
+- `git commit` sin `git add`: no guarda nada (el "espacio de preparación" existe).
+- `git push` sin `commit`: no sube nada.
+- Escribir el mensaje SIN `-m`: te abre un editor raro. Para salir de vim:
   escribe `:q` y Enter (o usa siempre `-m "..."`).
 
 ## Glosario exprés
 
-- **repo / repositorio** → tu carpeta versionada.
-- **commit** → una "foto guardada" del estado de tus archivos.
-- **rama / branch** → una línea de trabajo separada.
-- **push** → subir a GitHub.
-- **pull** → traer cambios de GitHub a tu PC.
-- **merge** → mezclar una rama con otra.
-- **staging (add)** → el "antesala" del commit.
+- **repo / repositorio**: tu carpeta versionada.
+- **commit**: una "foto guardada" del estado de tus archivos.
+- **rama / branch**: una línea de trabajo separada.
+- **push**: subir a GitHub.
+- **pull**: traer cambios de GitHub a tu PC.
+- **merge**: mezclar una rama con otra.
+- **staging (add)**: el "antesala" del commit.
 
-> 🧪 Practica en <https://learngitbranching.js.org/es> (gratis, en español).
+> Practica en <https://learngitbranching.js.org/es> (gratis, en español).

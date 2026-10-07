@@ -59,7 +59,7 @@ def guardar(df, nombre):
 
 
 # --------------------------------------------------------------------------
-# 1) horas_sueno.csv  → Semana 3 (RE: reto extra con 2ª característica)
+# 1) horas_sueno.csv: Semana 3 (RE: reto extra con 2ª característica)
 #    columnas: horas_estudio, horas_sueno, calificacion
 # --------------------------------------------------------------------------
 def generar_horas_sueno():
@@ -77,7 +77,7 @@ def generar_horas_sueno():
 
 
 # --------------------------------------------------------------------------
-# 2) peliculas_ampliado.csv → Semana 5 (KNN sobre valoración)
+# 2) peliculas_ampliado.csv: Semana 5 (KNN sobre valoración)
 #    columnas: titulo, year, accion, comedia, romance, duracion, rating
 # --------------------------------------------------------------------------
 def generar_peliculas():
@@ -109,7 +109,7 @@ def generar_peliculas():
 
 
 # --------------------------------------------------------------------------
-# 3) clientes_mall.csv → Semana 6 (K-Means, más grande)
+# 3) clientes_mall.csv: Semana 6 (K-Means, más grande)
 #    columnas: edad, gasto_mensual, visitas_por_mes
 # --------------------------------------------------------------------------
 def generar_clientes():
@@ -135,7 +135,7 @@ def generar_clientes():
 
 
 # --------------------------------------------------------------------------
-# 4) resenas_extra.csv → Semana 8 (análisis de sentimiento)
+# 4) resenas_extra.csv: Semana 8 (análisis de sentimiento)
 #    columnas: texto, sentimiento  (1 = positiva, 0 = negativa)
 # --------------------------------------------------------------------------
 def generar_resenas():
@@ -153,7 +153,7 @@ def generar_resenas():
 
 
 # --------------------------------------------------------------------------
-# 5) precios_casas.csv → extra (KNN de regresión alternativo)
+# 5) precios_casas.csv: extra (KNN de regresión alternativo)
 #    columnas: m2, banos, antiguedad_anos, precio
 # --------------------------------------------------------------------------
 def generar_casas():

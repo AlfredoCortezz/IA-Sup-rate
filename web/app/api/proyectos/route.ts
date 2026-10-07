@@ -5,10 +5,10 @@
  *  Esto es un "Route Handler": una función que responde a una URL.
  *  Es exactamente igual a un endpoint de un backend real.
  *
- *  GET  /api/proyectos  → devuelve la lista de proyectos (JSON)
- *  POST /api/proyectos  → crea un proyecto
+ *  GET  /api/proyectos: devuelve la lista de proyectos (JSON)
+ *  POST /api/proyectos: crea un proyecto
  *
- *  ⚠️ Los datos viven en memoria: si el servidor reinicia, se pierden.
+ *  Nota: los datos viven en memoria: si el servidor reinicia, se pierden.
  *  Para persistir de verdad necesitarías una base de datos (Postgres,
  *  MongoDB...). Aquí es solo para APRENDER cómo se conecta el frontend.
  *
@@ -51,7 +51,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  // 🚩 TODO (Semana 10): valida el cuerpo (que el título no venga vacío,
+  // TODO (Semana 10): valida el cuerpo (que el título no venga vacío,
   // que la descripción exista) y devuelve status 400 si está mal.
   const cuerpo = (await request.json()) as Partial<Proyecto>;
 
@@ -67,7 +67,6 @@ export async function POST(request: Request) {
     titulo: cuerpo.titulo,
     descripcion: cuerpo.descripcion,
     tecnologias: cuerpo.tecnologias ?? [],
-    emoji: cuerpo.emoji ?? "🚀",
     enlace: cuerpo.enlace,
     semana: cuerpo.semana ?? 10,
   };

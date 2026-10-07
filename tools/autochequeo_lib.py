@@ -34,15 +34,15 @@ RESET = "\033[0m" if os.name != "nt" else ""
 
 
 def ok(mensaje):
-    print(f"{VERDE}✅ {mensaje}{RESET}")
+    print(f"{VERDE}OK: {mensaje}{RESET}")
 
 
 def aviso(mensaje):
-    print(f"{AMARILLO}⚠️  {mensaje}{RESET}")
+    print(f"{AMARILLO}AVISO: {mensaje}{RESET}")
 
 
 def error(mensaje):
-    print(f"{ROJO}❌ {mensaje}{RESET}")
+    print(f"{ROJO}ERROR: {mensaje}{RESET}")
 
 
 def titulo(nombre):
@@ -124,7 +124,7 @@ def ejecutar_reto(ruta_py, timeout=900):
         )
         return p.returncode == 0, p.stdout or "", p.stderr or ""
     except subprocess.TimeoutExpired:
-        return False, "", "⏱️  El script tardó demasiado. ¿Hay un bucle infinito o una descarga muy lenta?"
+        return False, "", "El script tardó demasiado. ¿Hay un bucle infinito o una descarga muy lenta?"
 
 
 def todos_pendientes(contenido):
@@ -163,11 +163,11 @@ def resumen():
         return False
     aprobados = sum(_RESULTADOS)
     if aprobados == len(_RESULTADOS):
-        ok(f"🎉 Autochequeo superado ({aprobados}/{len(_RESULTADOS)})."
+        ok(f"Autochequeo superado ({aprobados}/{len(_RESULTADOS)})."
            " Listo para preparar tu ENTREGA.md y tu presentación.")
         return True
     error(f"Autochequeo NO superado ({aprobados}/{len(_RESULTADOS)})")
-    aviso("Revisa los ❌ de arriba y vuelve a intentarlo.")
-    aviso("¿Atascado? → tools/pistas/semana-XX.md tiene pistas escalonadas.")
-    aviso("¿Error raro? → tools/06-errores-comunes.md explica los fallos típicos.")
+    aviso("Revisa los errores de arriba y vuelve a intentarlo.")
+    aviso("¿Atascado? Abre tools/pistas/semana-XX.md, ahí están las pistas escalonadas.")
+    aviso("¿Error raro? Abre tools/06-errores-comunes.md, explica los fallos típicos.")
     return False

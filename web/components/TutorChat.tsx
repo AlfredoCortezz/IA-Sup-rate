@@ -3,13 +3,13 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 
 /**
- * 🧠 Tutor de IA — widget flotante de ayuda.
+ * Tutor de IA — widget flotante de ayuda.
  *
  * Corre en el NAVEGADOR ("use client") porque usa estado (mensajes, input).
  * Se conecta a /api/tutor (el endpoint de este mismo proyecto) para que
  * funcione igual en localhost y en Vercel.
  *
- * 🚩 TODO (Semana 10): puedes añadir "borrar conversación", botones de
+ * TODO (Semana 10): puedes añadir "borrar conversación", botones de
  * voz, o guardar el historial en localStorage. La estructura de llamada
  * a la API es la misma que ya usas con los proyectos.
  */
@@ -26,7 +26,7 @@ const SUGERENCIAS = [
 
 const MENSAJE_INICIAL: Burbuja = {
   autor: "tutor",
-  texto: "👋 ¡Hola! Soy tu tutora del curso. Pregúntame sobre teoría, errores o pistas de los retos (te doy pistas, ¡no la respuesta final! 😉). Empieza con una sugerencia:",
+  texto: "¡Hola! Soy tu tutora del curso. Pregúntame sobre teoría, errores o pistas de los retos (te doy pistas, ¡no la respuesta final!). Empieza con una sugerencia:",
 };
 
 export function TutorChat() {
@@ -70,7 +70,7 @@ export function TutorChat() {
         ...m,
         {
           autor: "tutor",
-          texto: `😵 No pude consultar al tutor: ${
+          texto: `No pude consultar al tutor: ${
             error instanceof Error ? error.message : "error de conexión"
           }. ¿Está corriendo el servidor?`,
         },
@@ -94,14 +94,14 @@ export function TutorChat() {
         aria-label="Abrir el tutor de IA"
         onClick={() => setAbierto((a) => !a)}
       >
-        {abierto ? "✖️" : "🤖"}
+        {abierto ? "×" : "?"}
       </button>
 
       {/* Panel del chat */}
       {abierto && (
         <aside className="tutor-panel" aria-label="Tutor de IA">
           <header className="tutor-cabecera">
-            <strong>🤖 Tutor de IA</strong>
+            <strong>Tutor de IA</strong>
             <span>pistas, nunca soluciones</span>
           </header>
 
@@ -114,7 +114,7 @@ export function TutorChat() {
                 {m.texto}
               </p>
             ))}
-            {cargando && <p className="burbuja tutor escribiendo">Pensando… ✍️</p>}
+            {cargando && <p className="burbuja tutor escribiendo">Pensando…</p>}
           </div>
 
           <div className="tutor-sugerencias">
